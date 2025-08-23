@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularz zamówienia</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    label { display: block; margin-top: 10px; }
+    input, select, textarea, button { margin-top: 5px; padding: 5px; width: 100%; }
+    button { background: #3366cc; color: white; border: none; cursor: pointer; }
+    button:hover { background: #254b8a; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Formularz weryfikacyjny:</h1>
+  <form id="orderForm">
+    <label for="product">Odznaka:</label>
+    <select id="product" required>
+      <option value="KMG Popularna">Korona Małej Góry – Popularna</option>
+      <option value="KMG Srebrna">Korona Małej Góry – Srebrna</option>
+      <option value="KMG Złota">Korona Małej Góry – Złota</option>
+      <option value="KMG Diamentowa">Korona Małej Góry – Diamentowa</option>
+      <option value="Sarnia Perc">Sarnia Perć</option>
+    </select>
+
+    <label for="dateStart">Data rozpoczęcia:</label>
+    <input type="date" id="dateStart" required>
+
+    <label for="timeStart">Godzina rozpoczęcia:</label>
+    <input type="time" id="timeStart" required>
+
+    <div id="extraFields" class="hidden">
+      <label for="timeEnd">Godzina zakończenia:</label>
+      <input type="time" id="timeEnd">
+    </div>
+
+    <label for="dateEnd">Data ukończenia:</label>
+    <input type="date" id="dateEnd" required>
+
+    <label for="today">Dzisiejsza data:</label>
+    <input type="text" id="today" readonly>
+
+    <button type="submit">Wyślij e-mail</button>
+  </form>
+
+  <script>
+    // ustaw dzisiejszą datę
+    const todayField = document.getElementById('today');
+    const today = new Date().toISOString().split('T')[0];
+    todayField.value = today;
+
+    const productField = document.getElementById('product');
+    const extraFields = document.getElementById('extraFields');
+
+    // pokaż/ukryj pola dla Produktu C
+    productField.addEventListener('change', function() {
+      if (this.value === "Sarnia Perc) {
+        extraFields.classList.remove('hidden');
+      } else {
+        extraFields.classList.add('hidden');
+      }
+    });
+
+    // obsługa wysyłki
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const product = productField.value;
+      const dateStart = document.getElementById('dateStart').value;
+      const timeStart = document.getElementById('timeStart').value;
+      const timeEnd = document.getElementById('timeEnd').value;
+      const dateEnd = document.getElementById('dateEnd').value;
+      const today = todayField.value;
+
+      let body = `Produkt: ${product}%0A`;
+      body += `Data rozpoczęcia: ${dateStart}%0A`;
+      body += `Godzina rozpoczęcia: ${timeStart}%0A`;
+
+      if (product === "Produkt C") {
+        body += `Godzina zakończenia: ${timeEnd}%0A`;
+      }
+
+      body += `Data ukończenia: ${dateEnd}%0A`;
+      body += `Dzisiejsza data: ${today}`;
+
+      const mailto = `mailto:malagora.weryfikacja@vp.pl?subject=Weryfikacja%20${encodeURIComponent(product)}&body=${body}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
