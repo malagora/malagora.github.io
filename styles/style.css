@@ -514,6 +514,7 @@ div#mapa {
 
 
 div#odznaki {
+	background-image: url("../media/IndexBG_03.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -664,6 +665,7 @@ div#odznaki {
 
 
 div#miejsca {
+	background-image: url("../media/IndexBG_04.jpg");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
@@ -787,6 +789,7 @@ div#miejsca {
 	
 
 div#cennik {
+	background-image: url("../media/IndexBG_05.png");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
@@ -994,6 +997,7 @@ div#cennik {
 
 
 div#galeria {
+	background-image: url("../media/IndexBG_06.jpg");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
