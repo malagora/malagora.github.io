@@ -1154,7 +1154,6 @@ div#galeria {
 
 
 
-
 .footer {
 	width: 100%;
 	height: fit-content;
@@ -1179,4 +1178,110 @@ div#galeria {
 .footer-logo img {
 	width: 100%;
 	height: auto;
+	display: block;
+	align-self: center;
+	justify-content: center;
+}
+
+.footer-menu {
+	width: 60%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+}
+
+.footer-menu a {
+	width: 100%;
+	height: fit-content;
+	background-color: #555;
+	font-size: 50px;
+	padding: 10px;
+	border-bottom: solid 5px #fff;
+	color: #fff;
+	font-family: ABeeZee, Arial;
+	transition: 0.3s ease;
+}
+
+.footer-menu .f-active {
+	background-color: #00c8c8;
+	border-top: solid 5px #fff;
+}
+
+.f-top {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.f-bottom {
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.footer-menu a:hover {
+	background-color: #00c8c8;
+	transition: 0.3s ease;
+}
+
+.footer-colors {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 20px;
+}
+
+@media (max-width: 700px) {
+	.footer-info {
+		flex-direction: column;
+		padding: 10px 0;
+	}
+
+	.footer-logo {
+		width: 100%
+	}
+
+	.footer-menu {
+		width: 100%;
+		padding: 10px 0;
+	}
+
+	.footer-menu a {
+		font-size: 20px;
+		border-bottom: solid 2px #fff;
+	}
+
+	.footer-menu .f-active {
+		border-top: solid 2px #fff;
+	}
+	
+	.footer-colors {
+		height: 10px;
+	}
+
+	.f-top {
+		border-radius: 0;
+	}
+	.f-bottom {
+		border-radius: 0;
+	}
+}
+
+.footer-color-dark {
+	display: auto;
+	background-color: #333;
+	width: 33.33%;
+	height: auto;
+}
+
+.footer-color-cyan {
+	background-color: #00c8c8;
+	display: auto;
+	width: 33.33%;
+	height: 100%;
+}
+
+.footer-color-light {
+	display: auto;
+	background-color: #fff;
+	width: 33.33%;
+	height: 100%
 }
