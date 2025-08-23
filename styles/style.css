@@ -252,7 +252,7 @@ img.menuIMG {
 
 
 div#home {
-	background-image: url("https://cdn.discordapp.com/attachments/961293203577905244/1139285137834647764/home-background.gif");
+	background-image: url("media/IndexBG_01.gif");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
@@ -392,7 +392,7 @@ div#home {
 
 
 div#mapa {
-	background-image: url("https://cdn.discordapp.com/attachments/961293203577905244/1069731906880544799/TLO02.png");
+	background-image: url("media/IndexBG_02.png");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
@@ -514,7 +514,7 @@ div#mapa {
 
 
 div#odznaki {
-	background-image: url("https://cdn.discordapp.com/attachments/961293203577905244/1125753517806727178/MG_BG_03.jpg");
+	background-image: url("media/IndexBG_03.png");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -665,7 +665,7 @@ div#odznaki {
 
 
 div#miejsca {
-	background-image: url("https://cdn.discordapp.com/attachments/961293203577905244/1125752260052402206/MG_BG_02.jpg");
+	background-image: url("media/IndexBG_04.png");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
@@ -789,7 +789,7 @@ div#miejsca {
 	
 
 div#cennik {
-	background-image: url("https://cdn.discordapp.com/attachments/961293203577905244/1069730465621233664/TLO01.png");
+	background-image: url("media/IndexBG_05.png");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
@@ -997,7 +997,7 @@ div#cennik {
 
 
 div#galeria {
-	background-image: url("https://cdn.discordapp.com/attachments/961293203577905244/1125750918655254608/MG_BG_01.jpg");
+	background-image: url("media/IndexBG_06.png");
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
