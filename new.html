@@ -58,17 +58,19 @@ window.addEventListener("scroll", () => {
   } else {
     navbar.classList.remove("scrolled");
     logo.src = "media/LOGO_FLAT_WHITE.png"; // białe logo
-  }
+  }});
 
   // chowanie / pokazywanie navbaru
-  if (currentScroll > lastScroll && currentScroll > 100) {
-    navbar.style.transform = "translateY(-100%)"; // chowaj
-  } else {
-    navbar.style.transform = "translateY(0)"; // pokazuj
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-100px";
+    }
+    prevScrollpos = currentScrollPos;
   }
-
-  lastScroll = currentScroll;
-});
   </script>
 	
 
