@@ -141,8 +141,8 @@ li {
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 20px;
-	background-color: black;
-	color: #fff;
+	background-color: #fff;
+	color: #000;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
@@ -157,12 +157,6 @@ li {
 .logo {
 	float: left;
 	font-size: 32px;
-	transform: scale(1);
-	transition: transform 1.0s;
-}
-
-.logo:hover {
-	transform: scale(1.05);
 }
 
 .menu {
