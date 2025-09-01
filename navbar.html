@@ -1,0 +1,104 @@
+<html>
+<head>
+  <style>
+body {
+  background-color: #000;
+  margin: 0;
+  height: 200vh; /* żeby można było scrollować */
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  padding: 15px 0;
+  z-index: 1000;
+  transition: background 0.6s ease, padding 0.6s ease;
+}
+
+#navbar .container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.6s ease;
+}
+
+/* Po scrollowaniu */
+#navbar.scrolled {
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 8px 0;
+}
+
+#navbar.scrolled nav a {
+  color: black;
+}
+
+/* Logo z efektem fade */
+#logo {
+  height: 40px;
+  transition: opacity 0.4s ease;
+}
+#logo.fade-out {
+  opacity: 0;
+}
+    
+  </style>
+</head>
+<body>
+  <header id="navbar">
+  <div class="container">
+    <a href="/">
+      <img id="logo" src="media/logo-white.png" alt="Logo" />
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">O nas</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </div>
+  </header>
+  <script>
+const navbar = document.getElementById("navbar");
+const logo = document.getElementById("logo");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > 50) {
+    navbar.classList.add("scrolled");
+    if (logo.src.indexOf("logo-color.png") === -1) {
+      logo.classList.add("fade-out");
+      setTimeout(() => {
+        logo.src = "media/logo-color.png";
+        logo.classList.remove("fade-out");
+      }, 200);
+    }
+  } else {
+    navbar.classList.remove("scrolled");
+    if (logo.src.indexOf("logo-white.png") === -1) {
+      logo.classList.add("fade-out");
+      setTimeout(() => {
+        logo.src = "media/logo-white.png";
+        logo.classList.remove("fade-out");
+      }, 200);
+    }
+  }
+});
+  </script>
+  
+</body>
+</html>
