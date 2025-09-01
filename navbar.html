@@ -9,7 +9,7 @@ body {
 
 #navbar {
   position: fixed;
-  border-bottom: 3px #fff;
+  border-bottom: 5px solid #fff;
   top: 0;
   left: 0;
   right: 0;
@@ -26,34 +26,21 @@ body {
   width: 90%;
   max-width: 1200px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#navbar nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.6s ease;
+  align-items: left;
 }
 
 /* Po scrollowaniu */
 #navbar.scrolled {
   background: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-#navbar.scrolled nav a {
-  color: black;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 /* Logo: dwa obrazy nakładamy na siebie */
 #logo, #logo-colored {
-  height: 40px;
+  height: 90px;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 10;
+  top: 5;
   transition: opacity 0.6s ease;
 }
 
@@ -78,11 +65,6 @@ body {
       <img id="logo" src="media/LOGO_FLAT_WHITE.png" alt="Mała Góra" />
       <img id="logo-colored" src="media/LOGO_FLAT_COLOR.png" alt="Mała Góra" />
     </a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">O nas</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
   </div>
   </header>
   <script>
