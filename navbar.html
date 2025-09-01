@@ -2,13 +2,14 @@
 <head>
   <style>
 body {
-  background-color: #0aa;
   margin: 0;
-  height: 200vh; /* żeby można było scrollować */
+  background-color: #0ff;
+  height: 200vh; /* tylko żeby można było scrollować */
 }
 
 #navbar {
   position: fixed;
+  border-bottom: 3px #fff;
   top: 0;
   left: 0;
   right: 0;
@@ -17,7 +18,8 @@ body {
   background: transparent;
   padding: 15px 0;
   z-index: 1000;
-  transition: background 0.6s ease, padding 0.6s ease;
+  transform: translateY(0);
+  transition: background 0.6s ease, transform 0.6s ease;
 }
 
 #navbar .container {
@@ -40,20 +42,31 @@ body {
 #navbar.scrolled {
   background: white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 8px 0;
 }
 
 #navbar.scrolled nav a {
   color: black;
 }
 
-/* Logo z efektem fade */
-#logo {
+/* Logo: dwa obrazy nakładamy na siebie */
+#logo, #logo-colored {
   height: 40px;
-  transition: opacity 0.4s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 0.6s ease;
 }
-#logo.fade-out {
+
+#logo-colored {
+  opacity: 0; /* domyślnie ukryte */
+}
+
+/* Po scrollu pokazujemy kolorowe logo */
+#navbar.scrolled #logo {
   opacity: 0;
+}
+#navbar.scrolled #logo-colored {
+  opacity: 1;
 }
     
   </style>
@@ -61,8 +74,9 @@ body {
 <body>
   <header id="navbar">
   <div class="container">
-    <a href="/">
-      <img id="logo" src="media/logo-white.png" alt="Logo" />
+    <a href="#top">
+      <img id="logo" src="media/LOGO_FLAT_WHITE.png" alt="Mała Góra" />
+      <img id="logo-colored" src="media/LOGO_FLAT_COLOR.png" alt="Mała Góra" />
     </a>
     <nav>
       <a href="#home">Home</a>
@@ -73,32 +87,29 @@ body {
   </header>
   <script>
 const navbar = document.getElementById("navbar");
-const logo = document.getElementById("logo");
+let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
+  // zmiana koloru i loga
   if (currentScroll > 50) {
     navbar.classList.add("scrolled");
-    if (logo.src.indexOf("logo-color.png") === -1) {
-      logo.classList.add("fade-out");
-      setTimeout(() => {
-        logo.src = "media/logo-color.png";
-        logo.classList.remove("fade-out");
-      }, 200);
-    }
   } else {
     navbar.classList.remove("scrolled");
-    if (logo.src.indexOf("logo-white.png") === -1) {
-      logo.classList.add("fade-out");
-      setTimeout(() => {
-        logo.src = "media/logo-white.png";
-        logo.classList.remove("fade-out");
-      }, 200);
-    }
   }
+
+  // chowanie navbaru przy przewijaniu w dół
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    navbar.style.transform = "translateY(-100%)"; // chowaj
+  } else {
+    navbar.style.transform = "translateY(0)"; // pokazuj
+  }
+
+  lastScroll = currentScroll;
 });
   </script>
+  
   
 </body>
 </html>
