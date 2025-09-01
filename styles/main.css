@@ -9,7 +9,7 @@ body {
 	background-position: center top;
 	display: flex;
 	flex-direction: column;
-	background-color: #000;
+	background-color: #fff;
 	overflow-x: hidden;
 	font-family: ABeeZee, Arial;
 }
