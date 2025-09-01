@@ -46,31 +46,29 @@
 const navbar = document.getElementById("navbar");
 const logo = document.getElementById("logo");
 
-let lastScroll = 0;
-
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
-  // zmiana tła i loga
-  if (currentScroll > 150) {
+  if (currentScroll > 50) {
     navbar.classList.add("scrolled");
-    logo.src = "media/LOGO_FLAT_COLOR.png"; // kolorowe logo
+    if (logo.src.indexOf("logo-color.png") === -1) {
+      logo.classList.add("fade-out");
+      setTimeout(() => {
+        logo.src = "media/logo-color.png";
+        logo.classList.remove("fade-out");
+      }, 200);
+    }
   } else {
     navbar.classList.remove("scrolled");
-    logo.src = "media/LOGO_FLAT_WHITE.png"; // białe logo
-  }});
-
-  // chowanie / pokazywanie navbaru
-  var prevScrollpos = window.pageYOffset;
-  window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-100px";
+    if (logo.src.indexOf("logo-white.png") === -1) {
+      logo.classList.add("fade-out");
+      setTimeout(() => {
+        logo.src = "media/logo-white.png";
+        logo.classList.remove("fade-out");
+      }, 200);
     }
-    prevScrollpos = currentScrollPos;
   }
+});
   </script>
 	
 
