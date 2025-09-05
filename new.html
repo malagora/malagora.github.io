@@ -62,14 +62,14 @@ window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
   // zmiana koloru i loga
-  if (currentScroll > 50) {
+  if (currentScroll > 100) {
     navbar.classList.add("scrolled");
   } else {
     navbar.classList.remove("scrolled");
   }
 
   // chowanie navbaru przy przewijaniu w dół
-  if (currentScroll > lastScroll && currentScroll > 100) {
+  if (currentScroll > lastScroll && currentScroll > 200) {
     navbar.style.transform = "translateY(-100%)"; // chowaj
   } else {
     navbar.style.transform = "translateY(0)"; // pokazuj
