@@ -1,106 +1,166 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamiczny Navbar</title>
   <style>
-body {
-  margin: 0;
-  background-color: #0ff;
-  height: 200vh; /* tylko żeby można było scrollować */
-}
+    /* Reset i bazowe style */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-#navbar {
-  position: fixed;
-  border-bottom: 5px solid #fff;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  height: 70px;
-  justify-content: center;
-  background: transparent;
-  padding: 15px 0;
-  z-index: 1000;
-  transform: translateY(0);
-  transition: background 0.6s ease, transform 0.6s ease;
-}
+    body {
+      font-family: sans-serif;
+      height: 2000px; /* Tylko dla testu scrolla */
+    }
 
-#navbar .container {
-  width: 90%;
-  max-width: 1200px;
-  display: flex;
-  align-items: left;
-}
+    /* === Navbar === */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      transition: all 0.4s ease;
+      z-index: 1000;
+      background-color: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
-/* Po scrollowaniu */
-#navbar.scrolled {
-  background: white;
-  box-shadow: 0 0px 10px rgba(0,0,0,0.5);
-}
+    #navbar.scrolled {
+      background-color: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-/* Logo: dwa obrazy nakładamy na siebie */
-#logo, #logo-colored {
-  height: 50px;
-  position: absolute;
-  left: 10;
-  top: 5;
-  transition: opacity 0.6s ease;
-}
+    #navbar.hide {
+      transform: translateY(-100%);
+    }
 
-#logo-colored {
-  opacity: 0; /* domyślnie ukryte */
-}
+    #logo {
+      height: 100px;
+      transition: all 0.3s ease;
+    }
 
-/* Po scrollu pokazujemy kolorowe logo */
-#navbar.scrolled #logo {
-  opacity: 0;
-}
-#navbar.scrolled #logo-colored {
-  opacity: 1;
-}
+    #navbar.scrolled #logo {
+      content: url('logo-color.png'); /* Logo kolorowe */
+      height: 100px;
+    }
 
-@media (max-width: 700px) {
-  #navbar {
-    height: 100px;
-  }
-  #logo, #logo-colored {
-    height: 90px;
-  }
-}
+    #navbar:not(.scrolled) #logo {
+      content: url('logo-white.png'); /* Logo białe */
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    #navbar.scrolled .nav-menu a {
+      color: black;
+    }
+
+    /* === Mobilny dolny pasek === */
+    #mobile-nav {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #navbar {
+        height: 100px;
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        display: none; /* Na mobile menu u góry znika */
+      }
+
+      #mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: white;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      #mobile-nav a {
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      #logo {
+        height: 80px;
+      }
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
   <header id="navbar">
-  <div class="container">
-    <a href="#top">
-      <img id="logo" src="media/LOGO_FLAT_WHITE.png" alt="Mała Góra" />
-      <img id="logo-colored" src="media/LOGO_FLAT_COLOR.png" alt="Mała Góra" />
-    </a>
-  </div>
+    <img id="logo" src="logo-white.png" alt="Logo">
+    <nav class="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#oferta">Oferta</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
   </header>
+
+  <!-- Mobilne menu dolne -->
+  <nav id="mobile-nav">
+    <a href="#home">Home</a>
+    <a href="#oferta">Oferta</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
   <script>
-const navbar = document.getElementById("navbar");
-let lastScroll = 0;
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-  // zmiana koloru i loga
-  if (currentScroll > 200) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
+      // Pokaż/ukryj navbar
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scroll w dół
+        navbar.classList.add('hide');
+      } else {
+        // Scroll w górę
+        navbar.classList.remove('hide');
+      }
 
-  // chowanie navbaru przy przewijaniu w dół
-  if (currentScroll > lastScroll && currentScroll > 50) {
-    navbar.style.transform = "translateY(-100%)"; // chowaj
-  } else {
-    navbar.style.transform = "translateY(0)"; // pokazuj
-  }
+      // Zmień styl po 200px
+      if (scrollTop > 200) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
 
-  lastScroll = currentScroll;
-});
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
   </script>
-  
-  
+
 </body>
 </html>
