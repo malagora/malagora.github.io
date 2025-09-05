@@ -3,16 +3,17 @@ html {
 }
 
 body {
-	background-color: #fff;
+	background-color: #000;
 	background-attachment: fixed; 
 	background-repeat: no-repeat; 
 	background-position: center top;
+	height: 5000px;
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
   	font-family: "Bahnschrift SemiBold Condensed", "Bahnschrift", sans-serif;
   	font-weight: 600; /* SemiBold */
- 	 font-stretch: condensed; /* Condensed styl */
+ 	font-stretch: condensed; /* Condensed styl */
 }
 
 /* Firefox */
