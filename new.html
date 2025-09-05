@@ -4,11 +4,11 @@
 <head>
   <title>Mała Góra – oficjalna strona</title>
   <link rel="shortcut icon" href="../media/MalaGora-logo-icon.png">
-  <meta name="description" content="Oficjalna strona internetowa Małej Góry">
+  <meta name="description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia.">
   <meta name="author" content="K. Michalik">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Mala Góra – Twoja strona" />
+  <meta property="og:title" content="Mala Góra – oficjalna strona" />
   <meta property="og:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
   <meta property="og:url" content="https://malagora.github.io/" />
   <meta property="og:type" content="website" />
@@ -19,7 +19,7 @@
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mala Góra – Twoja strona" />
+  <meta name="twitter:title" content="Mala Góra – oficjalna strona" />
   <meta name="twitter:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
   <meta name="twitter:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
   
@@ -29,351 +29,57 @@
 </head>
 
 <body>
+
+<!-- Preloader -->
   <div id="preloader">
 	<div class="blur-background"></div>
     <div class="preloaderDIV">
-      <img src="media/LOGO_WHITE.png" class="preloaderLogo">
-      <img src="media/2923-prints-dark.gif" class="preloaderLoad">
+      <img src="../media/LOGO_WHITE.png" class="preloaderLogo">
+      <img src="../media/2923-prints-dark.gif" class="preloaderLoad">
     </div>
   </div>
 
-  <div id="top"></div>
-  <nav id="navbar" class="navbar">
-    <img id="logo" src="media/LOGO_FLAT_WHITE.png" height="50" alt="Mała Góra"></div>
-  </nav>
+<!-- Navbar -->
+	<header id="navbar">
+	  <div class="container">
+	    <a href="/">
+	      <img id="logo" src="media/LOGO_FLAT_WHITE.png" alt="Mała Góra" />
+	      <img id="logo-colored" src="media/LOGO_FLAT_COLOR.png" alt="Mała Góra" />
+	    </a>
+	    <nav>
+	      <a href="#home">Home</a>
+	      <a href="#about">O nas</a>
+	      <a href="#contact">Kontakt</a>
+	    </nav>
+	  </div>
+	</header>
 
-  <script>
+	<script>
 const navbar = document.getElementById("navbar");
-const logo = document.getElementById("logo");
+let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
+  // zmiana koloru i loga
   if (currentScroll > 50) {
     navbar.classList.add("scrolled");
-    if (logo.src.indexOf("logo-color.png") === -1) {
-      logo.classList.add("fade-out");
-      setTimeout(() => {
-        logo.src = "media/logo-color.png";
-        logo.classList.remove("fade-out");
-      }, 200);
-    }
   } else {
     navbar.classList.remove("scrolled");
-    if (logo.src.indexOf("logo-white.png") === -1) {
-      logo.classList.add("fade-out");
-      setTimeout(() => {
-        logo.src = "media/logo-white.png";
-        logo.classList.remove("fade-out");
-      }, 200);
-    }
   }
+
+  // chowanie navbaru przy przewijaniu w dół
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    navbar.style.transform = "translateY(-100%)"; // chowaj
+  } else {
+    navbar.style.transform = "translateY(0)"; // pokazuj
+  }
+
+  lastScroll = currentScroll;
 });
-  </script>
-	
+	</script>
 
-  <nav id="bottomBar">
-	
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()" >&#9776;</span>
-  </nav>
 
-  <div id="menuOverlay" class="menuOverlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="menu">
-      <a class="menuLogo" href="/#top" onclick="closeNav()"><img src="media/LOGO_WHITE.png" alt="Mała Góra"></a>
-      
-      <a href="#mapa" onclick="closeNav()"><img src="media/mapa.png" class="menuIMG" title="Mapa">mapa</a>      
-      <a href="#odznaki" onclick="closeNav()"><img src="media/odznaki.png" class="menuIMG" title="Odznaki">odznaki</a>
-      <a href="#miejsca" onclick="closeNav()"><img src="media/miejsca.png" class="menuIMG" title="Miejsca">miejsca</a>
-      <a href="#cennik" onclick="closeNav()"><img src="media/cennik.png" class="menuIMG" title="Cennik">cennik</a>
-      <a href="/galeria" onclick="closeNav()"><img src="media/galeria.png" class="menuIMG" title="Galeria zdjęć">galeria zdjęć</a>
-      <a href="/sklep" onclick="closeNav()"><img src="media/sklep.png" class="menuIMG" title="Sklep">sklep online</a>
-      <a href="/YouTube" target="_blank" onclick="closeNav()"><img src="media/YouTube.png" class="menuIMG" title="YouTube">YouTube</a>
-    </div>
-  </div>  
-
-  <script>
-  function openNav() {
-    document.getElementById("menuOverlay").style.height = "100%";
-  }
-
-  function closeNav() {
-    document.getElementById("menuOverlay").style.height = "0%";
-  }
-  </script>
-
-  <div id="home">
-    
-    <div class="home-text">Witamy w Małej Górze!<br>Życzymy udanego pobytu.</div>
-    
-    <div class="home-buttons">
-
-      <div class="home-button home-top-button">
-        <a class="home-button-text" href="#mapa">MAPA</a>
-      </div>
-
-      <div class="home-button">
-        <a class="home-button-text" href="#odznaki">ODZNAKI</a>
-      </div>
-      
-      <div class="home-button">
-        <a class="home-button-text" href="#miejsca">MIEJSCA</a>
-      </div>
-      
-      <div class="home-button">
-        <a class="home-button-text" href="#cennik">CENNIK</a>
-      </div>
-      
-      <div class="home-button home-bottom-button">
-        <a class="home-button-text" href="#galeria">GALERIA</a>
-      </div>
-    </div>
-    
-  </div>
-
-  <div id="mapa">
-    <div class="mapa-text">
-      <img src="media/mapa.png" alt="Mapa"> mapa parku:
-    </div>
-    <div class="mapa-iframe">
-      <iframe src="https://www.google.com/maps/d/embed?mid=19ZJni8cAi_FH_D9gxf-5iqgV0pHMTpo&hl=pl&ehbc=2E312F" class="google-iframe"></iframe>
-      <a href="https://goo.gl/maps/8wvtkJBTUFtGmyG28" class="full-screen-map-button">PEŁNY EKRAN ⛶</a>
-    </div>
-  </div>
-  
-  <div id="odznaki">
-    <div class="odznaki-text">
-      <img src="media/odznaki.png" alt="Odznaki"> odznaki:
-    </div>
-    
-    <div class="odznaki">
-      <div class="odznaki-choice">
-        <a href="https://malagora.github.io/odznaki/korona-malej-gory" target="_blank">
-          <img src="media/Korona_Maej_Gory_-_odznaka_srebrna.png" alt="Korona Małej Góry" class="odznaki-image">
-          <div class="odznaki-overlay O-KMG">
-            <div class="odznaki-overlay-text">Korona Małej Góry</div>
-          </div>
-        </a>
-      </div>
-      <div class="odznaki-choice">
-        <a href="https://malagora.github.io/odznaki/sarnia-perc" target="_blank">
-          <img src="media/SARNIA_PERC_-_ODZNAKA.png" alt="Odznaka Sarnia Perć" class="odznaki-image">
-          <div class="odznaki-overlay O-SP">
-            <div class="odznaki-overlay-text">Sarnia Perć</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div id="miejsca">
-    <div class="miejsca-text">
-      <img src="media/miejsca.png" alt="Miejsca"> miejsca i szlaki:
-    </div>
-
-    <div class="miejsca" style="{background-image: url("media/IndexBG_05.png");}">
-      <h1>Wyszukaj zagadnienie:</h1>
-      <select onchange="self.location.href = this.value">
-        <option value="#miejsca" disabled selected>Wybierz miejsce</option>
-        <optgroup label="Szczyty:">
-          <option value="/miejsca/szczyty/mala-gora">Mała Góra</option>
-          <option value="/miejsca/szczyty/mala-kopa">Mała Kopa</option>
-          <option value="/miejsca/szczyty/polnocny-grzbiet">Północny Grzbiet</option>
-          <option value="/miejsca/szczyty/paprocia-kopa">Paprocia Kopa</option>
-          <option value="/miejsca/szczyty/jazwieczy-grzbiet">Jaźwieczy Grzbiet</option>
-          <option value="/miejsca/szczyty/kopka-pod-mrozowka">Kopka pod Mrozówką</option>
-          <!--<option value="/miejsca//"></option>-->
-        </optgroup>
-        <optgroup label="Przełęcze:">
-          <option value="/miejsca/przelecze/wyznia-mala-przelecz">Wyżnia Mała Przełęcz</option>
-          <option value="/miejsca/przelecze/niznia-mala-przelecz">Niżnia Mała Przełęcz</option>
-          <option value="/miejsca/przelecze/paprocia-przelecz">Paprocia Przełęcz</option>
-        </optgroup>
-        <optgroup label="Skały i osuwiska:">
-          <option value="/miejsca/skaly/skalki-polnocne">Skałki Północne</option>
-          <option value="/miejsca/skaly/skalki-pod-mrozowka">Skałki pod Mrozówką</option>
-          <option value="/miejsca/skaly/zlote-skalki">Złote Skałki</option>
-          <option value="/miejsca/skaly/srebrne-skalki">Srebrne Skałki</option>
-          <option value="/miejsca/skaly/male-skalki">Małe Skałki</option>
-          <option value="/miejsca/skaly/kacze-skalki">Kacze Skałki</option>
-          <option value="/miejsca/skaly/szare-skalki">Szare Skałki</option>
-          <option value="/miejsca/skaly/biale-skalki">Białe Skałki</option>
-          <option value="/miejsca/skaly/sosnowe-skalki">Sosnowe Skałki</option>
-        </optgroup>
-        <optgroup label="Doliny:">
-          <option value="/miejsca/doliny/malogorski-potok">Małogórski Potok</option>
-          <option value="/miejsca/doliny/dolina-pod-mrozowka">Dolina pod Mrozówką</option>
-          <option value="/miejsca/doliny/czarna-dolinka">Czarna Dolinka</option>
-          <option value="/miejsca/doliny/paprocia-dolinka">Paprocia Dolinka</option>
-          <option value="/miejsca/doliny/kacza-dolinka">Kacza Dolinka</option>
-          <option value="/miejsca/doliny/stroma-dolinka">Stroma Dolinka</option>
-        </optgroup>
-        <optgroup label="Polany:">
-          <option value="/miejsca/polany/polana-mrozowka">Polana Mrozówka</option>
-          <option value="/miejsca/polany/nizna-polana">Niżna Polana</option>
-          <option value="/miejsca/polany/polana-koncowa">Polana Końcowa</option>
-        </optgroup>
-        <optgroup label="Jaskinie:">
-          <option value="/miejsca/jaskinie/jaskinia-biala-dziura">Biała dziura w Małej Górze</option>
-        </optgroup>
-      </select>
-      <h2>lub</h2>
-      <select onchange="self.location.href = this.value">
-        <option value="#miejsca" disabled selected>wybierz szlak</option>
-        <optgroup label="Szlaki:">
-          <option value="miejsca/szlaki/sarnia-perc">Sarnia Perć</option>
-          <option value="/miejsca/szlaki/gsg">Główny Szlak Grzbietowy</option>
-          <option value="miejsca/szlaki/julkowa-perc">Julkowa Perć</option>
-	      <option value="miejsca/szlaki/bobrowisko">Bobrowisko</option>
-        </optgroup>
-      </select>
-    </div>
-  </div>
-
-  <div id="cennik">
-    <div class="cennik">
-      <div class="c-bilety">
-        <h1>Cennik biletów</h1>
-        <div class="cennik-biletow">
-          <div class="cennik-headline">
-            <h3>Bilet</h3>
-            <h2>Normalny</h2>
-            <h2>Ulgowy</h2>
-          </div>
-          <div class="cennik-files">
-            <p class="produkt">Bilet wstępu</p><p class="normalny">8.00</p><p class="ulgowy">4.00</p>
-          </div>
-          <div class="cennik-files">
-            <p class="produkt">Sarnia Perć</p><p class="normalny">15.00</p><p class="ulgowy">10.00</p>
-          </div>
-          <div class="cennik-files">
-            <p class="produkt">Bobrowisko</p><p class="normalny">5.00</p><p class="ulgowy">2.50</p>
-          </div>
-          <div class="cennik-files">
-            <p class="produkt">Kaczki</p><p class="normalny">3.00</p><p class="ulgowy">1.50</p>
-          </div>
-        </div>
-        <a href="/sklep" class="shop-button"><img src="media/sklep.png" alt="Sklep">Kup bilety</a>
-      </div>
-      <div class="c-odznaki">
-        <h1>Cennik odznak</h1>
-        <div class="cennik-odznak">
-          <div class="cennik-files">
-            <p class="produkt1">Pierwsza odznaka</p><p class="cena">GRATIS!</p>
-          </div>
-          <div class="cennik-files">
-            <p class="produkt1">Każa kolejna</p><p class="cena">5.00</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="galeria">
-    <div class="gallery-text">
-      <img src="media/galeria.png"> zobacz zdjęcia:
-    </div>
-
-    <a href="https://malagora.github.io/galeria" class="slideshow-container">
-      <div class="mySlides fade">
-        <img src="media/IndexGalery_01.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides fade">
-        <img src="media/IndexGalery_02.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides fade">
-        <img src="media/IndexGalery_03.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides fade">
-        <img src="media/IndexGalery_04.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides fade">
-        <img src="media/IndexGalery_05.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides fade">
-        <img src="media/IndexGalery_06.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides fade">
-        <img src="media/IndexGalery_07.jpg" style="width:100%">
-      </div>
-
-        <!--<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      <br>
-      
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-        <span class="dot" onclick="currentSlide(5)"></span>
-        <span class="dot" onclick="currentSlide(6)"></span>
-        <span class="dot" onclick="currentSlide(7)"></span>
-      </div>-->
-      
-    </a>
-    
-  <footer class="footer">
-    <div class="footer-info">
-      <div class="footer-logo">
-        <img src="media/LOGO_WHITE.png" alt="Logo">
-      </div>
-      <div class="footer-menu">
-        <a href="#top" class="f-active f-top">Do góry</a>
-        <a href="#mapa">Mapa parku</a>
-        <a href="#odznaki">Odznaki</a>
-        <a href="/miejsca">Miejsca i szlaki</a>
-        <a href="/sklep">Kup bilety</a>
-        <a class="f-bottom" href="/galeria">Zobacz zdjęcia</a>
-      </div>
-    </div>
-    
-    <div class="footer-colors">
-      <div class="footer-color-dark"></div>
-      <div class="footer-color-cyan"></div>
-      <div class="footer-color-light"></div>
-    </div>
-  </footer>
-
-  
-  <script>
-$('html').addClass('js');
-
-$(window).on("load", function() {
-    $("#preloader").fadeOut(1000);
-});
-  </script>
-  <script>
-let slideIndex = 0;
-showSlides();
-
-/*function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}*/
-
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 3000);
-}
-  </script>
 </body>
 
 </html>
