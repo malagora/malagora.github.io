@@ -24,35 +24,43 @@
   <meta name="twitter:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css">
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
 
 <body>
 
 <!-- Preloader -->
-  <div id="preloader">
+<div id="preloader">
 	<div class="blur-background"></div>
     <div class="preloaderDIV">
       <img src="../media/LOGO_WHITE.png" class="preloaderLogo">
       <img src="../media/2923-prints-dark.gif" class="preloaderLoad">
     </div>
-  </div>
+</div>
 
 <!-- Navbar -->
-  <header id="navbar">
+<header id="navbar">
+    <div class="web-colors">
+      <div class="c-dark"></div>
+      <div class="c-color"></div>
+      <div class="c-white"></div>
+    </div>
 	  <div class="container">
-	    <a href="/">
-	      <img id="logo" src="media/LOGO_FLAT_WHITE.png" alt="Mała Góra" />
-	      <img id="logo-colored" src="media/LOGO_FLAT_COLOR.png" alt="Mała Góra" />
+	    <a href="#top">
+	      <img id="logo" src="LOGO_FLAT_WHITE.png" alt="Mała Góra" />
+	      <img id="logo-colored" src="LOGO_FLAT_COLOR.png" alt="Mała Góra" />
 	    </a>
 	    <nav>
-	      <a href="#mapa">Mapa</a>
+	      <a href="/mapa">Mapa</a>
+        <a href="/odznaki">Odznaki</a>
+        <a href="/bilety/informacje-o-biletach">Bilety</a>
 	    </nav>
 	  </div>
-  </header>
+</header>
 
-  <script>
+<script>
 const navbar = document.getElementById("navbar");
 let lastScroll = 0;
 
@@ -60,14 +68,14 @@ window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
   // zmiana koloru i loga
-  if (currentScroll > 200) {
+  if (currentScroll > 300) {
     navbar.classList.add("scrolled");
   } else {
     navbar.classList.remove("scrolled");
   }
 
   // chowanie navbaru przy przewijaniu w dół
-  if (currentScroll > lastScroll && currentScroll > 50) {
+  if (currentScroll > lastScroll && currentScroll > 100) {
     navbar.style.transform = "translateY(-100%)"; // chowaj
   } else {
     navbar.style.transform = "translateY(0)"; // pokazuj
@@ -75,8 +83,813 @@ window.addEventListener("scroll", () => {
 
   lastScroll = currentScroll;
 });
+</script>
+
+<!-- Mobile menu -->
+<div class="mobile-menu-shadow"></div>
+<div class="mobile-menu">
+    <a href="/mapa"><img src="mapa.png">Mapa</a>
+    <a href="/odznaki"><img src="odznaki.png">Odznaki</a>
+    <a href="/bilety/informacje-o-biletach"><img src="cennik.png">Bilety</a>
+    <a>
+      <div class="menu-x" onclick="openMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </a>
+</div>
+
+<script>
+function openMenu(x) {
+  x.classList.toggle("change");
+}
+    </script>
+
+<!-- Top background -->
+<main id="main-content">
+  <div id="top"></div>
+  <section class="banner">
+    <div class="m-text">
+      <p class="m-small">NIE TAKA MAŁA</p>
+      <p class="m-huge">Mała Góra</p>
+      <a href="#first"><p class="f-dArrow">⭣</p><p class="f-dText">PRZEWIŃ DALEJ</p></a>
+    </div>
+  </section>
+
+<!-- Komunikat -->
+  <section id="first"></div>
+  <div class="actual">
+    <nav>Aktualne warunki:</nav>
+    <div id="today"></div>
+  </section>
+
+  <script>
+const days = [
+    "niedziela",
+    "poniedziałek",
+    "wtorek",
+    "środa",
+    "czwartek",
+    "piątek",
+    "sobota"
+];
+
+function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    const weekday = days[date.getDay()];
+    return { text: `${weekday} ${day}.${month}.${year}`, weekday };
+}
+
+const today = new Date();
+
+ const todayFormatted = formatDate(today);
+
+ document.getElementById("today").textContent =
+    `${todayFormatted.text}`;
   </script>
 
+  <section class="komunikaty">
+    <div class="komunikat">
+      <p>Komunikat turystyczny</p>
+      <a class="quick-button" href="/komunikat#zamkniete-szlaki"><img class="kom-icon" src="reject.png"><p>Zamknięte szlaki</p></a>
+      <a class="quick-button" href="/komunikat#utrudnienia"><img class="kom-icon" src="warning.png"><p>Utrudnienia</p></a>
+      <a class="quick-button" href="/komunikat#informacje"><img class="kom-icon" src="info.png"><p>Informacje dodatkowe</p></a>
+      <a class="quick-button" href="/komunikat#zalecenia"><img class="kom-icon" src="accept.png"><p>Zalecenia</p></a>
+      <a class="more-button-dark" href="/komunikat">Zobacz cały komunikat</a>
+    </div>
+    <div class="pogoda">
+        <iframe src="https://www.meteoblue.com/pl/pogoda/widget/daily/jamnica_polska_12510622?geoloc=fixed&days=3&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=0&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 400px; height: 300px; display: block;"></iframe>
+        <a class="more-button-color" href="/pogoda">Zobacz prognozę</a>
+      </div>
+    <div class="powietrze">
+      Stan powietrza:
+      <!-- Airly Widget Begin -->
+      <script src="https://airly.org/map/airly.js" type="text/javascript"></script>
+      <iframe id="airly_320155154" src="https://airly.org/widget/v2/?width=auto&height=auto&displayMeasurements=false&displayCAQI=true&autoHeight=true&autoWidth=true&language=pl&indexType=AIRLY_CAQI&unitSpeed=metric&unitTemperature=celsius&latitude=49.5830953501&longitude=20.7424387955" style="width:100%; height:300px; border:none; margin:10px; display: block;"></iframe>
+      <!-- Airly Widget End -->
+      <a class="more-button-color" href="https://airly.org/map/pl/">Dowiedz się więcej</a>
+    </div>
+  </section>
+
+  <section class="news">
+    <p>AKTUALNOŚCI</p>
+    <div class="news-last">
+      <!-- Miniaturki postów -->
+      <a href="/aktualnosci/nowe-lancuchy-na-sarniej-perci" class="news-main-post">
+        <div class="news-main-img" style="background-image: url('');"></div>
+        <header>Łańcuchy na Sarniej Perci</header>
+        <span>W ostatnim czasie zostały zamontowane stałe, sztuczne ułatwienia na Sarniej Perci.</span>
+        <footer>
+          <div class="news-main-date">31 sierpnia 2025</div>
+          <div class="news-main-arrow">➔</div>
+        </footer>
+      </a>
+      <!--<a href="/aktualnosci/nowe-lancuchy-na-sarniej-perci" class="news-main-post">
+          <div class="news-main-img" style="background-image: url('');"></div>
+          <header>Łańcuchy na Sarniej Perci</header>
+          <span>W ostatnim czasie zostały zamontowane stałe, sztuczne ułatwienia na Sarniej Perci.</span>
+          <footer>
+            <div class="news-main-date">31 sierpnia 2025</div>
+            <div class="news-main-arrow">➔</div>
+          </footer>
+      </a>
+      <a href="/aktualnosci/nowe-lancuchy-na-sarniej-perci" class="news-main-post">
+          <div class="news-main-img" style="background-image: url('');"></div>
+          <header>Łańcuchy na Sarniej Perci</header>
+          <span>W ostatnim czasie zostały zamontowane stałe, sztuczne ułatwienia na Sarniej Perci.</span>
+          <footer>
+            <div class="news-main-date">31 sierpnia 2025</div>
+            <div class="news-main-arrow">➔</div>
+          </footer>
+      </a>
+      -->
+    </div>
+    <a class="more-button-color" href="/aktualności">Zobacz więcej aktualności</a>
+  </section>
+
+  <section class="short">
+    <header>Na skróty</header>
+    <div class="short-menu">
+      <a href="/mapa" class="short-menu-item">
+        <img src="mapa.png">
+        <p>MAPA</p>
+        <div class="short-arrow">➔</div>
+      </a>
+      <a href="/odznaki" class="short-menu-item short-menu-item-in">
+        <img src="odznaki.png">
+        <p>ODZNAKI</p>
+        <div class="short-arrow">➔</div>
+      </a>
+      <a href="/miejsca" class="short-menu-item short-menu-item-in">
+        <img src="mapa.png">
+        <p>PRZEWODNIKI</p>
+        <div class="short-arrow">➔</div>
+      </a>
+      <a href="/transport-publiczny" class="short-menu-item short-menu-item-in">
+        <img src="cennik.png">
+        <p>TRANSPORT PUBLICZNY</p>
+        <div class="short-arrow">➔</div>
+      </a>
+      <a href="/bilety/informacje-o-biletach" class="short-menu-item short-menu-item-in">
+        <img src="cennik.png">
+        <p>BILETY</p>
+        <div class="short-arrow">➔</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="know-more">
+    <div class="know-header">
+      <header>WARTO WIEDZIEĆ</header>
+      <div class="know-buttons">
+        <button class="know-tablink" id="defaultOpen" onclick="">Zasady odpowiedzialnej turystyki</button>
+        <button class="know-tablink" onclick="">Bezpieczne grzybobranie</button>
+        <button class="know-tablink" onclick="">Flora Małej Góry</button>
+        <button class="know-tablink" onclick="">Przegląd fauny</button>
+      </div>
+    </div>
+    <div class="know-container">
+      <div id="knowFirst" class="know-tabcontent">
+        <div class="know-tabcontent-ctx">
+          <header>Zasady odpowiedzialnej turystyki</header>
+          <span>Znajdziesz tu zasady bezpiecznego poruszania się po Małej Górze.</span>
+          <footer>
+            <a href="" class="know-moreButton">Czytaj więcej</a>
+            <div class="know-npButtons">
+              <a class="know-prev" onclick="">⭠</a>
+              <a class="know-next" onclick="">⭢</a>
+            </div>
+          </footer>
+        </div>
+        <div class="know-tabcontent-img" style="background-image: url('');"></div>
+      </div>
+      <div id="knowSecond" class="know-tabcontent">
+        <div class="know-tabcontent-ctx">
+          <header>Bezpieczne grzybobranie</header>
+          <span>Przeczytaj, nim dokonasz złego wyboru.</span>
+          <footer>
+            <a href="" class="know-moreButton">Dowiedz się więcej</a>
+            <div class="know-npButtons">
+              <a class="know-prev" onclick="">⭠</a>
+              <a class="know-next" onclick="">⭢</a>
+            </div>
+          </footer>
+        </div>
+        <div class="know-tabcontent-img" style="background-image: url('');"></div>
+      </div>
+      <div id="knowThird" class="know-tabcontent">
+        <div class="know-tabcontent-ctx">
+          <header>Flora Małej Góry</header>
+          <span>Kompletny przewodnik roślinności, jaką można znaleźć w Małej Górze</span>
+          <footer>
+            <a href="" class="know-moreButton">Poznaj rośliny</a>
+            <div class="know-npButtons">
+              <a class="know-prev" onclick="">⭠</a>
+              <a class="know-next" onclick="">⭢</a>
+            </div>
+          </footer>
+        </div>
+        <div class="know-tabcontent-img" style="background-image: url('');"></div>
+      </div>
+      <div id="knowFourth" class="know-tabcontent">
+        <div class="know-tabcontent-ctx">
+          <header>Przegląd fauny</header>
+          <span>Co w trawie piszczy? Co na drzewie śpiewa? Czyj to trop? Przewodnik po zwierzętach Małej Góry.</span>
+          <footer>
+            <a href="" class="know-moreButton">Poznaj zwierzęta</a>
+            <div class="know-npButtons">
+              <a class="know-prev" onclick="">⭠</a>
+              <a class="know-next" onclick="">⭢</a>
+            </div>
+          </footer>
+        </div>
+        <div class="know-tabcontent-img" style="background-image: url('');"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+let currentIndex = 0; // start od pierwszego slajdu
+
+function showSlide(index) {
+  const slides = document.querySelectorAll(".know-tabcontent");
+  const tabs = document.querySelectorAll(".know-tablink");
+
+  // pętla indeksów (cykliczne przechodzenie)
+  if (index >= slides.length) index = 0;
+  if (index < 0) index = slides.length - 1;
+  currentIndex = index;
+
+  // ukryj wszystkie slajdy
+  slides.forEach(slide => {
+    slide.classList.remove("active");
+  });
+
+  // odznacz wszystkie taby
+  tabs.forEach(tab => {
+    tab.classList.remove("active");
+  });
+
+  // pokaż właściwy slajd
+  slides[currentIndex].classList.add("active");
+  tabs[currentIndex].classList.add("active");
+}
+
+// obsługa kliknięcia w tablink
+function setupTabs() {
+  const tabs = document.querySelectorAll(".know-tablink");
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => {
+      showSlide(i);
+    });
+  });
+}
+
+// obsługa next/prev
+function setupNavigation() {
+  const nextButtons = document.querySelectorAll(".know-next");
+  const prevButtons = document.querySelectorAll(".know-prev");
+
+  nextButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      showSlide(currentIndex + 1);
+    });
+  });
+
+  prevButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      showSlide(currentIndex - 1);
+    });
+  });
+}
+
+// inicjalizacja po załadowaniu
+document.addEventListener("DOMContentLoaded", () => {
+  setupTabs();
+  setupNavigation();
+  showSlide(0); // start od pierwszego slajdu
+});
+
+  </script>
+
+  <section class="places">
+    <header>Interesujące miejsca</header>
+    <div class="places-counter">1/4</div>
+    <a class="places-prev" onclick="">⭠</a>
+    <a class="places-next" onclick="">⭢</a>
+    <div class="places-last">
+      <a class="places-last-item" href="" style="background-image: url('');">
+        <span class="place-name">Skałki Północne</span>
+        <span class="place-arrow">➔</span>
+      </a>
+      <a class="places-last-item" href="" style="background-image: url('');">
+        <span class="place-name">Polana Mrozówka</span>
+        <span class="place-arrow">➔</span>
+      </a>
+      <a class="places-last-item" href="" style="background-image: url('');">
+        <span class="place-name">Małogórski Potok</span>
+        <span class="place-arrow">➔</span>
+      </a>
+      <a class="places-last-item" href="" style="background-image: url('');">
+        <span class="place-name">Kacze Skałki</span>
+        <span class="place-arrow">➔</span>
+      </a>
+    </div>
+  </section>
+
+  <script>
+(function () {
+  const root = document.querySelector('.places');
+  if (!root) return;
+
+  const viewport = root.querySelector('.places-viewport');
+  const track = root.querySelector('.places-last');
+  const prevBtn = root.querySelector('.places-prev');
+  const nextBtn = root.querySelector('.places-next');
+  const counterEl = root.querySelector('.places-counter');
+
+  // zapisz początkowy HTML slajdów (oryginały)
+  const initialSlidesHTML = Array.from(track.children).map(node => node.outerHTML);
+  let items = [];              // aktualne elementy w track (po sklonowaniu)
+  let origCount = initialSlidesHTML.length;
+  let slidesPerView = null;    // 3 albo 1
+  let cloneCount = 0;
+  let currentIndex = 0;        // indeks względem track.children
+  let slideWidth = 0;          // szerokość pojedynczego "slotu" (px)
+  let isAnimating = false;
+
+  // debounce util
+  function debounce(fn, wait = 120) {
+    let t;
+    return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+  }
+
+  // create element from HTML string
+  function createFromHTML(html) {
+    const tpl = document.createElement('template');
+    tpl.innerHTML = html.trim();
+    return tpl.content.firstElementChild;
+  }
+
+  function getSlidesPerView() {
+    return (window.innerWidth < 1000) ? 1 : 3;
+  }
+
+  function buildTrack() {
+    // wyczyść track
+    track.innerHTML = '';
+
+    slidesPerView = getSlidesPerView();
+    cloneCount = slidesPerView;
+
+    // przygotuj listę oryginałów (z initial HTML)
+    const originals = initialSlidesHTML.map(h => createFromHTML(h));
+
+    // klony na początek - ostatnie 'cloneCount'
+    const pref = initialSlidesHTML.slice(-cloneCount).map(h => {
+      const el = createFromHTML(h);
+      el.classList.add('clone');
+      return el;
+    });
+
+    // klony na koniec - pierwsze 'cloneCount'
+    const suf = initialSlidesHTML.slice(0, cloneCount).map(h => {
+      const el = createFromHTML(h);
+      el.classList.add('clone');
+      return el;
+    });
+
+    // do track: pref + originals + suf
+    pref.forEach(el => track.appendChild(el));
+    originals.forEach(el => track.appendChild(el));
+    suf.forEach(el => track.appendChild(el));
+
+    items = Array.from(track.children);
+    // ustaw currentIndex na pierwszy oryginalny element (po pref)
+    currentIndex = cloneCount;
+
+    // ustaw szerokość slajdu (po renderze)
+    requestAnimationFrame(() => {
+      calculateDimensions();
+      jumpToIndex(currentIndex, false); // natychmiast bez animacji
+      updateCounter();
+    });
+  }
+
+  function calculateDimensions() {
+    if (!items.length) return;
+    const style = getComputedStyle(items[0]);
+    const marginRight = parseFloat(style.marginRight) || 0;
+    slideWidth = items[0].getBoundingClientRect().width + marginRight;
+  }
+
+  function translateForIndex(index) {
+    return -index * slideWidth;
+  }
+
+  function jumpToIndex(index, smooth = true) {
+    if (smooth) {
+      track.style.transition = 'transform 0.5s cubic-bezier(.22,.8,.3,1)';
+    } else {
+      track.style.transition = 'none';
+    }
+    const x = translateForIndex(index);
+    track.style.transform = `translateX(${x}px)`;
+  }
+
+  function updateCounter() {
+    if (!counterEl) return;
+    const displayTotal = origCount;
+    // convert currentIndex to 0..origCount-1
+    let idx = (currentIndex - cloneCount) % origCount;
+    if (idx < 0) idx += origCount;
+    counterEl.textContent = `${idx + 1}/${displayTotal}`;
+  }
+
+  // Next / Prev handlers
+  function next() { if (isAnimating) return; isAnimating = true; currentIndex++; jumpToIndex(currentIndex, true); }
+  function prev() { if (isAnimating) return; isAnimating = true; currentIndex--; jumpToIndex(currentIndex, true); }
+
+  track.addEventListener('transitionend', () => {
+    // gdy osiągniemy klony, resetujemy bez animacji
+    if (currentIndex >= cloneCount + origCount) {
+      // przesunęliśmy na klony po końcu -> ustaw na pierwszy oryg
+      currentIndex = cloneCount;
+      jumpToIndex(currentIndex, false);
+    } else if (currentIndex < cloneCount) {
+      // przesunęliśmy na klony przed początkiem -> ustaw na ostatni oryg
+      currentIndex = cloneCount + origCount - 1;
+      jumpToIndex(currentIndex, false);
+    }
+    updateCounter();
+    // mały timeout żeby nie blokować natychmiast
+    setTimeout(() => { isAnimating = false; }, 20);
+  });
+
+  // DRAG / SWIPE (pointer-based)
+  let pointerActive = false;
+  let startX = 0;
+  let startTranslate = 0;
+  let moved = 0;
+  let dragging = false;
+
+  function onPointerDown(e) {
+    // ignore right-clicks
+    if (e.button && e.button !== 0) return;
+    pointerActive = true;
+    dragging = false;
+    startX = e.clientX || (e.touches && e.touches[0].clientX);
+    // current transform X
+    const matrix = window.getComputedStyle(track).transform;
+    if (matrix !== 'none') {
+      const m = new WebKitCSSMatrix(matrix);
+      startTranslate = m.m41;
+    } else {
+      startTranslate = 0;
+    }
+    track.style.transition = 'none';
+    // capture pointer for mouse
+    if (e.pointerId) track.setPointerCapture(e.pointerId);
+  }
+
+  function onPointerMove(e) {
+    if (!pointerActive) return;
+    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    const dx = clientX - startX;
+    if (Math.abs(dx) > 5) dragging = true;
+    moved = dx;
+    track.style.transform = `translateX(${startTranslate + dx}px)`;
+  }
+
+  function onPointerUp(e) {
+    if (!pointerActive) return;
+    pointerActive = false;
+    // threshold do zmiany slajdu
+    const threshold = slideWidth * 0.25;
+    if (moved < -threshold) { // swipe left -> next
+      currentIndex++;
+    } else if (moved > threshold) { // swipe right -> prev
+      currentIndex--;
+    }
+    // wróć do normalnego przesuwania z animacją
+    jumpToIndex(currentIndex, true);
+    // reset
+    moved = 0;
+    dragging = false;
+  }
+
+  // block click if dragged
+  function onItemClick(e) {
+    if (dragging) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  }
+
+  // resize handler - rebuild track so cloneCount may change
+  const onResize = debounce(() => {
+    // rebuild
+    buildTrack();
+  }, 150);
+
+  // initial init
+  buildTrack();
+
+  // event listeners
+  nextBtn && nextBtn.addEventListener('click', next);
+  prevBtn && prevBtn.addEventListener('click', prev);
+
+  // pointer events: we listen on viewport to allow dragging
+  viewport.addEventListener('pointerdown', onPointerDown, { passive: true });
+  window.addEventListener('pointermove', onPointerMove, { passive: true });
+  window.addEventListener('pointerup', onPointerUp, { passive: true });
+
+  // support touch (some browsers)
+  viewport.addEventListener('touchstart', onPointerDown, { passive: true });
+  viewport.addEventListener('touchmove', onPointerMove, { passive: true });
+  viewport.addEventListener('touchend', onPointerUp, { passive: true });
+
+  // prevent clicks when dragging
+  track.addEventListener('click', onItemClick, true);
+
+  window.addEventListener('resize', onResize);
+
+  // expose small api if needed
+  root._places = { goTo: (i) => { currentIndex = cloneCount + (i % origCount); jumpToIndex(currentIndex, true); } };
+})();
+  </script>
+
+  <section class="przewodniki">
+    <p>LISTA TRAS</p>
+    <div class="przewodniki-last">
+      <!-- Miniaturki tras -->
+      <a href="/miejsca/szlaki/sarnia-perc" class="przewodniki-main-post">
+        <div class="przewodniki-main-img" style="background-image: url('');"></div>
+        <ul>
+          <li>Wspinaczka</li>
+          <li>Łańcuchy</li>
+        </ul>
+        <header>Sarnia Perć</header>
+        <span>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>Dystans:<b>0 km</b>
+        </span>
+        <span>
+          <i class="fa fa-clock-o" aria-hidden="true"></i>Czas przejścia:<b>0h 0 min</b>
+        </span>
+        <footer class="przewodniki-main-arrow">➔</footer>
+      </a>
+      <a href="/miejsca/szlaki/bobrowisko" class="przewodniki-main-post">
+        <div class="przewodniki-main-img" style="background-image: url('');"></div>
+        <ul>
+          <li>Rekreacja</li>
+          <li>Przyroda</li>
+        </ul>
+        <header>Bobrowisko</header>
+        <span>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>Dystans:<b>0 km</b>
+        </span>
+        <span>
+          <i class="fa fa-clock-o" aria-hidden="true"></i>Czas przejścia:<b>0h 0 min</b>
+        </span>
+        <footer class="przewodniki-main-arrow">➔</footer>
+      </a>
+      <a href="/miejsca/szlaki/gsg" class="przewodniki-main-post">
+          <div class="przewodniki-main-img" style="background-image: url('');"></div>
+          <ul>
+            <li>Zwiedzanie</li>
+            <li>Przyroda</li>
+          </ul>
+          <header>Główny Szlak Grzbietowy</header>
+          <span>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>Dystans:<b>0 km</b>
+          </span>
+          <span>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>Czas przejścia:<b>0h 0 min</b>
+          </span>
+          <footer class="przewodniki-main-arrow">➔</footer>
+      </a>
+
+    </div>
+    <a class="more-button-dark" href="/miejsca/szlaki">Zobacz wszystkie trasy</a>
+  </section>
+
+  <section class="video">
+    <div class="video-wrapper">
+      <video id="myVideo" preload="metadata">
+        <source src="media/home-bg-video.webm" type="video/webm">
+        Twoja przeglądarka nie obsługuje filmów.
+      </video>
+    
+      <div class="video-controls">
+        <button id="playPauseBtn"><i class="fa fa-play" aria-hidden="true"></i></button>
+        <button id="muteBtn"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
+      </div>
+    </div>    
+  </section>
+
+  <script>
+const video = document.getElementById("myVideo");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const muteBtn = document.getElementById("muteBtn");
+const playPauseIcon = playPauseBtn.querySelector("i");
+const muteIcon = muteBtn.querySelector("i");
+
+// start/stop
+playPauseBtn.addEventListener("click", () => {
+  if (video.paused) {
+    video.play();
+    playPauseIcon.className = "fa fa-pause"; // zmienia ikonę na pauza
+  } else {
+    video.pause();
+    playPauseIcon.className = "fa fa-play"; // zmienia ikonę na play
+  }
+});
+
+// wyciszanie
+muteBtn.addEventListener("click", () => {
+  video.muted = !video.muted;
+  muteIcon.className = video.muted ? "fa fa-volume-off" : "fa fa-volume-up";
+});
+  </script>
+
+  <section class="photos-section">
+    <header>
+      ZOBACZ ZDJĘCIA
+    </header>
+    <div class="photos-container">
+      <div class="photos-row">
+        <div class="photos-img" style="background-image: url('Main-BG.jpg');"></div>
+        <div class="photos-img" style="background-image: url('Main-BG.jpg');"></div>
+        <div class="photos-img" style="background-image: url('Main-BG.jpg');"></div>
+      </div>
+      <div class="photos-row2">
+        <div class="photos-img" style="background-image: url('Main-BG.jpg');"></div>
+        <div class="photos-img" style="background-image: url('Main-BG.jpg');"></div>
+        <div class="photos-img" style="background-image: url('Main-BG.jpg');"></div>
+      </div>
+    </div>
+    <a href="/galeria" class="photos-button-color">Zobacz więcej zdjęć</a>
+  </section>
+
+  <section class="practical-info">
+    <header>INFORMACJE PRAKTYCZNE</header>
+    <div class="practical-info-container">
+      <div class="practical-info-column">
+        <a href="/komunikat">
+          <p class="practical-ctx">Komunikat turystyczny</p>
+          <p class="practical-arrow">➔</p>
+        </a>
+        <a href="/pogoda">
+          <p class="practical-ctx">Pogoda</p>
+          <p class="practical-arrow">➔</p>
+        </a>
+        <a href="/transport-publiczny">
+          <p class="practical-ctx">Transport publiczny</p>
+          <p class="practical-arrow">➔</p>
+        </a>
+      </div>
+      <div class="practical-info-column">
+        <a href="/mapa">
+          <p class="practical-ctx">Mapa Małej Góry</p>
+          <p class="practical-arrow">➔</p>
+        </a>
+        <a href="/bilety/informacje-o-biletach">
+          <p class="practical-ctx">Bilety wstępu</p>
+          <p class="practical-arrow">➔</p>
+        </a>
+        <a href="/miejsca/bobrowisko">
+          <p class="practical-ctx">Bobrowisko</p>
+          <p class="practical-arrow">➔</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>WESPRZYJ NAS</h2>
+      <h1>Pomoc dla Małej Góry</h1>
+      <span>Dowiedz się jak możesz wesprzeć funkcjonowanie Małej Góry.</span>
+      <a href="/wsparcie" class="more-button-light">Dowiedz się więcej</a>
+    </div>
+    <div class="hero-img" style="background-image: url('Main-BG.jpg');"></div>
+  </section>
+
+  <footer class="main-footer">
+    <!-- Descktop Version -->
+    <div class="main-footer-content">
+      <div class="main-footer-section">
+        <img class="main-footer-logo" src="LOGO_WHITE.png" alt="Mała Góra">
+        <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
+      </div>
+      <div class="main-footer-section mfs-cneter">
+        <h1>KONIECZNIE SPRAWDŹ</h1>
+        <div class="main-footer-section-links">
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+        </div>
+      </div>
+      <div class="main-footer-section">
+        <h1>PRZYDATNE LINKI</h1>
+        <div class="main-footer-section-links">
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Version -->
+    <div class="main-footer-content-mobile">
+      <div class="main-footer-section-mobile">
+        <img class="main-footer-logo-mobile" src="LOGO_WHITE.png" alt="Mała Góra">
+        <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
+      </div>
+      <div class="main-footer-section-mobile mfs-cneter-mobile">
+        <button class="footerAccordion">KONIECZNIE SPRAWDŹ</button>
+        <div class="main-footer-section-links-mobile">
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+        </div>
+      </div>
+      <div class="main-footer-section-mobile">
+        <button class="footerAccordion">PRZYDATNE LINKI</button>
+        <div class="main-footer-section-links-mobile">
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/mapa">Mapa Małej Góry</a>
+        </div>
+      </div>
+    </div>
+    <script>
+    var acc = document.getElementsByClassName("footerAccordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("footerAccordionActive");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+    <!-- Copyright -->
+    <div class="main-footer-copyright">
+      <img src="LOGO_FLAT_BLACK.png" alt="Mała Góra">
+      <p><i class="fa fa-copyright"></i> Mała Góra <span id="footerYear"></span></p>
+    </div>
+    <div class="footer-colors">
+      <div class="c-dark"></div>
+      <div class="c-color"></div>
+      <div class="c-white"></div>
+    </div>
+    <div class="footer-mobile-container"></div>
+  </footer>
+  <script>
+document.getElementById("footerYear").textContent = new Date().getFullYear();
+  </script>
+</main>
+
+<script>
+let timeout;
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  // wyczyść poprzedni timer
+  clearTimeout(timeout);
+
+  // zapamiętaj aktualną pozycję scrolla
+  lastScroll = window.scrollY;
+
+  // po zakończeniu scrolla, po 50ms, uruchamiamy lekką inercję
+  timeout = setTimeout(() => {
+    let start = window.scrollY;
+    let distance = lastScroll - start;
+    let duration = 300; // czas hamowania w ms
+    let startTime = null;
+
+    function inertia(time) {
+      if (!startTime) startTime = time;
+      let elapsed = time - startTime;
+      let progress = Math.min(elapsed / duration, 1);
+      // easing – powolne hamowanie
+      let ease = 1 - Math.pow(1 - progress, 3); 
+      window.scrollTo(0, start + distance * ease);
+      if (progress < 1) requestAnimationFrame(inertia);
+    }
+
+    requestAnimationFrame(inertia);
+  }, 50); // krótka pauza po ostatnim scrollu
+});
+</script>
 
 </body>
 
