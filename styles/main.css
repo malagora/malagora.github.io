@@ -408,7 +408,7 @@ li {
 	width: 100%;
 	aspect-ratio: 21/9;
 	height: auto;
-	background-image: url('Main-BG.jpg');
+	background-image: url('../media/IndexBG_04.jpg');
 	background-color: #aaa;
 	background-size: cover;
 	background-position: center;
