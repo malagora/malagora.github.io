@@ -406,8 +406,7 @@ li {
 
 .banner {
 	width: 100%;
-	aspect-ratio: 21/9;
-	height: auto;
+	height: 100vh;
 	background-image: url('../media/IndexBG_04.jpg');
 	background-color: #aaa;
 	background-size: cover;
@@ -483,16 +482,7 @@ p.f-dText:hover::after {
 }
 
 
-@media (max-width: 1280px) {
-	.banner {
-		aspect-ratio: 16/9;
-	}
-}
-
 @media (max-width: 1000px) {
-	.banner {
-		aspect-ratio: 8/7;
-	}
 	.m-text {
 		bottom: 20px;
 		left: 20px;
@@ -505,18 +495,6 @@ p.f-dText:hover::after {
 	}
 	.m-text a {
 		font-size: 20px;
-	}
-}
-
-@media (max-width: 800px) {
-	.banner {
-		aspect-ratio: 7/8;
-	}
-}
-
-@media (max-width: 600px) {
-	.banner {
-		aspect-ratio: 11/16;
 	}
 }
 
@@ -2212,4 +2190,12 @@ img.main-footer-logo {
 		height: 10px;
 		z-index: 998;
 	}
+}
+
+.page-error {
+	width: 100%;
+	height: 100vh;
+	background-color: #fff;
+	align-items: center;
+	justify-content: center;
 }
