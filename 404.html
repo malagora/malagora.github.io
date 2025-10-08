@@ -1,31 +1,354 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl-PL">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>404 — Nie znaleziono</title>
-  <style>
-    body { margin:0; min-height:100vh; display:grid; place-items:center;
-           font-family: system-ui, Arial, sans-serif; background:#0f172a; color:#e2e8f0; }
-    .box { text-align:center; padding:40px; }
-    h1 { font-size: clamp(28px, 4vw, 48px); margin:0 0 12px; }
-    p { opacity:.9; margin:0 0 20px; }
-    .buttons { display:flex; gap:16px; justify-content:center; }
-    a, button { padding:10px 16px; border-radius:12px; text-decoration:none; border:none; cursor:pointer;
-                background:#38bdf8; color:#0b1020; font-size:16px; }
-    a:hover, button:hover { filter: brightness(1.05); }
-  </style>
+  <title>Mała Góra – oficjalna strona</title>
+  <link rel="shortcut icon" href="../media/MalaGora-logo-icon.png">
+  <meta name="description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia.">
+  <meta name="author" content="K. Michalik">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mala Góra – oficjalna strona" />
+  <meta property="og:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
+  <meta property="og:url" content="https://malagora.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mala Góra – oficjalna strona" />
+  <meta name="twitter:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
+  <meta name="twitter:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
+
 <body>
-  <div class="box">
-    <h1>404</h1>
-    <p>Ups! Taka strona nie istnieje.</p>
-    <div class="buttons">
-      <!-- Powrót na stronę główną -->
-      <a href="/">🏠 Strona główna</a>
-      <!-- Powrót do poprzedniej -->
-      <button onclick="window.history.back()">⬅️ Wróć</button>
+
+<!-- Preloader -->
+<div id="preloader">
+	<div class="blur-background"></div>
+    <div class="preloaderDIV">
+      <img src="../media/LOGO_WHITE.png" class="preloaderLogo">
+      <img src="../media/2923-prints-dark.gif" class="preloaderLoad">
+    </div>
+</div>
+
+<!-- Navbar -->
+<header id="navbar" class="scrolled">
+    <div class="web-colors" style="z-index: 1500;">
+      <div class="c-dark"></div>
+      <div class="c-color"></div>
+      <div class="c-white"></div>
+    </div>
+	  <div class="container">
+	    <a href="#top">
+	      <img id="logo" src="../media/LOGO_FLAT_WHITE.png" alt="Mała Góra" />
+	      <img id="logo-colored" src="../media/LOGO_FLAT_COLOR.png" alt="Mała Góra" />
+	    </a>
+	    <nav>
+	      <a href="/mapa">Mapa</a>
+        <a href="/odznaki">Odznaki</a>
+        <a href="/bilety/informacje-o-biletach">Bilety</a>
+	    </nav>
+	  </div>
+</header>
+
+<script>
+const navbar = document.getElementById("navbar");
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  // chowanie navbaru przy przewijaniu w dół
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    navbar.style.transform = "translateY(-100%)"; // chowaj
+  } else {
+    navbar.style.transform = "translateY(0)"; // pokazuj
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
+
+<!-- Mobile menu -->
+<div class="mobile-menu-shadow"></div>
+<div class="mobile-menu">
+    <a href="/mapa"><img src="../media/mapa.png">Mapa</a>
+    <a href="/odznaki"><img src="../media/odznaki.png">Odznaki</a>
+    <a href="/bilety/informacje-o-biletach"><img src="../media/cennik.png">Bilety</a>
+    <a>
+      <div class="menu-x" onclick="toggleMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </a>
+</div>
+
+<!-- FULLSCREEN MENU -->
+<div id="menuMain" class="fullscreen-menu">
+  <h1>MENU</h1>
+  <a href="/mapa">Mapa parku</a>
+  <a href="#" data-submenu="submenuVisit">Zaplanuj wizytę<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+  <a href="#" data-submenu="submenuAwards">Zdobądź odznaki<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+  <a href="#" data-submenu="submenuTicket">Bilety<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+  <a href="#" data-submenu="submenuSupport">Wsparcie<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+</div>
+
+<!-- PODMENU - dowolna liczba -->
+<div id="submenuVisit" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> ZAPLANUJ WIZYTĘ</header>
+  <a href="/komunikat">Komunikat turystyczny</a>
+  <a href="/pogoda">Prognoza pogody</a>
+  <a href="/informacje-praktyczne">Przewodniki</a>
+  <a href="/informacje-praktyczne">Miejsca</a>
+  <a href="/transport-publiczny">Transport publiczny</a>
+</div>
+
+<div id="submenuAwards" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> ZDOBĄDŹ ODZNAKI</header>
+  <a href="/">Informacje o odznakach</a>
+  <a href="/">Formularz weryfikacyjny</a>
+</div>
+
+<div id="submenuTicket" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> BILETY</header>
+  <a href="/">Informacje o biletach</a>
+  <a href="/">Kup bilet</a>
+</div>
+
+<div id="submenuSupport" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> WSPARCIE</header>
+  <a href="/faq">Sprzątanie lasu</a>
+</div>
+
+<script>
+// --- BEZPIECZNE MENU / SUBMENU (otwierane tylko przyciskiem X) ---
+// Zakładamy strukturę: #menuMain (główne), .fullscreen-submenu (podmenu), linki z data-submenu="id"
+let _menuScrollPos = 0;
+
+function toggleMenu(btn) {
+  const mainMenu = document.getElementById('menuMain');
+  const submenus = document.querySelectorAll('.fullscreen-submenu');
+
+  const isOpen = mainMenu.classList.contains('active');
+
+  if (!isOpen) {
+    // OTWIERANIE
+    btn.classList.add('change');
+    _menuScrollPos = window.scrollY || window.pageYOffset;
+    // zablokuj scroll strony
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${_menuScrollPos}px`;
+
+    // resetuj podmenu (na pewno schowane i ustawione poza ekranem)
+    submenus.forEach(s => {
+      s.classList.remove('active', 'slide-out');
+      s.style.transition = '';         // usuń inline transition (jeśli były)
+      s.style.transform = 'translateX(100%)';
+      s.style.visibility = 'hidden';
+    });
+
+    // pokaz główne menu (CSS .active ustawi transform/opacity)
+    mainMenu.style.transform = ''; // usuń inline transform (bez konfliktu z CSS)
+    mainMenu.classList.add('active');
+  } else {
+    // ZAMYKANIE - natychmiastowy reset wszystkiego
+    btn.classList.remove('change');
+
+    // ukryj główne menu
+    mainMenu.classList.remove('active');
+    mainMenu.style.transform = ''; // usuń inline transform
+
+    // natychmiast zresetuj wszystkie podmenu (ukryj i ustaw poza ekranem)
+    submenus.forEach(s => {
+      s.classList.remove('active', 'slide-out');
+      s.style.transform = 'translateX(100%)';
+      s.style.visibility = 'hidden';
+    });
+
+    // odblokuj scroll i przywróć pozycję
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, _menuScrollPos);
+  }
+}
+
+// OTWIERANIE PODMENU: elementy z data-submenu="idPodmenu"
+document.querySelectorAll('[data-submenu]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    // otwieramy podmenu tylko gdy główne menu jest aktywne
+    const mainMenu = document.getElementById('menuMain');
+    if (!mainMenu.classList.contains('active')) return;
+
+    e.preventDefault();
+    const id = this.dataset.submenu;
+    if (!id) return;
+    const submenu = document.getElementById(id);
+    if (!submenu) return;
+
+    // upewnij się, że podmenu startuje poza ekranem po prawej (lub lewej - zależnie od CSS)
+    // tu przyjmujemy: domyślnie podmenu w CSS ma transform: translateX(100%) (poza prawą krawędzią)
+    submenu.style.visibility = 'visible';
+    // zapewniamy transition (jeśli chcesz override'ować w JS)
+    submenu.style.transition = 'transform 0.36s ease';
+    // ustaw początkowe położenie (jeśli zostało zmienione wcześniej)
+    submenu.style.transform = 'translateX(100%)';
+
+    // wymuś reflow żeby animacja zadziałała
+    // eslint-disable-next-line no-unused-expressions
+    submenu.offsetHeight;
+
+    // przesuń główne menu na lewo, wjedzie podmenu na środek
+    mainMenu.style.transform = 'translateX(-100%)';
+    submenu.classList.add('active');
+    submenu.style.transform = 'translateX(0)';
+  });
+});
+
+// POWRÓT Z PODMENU (klik < ) - szybkie, płynne, i po animacji ukrycie podmenu
+document.querySelectorAll('.back-arrow').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    const submenu = this.closest('.fullscreen-submenu');
+    const parentId = this.dataset.back || 'menuMain';
+    const parent = document.getElementById(parentId);
+    if (!submenu || !parent) return;
+
+    // przejedziemy podmenu w lewo (wyjście) i przywrócimy mainMenu do środka
+    // (zakładamy, że submenu ma inline transition ustawione przy otwarciu)
+    submenu.style.transform = 'translateX(-100%)';
+    parent.style.transform = 'translateX(0)';
+
+    // po zakończeniu animacji ukrywamy submenu i resetujemy jego transform do domyślnego
+    const handler = function (ev) {
+      if (ev.propertyName !== 'transform') return;
+      submenu.classList.remove('active', 'slide-out');
+      // ustaw poza prawą krawędź - gotowe do ponownego użycia
+      submenu.style.transform = 'translateX(100%)';
+      submenu.style.visibility = 'hidden';
+      // remove listener
+      submenu.removeEventListener('transitionend', handler);
+    };
+    // attach once
+    submenu.addEventListener('transitionend', handler);
+  });
+});
+</script>
+
+
+<!-- Top background -->
+<main id="main-content">
+  <div class="error-box">
+    <h1 class="error-box_error">404</h1>
+    <div class="error-box_content">
+        <h1>Strona nie została znaleziona…</h1>
+        <h2>Przepraszamy, strona której szukasz nie została znaleziona lub nie istnieje.</h2>
+        <div class="error-box_buttons">
+            <!-- Powrót do poprzedniej -->
+            <a class="more-button-color" onclick="window.history.back()">Powrót do poprzedniej strony</a>
+            <!-- Powrót na stronę główną -->
+            <a href="/" class="more-button-dark">Wróć na stronę główną</a>
+        </div>
     </div>
   </div>
+
+    
+  <footer class="main-footer">
+    <!-- Descktop Version -->
+    <div class="main-footer-content">
+      <div class="main-footer-section">
+        <img class="main-footer-logo" src="../media/LOGO_WHITE.png" alt="Mała Góra">
+        <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
+      </div>
+      <div class="main-footer-section mfs-cneter">
+        <h1>NASZE SERWISY</h1>
+        <div class="main-footer-section-links">
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/galeria">Galeria zdjęć</a>
+          <a href="/sklep">Sklep</a>
+          <a href="/old-webs">Archiwalna strona</a>
+          <a href="/wspinanie">Wspinaczka</a>
+        </div>
+      </div>
+      <div class="main-footer-section">
+        <h1>PRZYDATNE LINKI</h1>
+        <div class="main-footer-section-links">
+          <a href="/wsparcie">Wsparcie</a>
+          <a href="/pogoda">Prognoza pogody</a>
+          <a href="/komunikat">Komunikat turystyczny</a>
+          <a href="/bilety/informacje-o-biletach">Informacja o biletach</a>
+          <a href="/transport-publiczny">Transport publiczny</a>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Version -->
+    <div class="main-footer-content-mobile">
+      <div class="main-footer-section-mobile">
+        <img class="main-footer-logo-mobile" src="../media/LOGO_WHITE.png" alt="Mała Góra">
+        <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
+      </div>
+      <div class="main-footer-section-mobile mfs-cneter-mobile">
+        <button class="footerAccordion">NASZE SERWISY</button>
+        <div class="main-footer-section-links-mobile">
+          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/galeria">Galeria zdjęć</a>
+          <a href="/sklep">Sklep</a>
+          <a href="/old-webs">Archiwalna strona</a>
+          <a href="/wspinanie">Wspinaczka</a>
+        </div>
+      </div>
+      <div class="main-footer-section-mobile">
+        <button class="footerAccordion">PRZYDATNE LINKI</button>
+        <div class="main-footer-section-links-mobile">
+          <a href="/wsparcie">Wsparcie</a>
+          <a href="/pogoda">Prognoza pogody</a>
+          <a href="/komunikat">Komunikat turystyczny</a>
+          <a href="/bilety/informacje-o-biletach">Informacja o biletach</a>
+          <a href="/transport-publiczny">Transport publiczny</a>
+        </div>
+      </div>
+    </div>
+    <script>
+    var acc = document.getElementsByClassName("footerAccordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("footerAccordionActive");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+    <!-- Copyright -->
+    <div class="main-footer-copyright">
+      <img src="../media/LOGO_FLAT_BLACK.png" alt="Mała Góra">
+      <p><i class="fa fa-copyright"></i> Mała Góra <span id="footerYear"></span></p>
+    </div>
+    <div class="footer-colors">
+      <div class="c-dark"></div>
+      <div class="c-color"></div>
+      <div class="c-white"></div>
+    </div>
+    <div class="footer-mobile-container"></div>
+  </footer>
+  <script>
+document.getElementById("footerYear").textContent = new Date().getFullYear();
+  </script>
+</main>
+
 </body>
+
 </html>
