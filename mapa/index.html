@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+      animation: slideInFromLeft 0.6s ease forwards;
+    }
+
+    .google-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: auto;
+    }
+
+    /* Przycisk zamknięcia (X) */
+    .map-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 22px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .map-close:hover {
+      background: #f00;
+      color: #fff;
+    }
+
+    /* Przycisk legendy */
+    .map-legend-toggle {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .map-legend-toggle:hover {
+      background: #ddd;
+    }
+
+    /* Animacje wejścia/wyjścia */
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOutToLeft {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="map-container" id="mapContainer">
+    <iframe 
+      id="mapFrame"
+      src="https://www.google.com/maps/d/embed?mid=19ZJni8cAi_FH_D9gxf-5iqgV0pHMTpo&hl=pl&ehbc=2E312F"
+      class="google-iframe"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+
+    <button class="map-close" onclick="closeMap()">✕</button>
+    <button class="map-legend-toggle" onclick="toggleLegend()">Legenda</button>
+  </div>
+
+  <script>
+    let legendVisible = true;
+
+    function toggleLegend() {
+      const iframe = document.getElementById('mapFrame');
+      const src = iframe.src;
+
+      if (legendVisible) {
+        iframe.src = src + '&ll=0';
+        legendVisible = false;
+      } else {
+        iframe.src = src.replace('&ll=0', '');
+        legendVisible = true;
+      }
+    }
+
+    function closeMap() {
+      const container = document.getElementById('mapContainer');
+      container.style.animation = 'slideOutToLeft 0.6s ease forwards';
+      setTimeout(() => {
+        window.location.href = '/'; // powrót na stronę główną
+      }, 500);
+    }
+  </script>
+</body>
+</html>
