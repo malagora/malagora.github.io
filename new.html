@@ -25,7 +25,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="main.css">
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
 
@@ -42,7 +42,7 @@
 
 <!-- Navbar -->
 <header id="navbar">
-    <div class="web-colors">
+    <div class="web-colors" style="z-index: 1500;">
       <div class="c-dark"></div>
       <div class="c-color"></div>
       <div class="c-white"></div>
@@ -92,7 +92,7 @@ window.addEventListener("scroll", () => {
     <a href="/odznaki"><img src="odznaki.png">Odznaki</a>
     <a href="/bilety/informacje-o-biletach"><img src="cennik.png">Bilety</a>
     <a>
-      <div class="menu-x" onclick="openMenu(this)">
+      <div class="menu-x" onclick="toggleMenu(this)">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
@@ -100,11 +100,156 @@ window.addEventListener("scroll", () => {
     </a>
 </div>
 
+<!-- FULLSCREEN MENU -->
+<div id="menuMain" class="fullscreen-menu">
+  <h1>MENU</h1>
+  <a href="/mapa">Mapa parku</a>
+  <a href="#" data-submenu="submenuVisit">Zaplanuj wizytę<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+  <a href="#" data-submenu="submenuAwards">Zdobądź odznaki<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+  <a href="#" data-submenu="submenuTicket">Bilety<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+  <a href="#" data-submenu="submenuSupport">Wsparcie<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+</div>
+
+<!-- PODMENU - dowolna liczba -->
+<div id="submenuVisit" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> ZAPLANUJ WIZYTĘ</header>
+  <a href="/komunikat">Komunikat turystyczny</a>
+  <a href="/pogoda">Prognoza pogody</a>
+  <a href="/informacje-praktyczne">Przewodniki</a>
+  <a href="/informacje-praktyczne">Miejsca</a>
+  <a href="/transport-publiczny">Transport publiczny</a>
+</div>
+
+<div id="submenuAwards" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> ZDOBĄDŹ ODZNAKI</header>
+  <a href="/">Informacje o odznakach</a>
+  <a href="/">Formularz weryfikacyjny</a>
+</div>
+
+<div id="submenuTicket" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> BILETY</header>
+  <a href="/">Informacje o biletach</a>
+  <a href="/">Kup bilet</a>
+</div>
+
+<div id="submenuSupport" class="fullscreen-submenu">
+  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> WSPARCIE</header>
+  <a href="/faq">Sprzątanie lasu</a>
+</div>
+
 <script>
-function openMenu(x) {
-  x.classList.toggle("change");
+// --- BEZPIECZNE MENU / SUBMENU (otwierane tylko przyciskiem X) ---
+// Zakładamy strukturę: #menuMain (główne), .fullscreen-submenu (podmenu), linki z data-submenu="id"
+let _menuScrollPos = 0;
+
+function toggleMenu(btn) {
+  const mainMenu = document.getElementById('menuMain');
+  const submenus = document.querySelectorAll('.fullscreen-submenu');
+
+  const isOpen = mainMenu.classList.contains('active');
+
+  if (!isOpen) {
+    // OTWIERANIE
+    btn.classList.add('change');
+    _menuScrollPos = window.scrollY || window.pageYOffset;
+    // zablokuj scroll strony
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${_menuScrollPos}px`;
+
+    // resetuj podmenu (na pewno schowane i ustawione poza ekranem)
+    submenus.forEach(s => {
+      s.classList.remove('active', 'slide-out');
+      s.style.transition = '';         // usuń inline transition (jeśli były)
+      s.style.transform = 'translateX(100%)';
+      s.style.visibility = 'hidden';
+    });
+
+    // pokaz główne menu (CSS .active ustawi transform/opacity)
+    mainMenu.style.transform = ''; // usuń inline transform (bez konfliktu z CSS)
+    mainMenu.classList.add('active');
+  } else {
+    // ZAMYKANIE - natychmiastowy reset wszystkiego
+    btn.classList.remove('change');
+
+    // ukryj główne menu
+    mainMenu.classList.remove('active');
+    mainMenu.style.transform = ''; // usuń inline transform
+
+    // natychmiast zresetuj wszystkie podmenu (ukryj i ustaw poza ekranem)
+    submenus.forEach(s => {
+      s.classList.remove('active', 'slide-out');
+      s.style.transform = 'translateX(100%)';
+      s.style.visibility = 'hidden';
+    });
+
+    // odblokuj scroll i przywróć pozycję
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, _menuScrollPos);
+  }
 }
-    </script>
+
+// OTWIERANIE PODMENU: elementy z data-submenu="idPodmenu"
+document.querySelectorAll('[data-submenu]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    // otwieramy podmenu tylko gdy główne menu jest aktywne
+    const mainMenu = document.getElementById('menuMain');
+    if (!mainMenu.classList.contains('active')) return;
+
+    e.preventDefault();
+    const id = this.dataset.submenu;
+    if (!id) return;
+    const submenu = document.getElementById(id);
+    if (!submenu) return;
+
+    // upewnij się, że podmenu startuje poza ekranem po prawej (lub lewej - zależnie od CSS)
+    // tu przyjmujemy: domyślnie podmenu w CSS ma transform: translateX(100%) (poza prawą krawędzią)
+    submenu.style.visibility = 'visible';
+    // zapewniamy transition (jeśli chcesz override'ować w JS)
+    submenu.style.transition = 'transform 0.36s ease';
+    // ustaw początkowe położenie (jeśli zostało zmienione wcześniej)
+    submenu.style.transform = 'translateX(100%)';
+
+    // wymuś reflow żeby animacja zadziałała
+    // eslint-disable-next-line no-unused-expressions
+    submenu.offsetHeight;
+
+    // przesuń główne menu na lewo, wjedzie podmenu na środek
+    mainMenu.style.transform = 'translateX(-100%)';
+    submenu.classList.add('active');
+    submenu.style.transform = 'translateX(0)';
+  });
+});
+
+// POWRÓT Z PODMENU (klik < ) - szybkie, płynne, i po animacji ukrycie podmenu
+document.querySelectorAll('.back-arrow').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    const submenu = this.closest('.fullscreen-submenu');
+    const parentId = this.dataset.back || 'menuMain';
+    const parent = document.getElementById(parentId);
+    if (!submenu || !parent) return;
+
+    // przejedziemy podmenu w lewo (wyjście) i przywrócimy mainMenu do środka
+    // (zakładamy, że submenu ma inline transition ustawione przy otwarciu)
+    submenu.style.transform = 'translateX(-100%)';
+    parent.style.transform = 'translateX(0)';
+
+    // po zakończeniu animacji ukrywamy submenu i resetujemy jego transform do domyślnego
+    const handler = function (ev) {
+      if (ev.propertyName !== 'transform') return;
+      submenu.classList.remove('active', 'slide-out');
+      // ustaw poza prawą krawędź - gotowe do ponownego użycia
+      submenu.style.transform = 'translateX(100%)';
+      submenu.style.visibility = 'hidden';
+      // remove listener
+      submenu.removeEventListener('transitionend', handler);
+    };
+    // attach once
+    submenu.addEventListener('transitionend', handler);
+  });
+});
+</script>
+
 
 <!-- Top background -->
 <main id="main-content">
@@ -113,7 +258,7 @@ function openMenu(x) {
     <div class="m-text">
       <p class="m-small">NIE TAKA MAŁA</p>
       <p class="m-huge">Mała Góra</p>
-      <a href="#first"><p class="f-dArrow">⭣</p><p class="f-dText">PRZEWIŃ DALEJ</p></a>
+      <a href="#first"><p class="f-dArrow"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></p><p class="f-dText">PRZEWIŃ DALEJ</p></a>
     </div>
   </section>
 
@@ -160,19 +305,29 @@ const today = new Date();
       <a class="quick-button" href="/komunikat#zalecenia"><img class="kom-icon" src="accept.png"><p>Zalecenia</p></a>
       <a class="more-button-dark" href="/komunikat">Zobacz cały komunikat</a>
     </div>
+
     <div class="pogoda">
-        <iframe src="https://www.meteoblue.com/pl/pogoda/widget/daily/jamnica_polska_12510622?geoloc=fixed&days=3&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=0&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 400px; height: 300px; display: block;"></iframe>
-        <a class="more-button-color" href="/pogoda">Zobacz prognozę</a>
-      </div>
+      <iframe
+        src="https://www.meteoblue.com/pl/pogoda/widget/daily/jamnica_polska_12510622?geoloc=fixed&days=3&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=0&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"
+        frameborder="0"
+        scrolling="NO"
+        allowtransparency="true"
+        sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
+      </iframe>
+      <a class="more-button-color" href="/pogoda">Zobacz prognozę</a>
+    </div>
+
     <div class="powietrze">
       Stan powietrza:
-      <!-- Airly Widget Begin -->
-      <script src="https://airly.org/map/airly.js" type="text/javascript"></script>
-      <iframe id="airly_320155154" src="https://airly.org/widget/v2/?width=auto&height=auto&displayMeasurements=false&displayCAQI=true&autoHeight=true&autoWidth=true&language=pl&indexType=AIRLY_CAQI&unitSpeed=metric&unitTemperature=celsius&latitude=49.5830953501&longitude=20.7424387955" style="width:100%; height:300px; border:none; margin:10px; display: block;"></iframe>
-      <!-- Airly Widget End -->
+      <iframe id="airly_320155154"
+        src="https://airly.org/widget/v2/?width=auto&height=auto&displayMeasurements=false&displayCAQI=true&autoHeight=true&autoWidth=true&language=pl&indexType=AIRLY_CAQI&unitSpeed=metric&unitTemperature=celsius&latitude=49.5830953501&longitude=20.7424387955"
+        frameborder="0"
+        style="border:none;">
+      </iframe>
       <a class="more-button-color" href="https://airly.org/map/pl/">Dowiedz się więcej</a>
     </div>
   </section>
+
 
   <section class="news">
     <p>AKTUALNOŚCI</p>
@@ -207,7 +362,7 @@ const today = new Date();
       </a>
       -->
     </div>
-    <a class="more-button-color" href="/aktualności">Zobacz więcej aktualności</a>
+    <a class="more-button-color" href="/aktualnosci">Zobacz więcej aktualności</a>
   </section>
 
   <section class="short">
@@ -381,19 +536,19 @@ document.addEventListener("DOMContentLoaded", () => {
     <a class="places-prev" onclick="">⭠</a>
     <a class="places-next" onclick="">⭢</a>
     <div class="places-last">
-      <a class="places-last-item" href="" style="background-image: url('');">
+      <a class="places-last-item" href="" style="background-image: url('Main-BG.jpg');">
         <span class="place-name">Skałki Północne</span>
         <span class="place-arrow">➔</span>
       </a>
-      <a class="places-last-item" href="" style="background-image: url('');">
+      <a class="places-last-item" href="" style="background-image: url('Main-BG.jpg');">
         <span class="place-name">Polana Mrozówka</span>
         <span class="place-arrow">➔</span>
       </a>
-      <a class="places-last-item" href="" style="background-image: url('');">
+      <a class="places-last-item" href="" style="background-image: url('Main-BG.jpg');">
         <span class="place-name">Małogórski Potok</span>
         <span class="place-arrow">➔</span>
       </a>
-      <a class="places-last-item" href="" style="background-image: url('');">
+      <a class="places-last-item" href="" style="background-image: url('Main-BG.jpg');">
         <span class="place-name">Kacze Skałki</span>
         <span class="place-arrow">➔</span>
       </a>
@@ -401,226 +556,132 @@ document.addEventListener("DOMContentLoaded", () => {
   </section>
 
   <script>
-(function () {
-  const root = document.querySelector('.places');
-  if (!root) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".places-last");
+  const items = document.querySelectorAll(".places-last-item");
+  const prevBtn = document.querySelector(".places-prev");
+  const nextBtn = document.querySelector(".places-next");
+  const counter = document.querySelector(".places-counter");
 
-  const viewport = root.querySelector('.places-viewport');
-  const track = root.querySelector('.places-last');
-  const prevBtn = root.querySelector('.places-prev');
-  const nextBtn = root.querySelector('.places-next');
-  const counterEl = root.querySelector('.places-counter');
+  let index = 0;
+  const visibleSlides = 3;
+  const totalItems = items.length;
 
-  // zapisz początkowy HTML slajdów (oryginały)
-  const initialSlidesHTML = Array.from(track.children).map(node => node.outerHTML);
-  let items = [];              // aktualne elementy w track (po sklonowaniu)
-  let origCount = initialSlidesHTML.length;
-  let slidesPerView = null;    // 3 albo 1
-  let cloneCount = 0;
-  let currentIndex = 0;        // indeks względem track.children
-  let slideWidth = 0;          // szerokość pojedynczego "slotu" (px)
-  let isAnimating = false;
+  const itemWidth = items[0].offsetWidth + 20; // szerokość + margines
 
-  // debounce util
-  function debounce(fn, wait = 120) {
-    let t;
-    return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+  // klonowanie dla zapętlenia
+  const cloneFirst = [];
+  const cloneLast = [];
+  for (let i = 0; i < visibleSlides; i++) {
+    cloneFirst.push(items[i].cloneNode(true));
+    cloneLast.push(items[totalItems - 1 - i].cloneNode(true));
   }
+  cloneFirst.forEach(clone => track.appendChild(clone));
+  cloneLast.reverse().forEach(clone => track.insertBefore(clone, items[0]));
 
-  // create element from HTML string
-  function createFromHTML(html) {
-    const tpl = document.createElement('template');
-    tpl.innerHTML = html.trim();
-    return tpl.content.firstElementChild;
-  }
-
-  function getSlidesPerView() {
-    return (window.innerWidth < 1000) ? 1 : 3;
-  }
-
-  function buildTrack() {
-    // wyczyść track
-    track.innerHTML = '';
-
-    slidesPerView = getSlidesPerView();
-    cloneCount = slidesPerView;
-
-    // przygotuj listę oryginałów (z initial HTML)
-    const originals = initialSlidesHTML.map(h => createFromHTML(h));
-
-    // klony na początek - ostatnie 'cloneCount'
-    const pref = initialSlidesHTML.slice(-cloneCount).map(h => {
-      const el = createFromHTML(h);
-      el.classList.add('clone');
-      return el;
-    });
-
-    // klony na koniec - pierwsze 'cloneCount'
-    const suf = initialSlidesHTML.slice(0, cloneCount).map(h => {
-      const el = createFromHTML(h);
-      el.classList.add('clone');
-      return el;
-    });
-
-    // do track: pref + originals + suf
-    pref.forEach(el => track.appendChild(el));
-    originals.forEach(el => track.appendChild(el));
-    suf.forEach(el => track.appendChild(el));
-
-    items = Array.from(track.children);
-    // ustaw currentIndex na pierwszy oryginalny element (po pref)
-    currentIndex = cloneCount;
-
-    // ustaw szerokość slajdu (po renderze)
-    requestAnimationFrame(() => {
-      calculateDimensions();
-      jumpToIndex(currentIndex, false); // natychmiast bez animacji
-      updateCounter();
-    });
-  }
-
-  function calculateDimensions() {
-    if (!items.length) return;
-    const style = getComputedStyle(items[0]);
-    const marginRight = parseFloat(style.marginRight) || 0;
-    slideWidth = items[0].getBoundingClientRect().width + marginRight;
-  }
-
-  function translateForIndex(index) {
-    return -index * slideWidth;
-  }
-
-  function jumpToIndex(index, smooth = true) {
-    if (smooth) {
-      track.style.transition = 'transform 0.5s cubic-bezier(.22,.8,.3,1)';
-    } else {
-      track.style.transition = 'none';
-    }
-    const x = translateForIndex(index);
-    track.style.transform = `translateX(${x}px)`;
-  }
+  let currentPosition = -itemWidth * visibleSlides;
+  track.style.transform = `translateX(${currentPosition}px)`;
 
   function updateCounter() {
-    if (!counterEl) return;
-    const displayTotal = origCount;
-    // convert currentIndex to 0..origCount-1
-    let idx = (currentIndex - cloneCount) % origCount;
-    if (idx < 0) idx += origCount;
-    counterEl.textContent = `${idx + 1}/${displayTotal}`;
+    let currentSlide = ((index % totalItems) + totalItems) % totalItems;
+    counter.textContent = `${currentSlide + 1}/${totalItems}`;
   }
 
-  // Next / Prev handlers
-  function next() { if (isAnimating) return; isAnimating = true; currentIndex++; jumpToIndex(currentIndex, true); }
-  function prev() { if (isAnimating) return; isAnimating = true; currentIndex--; jumpToIndex(currentIndex, true); }
-
-  track.addEventListener('transitionend', () => {
-    // gdy osiągniemy klony, resetujemy bez animacji
-    if (currentIndex >= cloneCount + origCount) {
-      // przesunęliśmy na klony po końcu -> ustaw na pierwszy oryg
-      currentIndex = cloneCount;
-      jumpToIndex(currentIndex, false);
-    } else if (currentIndex < cloneCount) {
-      // przesunęliśmy na klony przed początkiem -> ustaw na ostatni oryg
-      currentIndex = cloneCount + origCount - 1;
-      jumpToIndex(currentIndex, false);
-    }
-    updateCounter();
-    // mały timeout żeby nie blokować natychmiast
-    setTimeout(() => { isAnimating = false; }, 20);
-  });
-
-  // DRAG / SWIPE (pointer-based)
-  let pointerActive = false;
-  let startX = 0;
-  let startTranslate = 0;
-  let moved = 0;
-  let dragging = false;
-
-  function onPointerDown(e) {
-    // ignore right-clicks
-    if (e.button && e.button !== 0) return;
-    pointerActive = true;
-    dragging = false;
-    startX = e.clientX || (e.touches && e.touches[0].clientX);
-    // current transform X
-    const matrix = window.getComputedStyle(track).transform;
-    if (matrix !== 'none') {
-      const m = new WebKitCSSMatrix(matrix);
-      startTranslate = m.m41;
+  function moveSlide(direction) {
+    if (direction === "next") {
+      index++;
+      currentPosition -= itemWidth;
     } else {
-      startTranslate = 0;
+      index--;
+      currentPosition += itemWidth;
     }
-    track.style.transition = 'none';
-    // capture pointer for mouse
-    if (e.pointerId) track.setPointerCapture(e.pointerId);
+
+    track.style.transition = "transform 0.5s ease-in-out";
+    track.style.transform = `translateX(${currentPosition}px)`;
+
+    track.addEventListener("transitionend", () => {
+      if (index >= totalItems) {
+        track.style.transition = "none";
+        index = 0;
+        currentPosition = -itemWidth * visibleSlides;
+        track.style.transform = `translateX(${currentPosition}px)`;
+      }
+
+      if (index < 0) {
+        track.style.transition = "none";
+        index = totalItems - 1;
+        currentPosition = -itemWidth * (totalItems);
+        track.style.transform = `translateX(${currentPosition}px)`;
+      }
+
+      updateCounter();
+    }, { once: true });
   }
 
-  function onPointerMove(e) {
-    if (!pointerActive) return;
-    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-    const dx = clientX - startX;
-    if (Math.abs(dx) > 5) dragging = true;
-    moved = dx;
-    track.style.transform = `translateX(${startTranslate + dx}px)`;
-  }
+  nextBtn.addEventListener("click", () => moveSlide("next"));
+  prevBtn.addEventListener("click", () => moveSlide("prev"));
 
-  function onPointerUp(e) {
-    if (!pointerActive) return;
-    pointerActive = false;
-    // threshold do zmiany slajdu
-    const threshold = slideWidth * 0.25;
-    if (moved < -threshold) { // swipe left -> next
-      currentIndex++;
-    } else if (moved > threshold) { // swipe right -> prev
-      currentIndex--;
-    }
-    // wróć do normalnego przesuwania z animacją
-    jumpToIndex(currentIndex, true);
-    // reset
-    moved = 0;
-    dragging = false;
-  }
-
-  // block click if dragged
-  function onItemClick(e) {
-    if (dragging) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-    }
-  }
-
-  // resize handler - rebuild track so cloneCount may change
-  const onResize = debounce(() => {
-    // rebuild
-    buildTrack();
-  }, 150);
-
-  // initial init
-  buildTrack();
-
-  // event listeners
-  nextBtn && nextBtn.addEventListener('click', next);
-  prevBtn && prevBtn.addEventListener('click', prev);
-
-  // pointer events: we listen on viewport to allow dragging
-  viewport.addEventListener('pointerdown', onPointerDown, { passive: true });
-  window.addEventListener('pointermove', onPointerMove, { passive: true });
-  window.addEventListener('pointerup', onPointerUp, { passive: true });
-
-  // support touch (some browsers)
-  viewport.addEventListener('touchstart', onPointerDown, { passive: true });
-  viewport.addEventListener('touchmove', onPointerMove, { passive: true });
-  viewport.addEventListener('touchend', onPointerUp, { passive: true });
-
-  // prevent clicks when dragging
-  track.addEventListener('click', onItemClick, true);
-
-  window.addEventListener('resize', onResize);
-
-  // expose small api if needed
-  root._places = { goTo: (i) => { currentIndex = cloneCount + (i % origCount); jumpToIndex(currentIndex, true); } };
-})();
+  updateCounter();
+});
   </script>
+
+  <section class="places-mobile">
+    <header>Interesujące miejsca</header>
+    <div class="places-mobile-counter">1/4</div>
+    <a class="places-mobile-prev">⭠</a>
+    <a class="places-mobile-next">⭢</a>
+
+    <div class="places-mobile-viewport">
+      <div class="places-mobile-last">
+        <a class="places-mobile-last-item" href="#" style="background-image: url('Main-BG.jpg');">
+          <span class="place-name">Skałki Północne</span>
+          <span class="place-arrow">➔</span>
+        </a>
+        <a class="places-mobile-last-item" href="#" style="background-image: url('Main-BG.jpg');">
+          <span class="place-name">Polana Mrozówka</span>
+          <span class="place-arrow">➔</span>
+        </a>
+        <a class="places-mobile-last-item" href="#" style="background-image: url('Main-BG.jpg');">
+          <span class="place-name">Małogórski Potok</span>
+          <span class="place-arrow">➔</span>
+        </a>
+        <a class="places-mobile-last-item" href="#" style="background-image: url('Main-BG.jpg');">
+          <span class="place-name">Kacze Skałki</span>
+          <span class="place-arrow">➔</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+	const track = document.querySelector('.places-mobile-last');
+	const items = document.querySelectorAll('.places-mobile-last-item');
+	const prev = document.querySelector('.places-mobile-prev');
+	const next = document.querySelector('.places-mobile-next');
+	const counter = document.querySelector('.places-mobile-counter');
+
+	let index = 0;
+	const total = items.length;
+
+	function updateCounter() {
+		counter.textContent = `${(index % total) + 1}/${total}`;
+	}
+
+	function moveSlide(direction) {
+		index = (index + direction + total) % total;
+		track.style.transition = 'transform 0.5s ease-in-out';
+		track.style.transform = `translateX(-${index * 100}%)`;
+		updateCounter();
+	}
+
+	prev.addEventListener('click', () => moveSlide(-1));
+	next.addEventListener('click', () => moveSlide(1));
+
+	updateCounter();
+});
+  </script>
+
 
   <section class="przewodniki">
     <p>LISTA TRAS</p>
@@ -786,19 +847,23 @@ muteBtn.addEventListener("click", () => {
         <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
       </div>
       <div class="main-footer-section mfs-cneter">
-        <h1>KONIECZNIE SPRAWDŹ</h1>
+        <h1>NASZE SERWISY</h1>
         <div class="main-footer-section-links">
           <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/galeria">Galeria zdjęć</a>
+          <a href="/sklep">Sklep</a>
+          <a href="/old-webs">Archiwalna strona</a>
+          <a href="/wspinanie">Wspinaczka</a>
         </div>
       </div>
       <div class="main-footer-section">
         <h1>PRZYDATNE LINKI</h1>
         <div class="main-footer-section-links">
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/wsparcie">Wsparcie</a>
+          <a href="/pogoda">Prognoza pogody</a>
+          <a href="/komunikat">Komunikat turystyczny</a>
+          <a href="/bilety/informacje-o-biletach">Informacja o biletach</a>
+          <a href="/transport-publiczny">Transport publiczny</a>
         </div>
       </div>
     </div>
@@ -809,19 +874,23 @@ muteBtn.addEventListener("click", () => {
         <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
       </div>
       <div class="main-footer-section-mobile mfs-cneter-mobile">
-        <button class="footerAccordion">KONIECZNIE SPRAWDŹ</button>
+        <button class="footerAccordion">NASZE SERWISY</button>
         <div class="main-footer-section-links-mobile">
           <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/galeria">Galeria zdjęć</a>
+          <a href="/sklep">Sklep</a>
+          <a href="/old-webs">Archiwalna strona</a>
+          <a href="/wspinanie">Wspinaczka</a>
         </div>
       </div>
       <div class="main-footer-section-mobile">
         <button class="footerAccordion">PRZYDATNE LINKI</button>
         <div class="main-footer-section-links-mobile">
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/mapa">Mapa Małej Góry</a>
+          <a href="/wsparcie">Wsparcie</a>
+          <a href="/pogoda">Prognoza pogody</a>
+          <a href="/komunikat">Komunikat turystyczny</a>
+          <a href="/bilety/informacje-o-biletach">Informacja o biletach</a>
+          <a href="/transport-publiczny">Transport publiczny</a>
         </div>
       </div>
     </div>
@@ -857,39 +926,6 @@ muteBtn.addEventListener("click", () => {
 document.getElementById("footerYear").textContent = new Date().getFullYear();
   </script>
 </main>
-
-<script>
-let timeout;
-let lastScroll = 0;
-
-window.addEventListener("scroll", () => {
-  // wyczyść poprzedni timer
-  clearTimeout(timeout);
-
-  // zapamiętaj aktualną pozycję scrolla
-  lastScroll = window.scrollY;
-
-  // po zakończeniu scrolla, po 50ms, uruchamiamy lekką inercję
-  timeout = setTimeout(() => {
-    let start = window.scrollY;
-    let distance = lastScroll - start;
-    let duration = 300; // czas hamowania w ms
-    let startTime = null;
-
-    function inertia(time) {
-      if (!startTime) startTime = time;
-      let elapsed = time - startTime;
-      let progress = Math.min(elapsed / duration, 1);
-      // easing – powolne hamowanie
-      let ease = 1 - Math.pow(1 - progress, 3); 
-      window.scrollTo(0, start + distance * ease);
-      if (progress < 1) requestAnimationFrame(inertia);
-    }
-
-    requestAnimationFrame(inertia);
-  }, 50); // krótka pauza po ostatnim scrollu
-});
-</script>
 
 </body>
 
