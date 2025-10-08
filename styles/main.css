@@ -2243,7 +2243,6 @@ img.main-footer-logo {
 @media (max-width: 1000px) {
 	.error-box {
 		width: 90%;
-		height: 100vh;
 		background-color: #fff;
 		align-items: center;
 		justify-content: center;
