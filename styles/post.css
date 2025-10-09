@@ -605,7 +605,106 @@ div.breadcrumb {
     font-weight: 400;
 }
 
+@media (max-width: 1000px) {
+    .banner {
+        width: 100%;
+        height: calc(65vh);
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 100px;
+    }
 
+    .banner-image {
+        height: 60%;
+        width: 100%;
+        background-color: #aaa;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .banner-text {
+        background-color: #055;
+        height: 40%;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        position: relative;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .banner-text-content {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        padding: auto 0;
+        gap: 15px;
+    }
+    .banner-text-content h1 {
+        font-size: 40px;
+        color: #aff;
+        font-weight: 800;
+    }
+    .banner-text-content p {
+        font-size: 15px;
+        color: #eff;
+        font-weight: 150;
+    }
+    .banner-text a {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        color: #fff;
+    }
+    .breadcrumb_list {
+        padding: 0;
+        margin: auto 10px;
+    }
+
+    .post_content {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .post_content header {
+        font-size: 35px;
+    }
+
+    .post footer {
+        width: 100%;
+        height: fit-content;
+        margin: 40px 0;
+        padding: 40px 20px;
+        background-color: #dfffff;
+    }
+    .post footer a.source {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
+    .post footer a.source img {
+        width: auto;
+        height: 70px;
+    }
+    .post footer a.source div h1 {
+        font-size: 30px;
+        font-weight: 800;
+        text-align: center;
+    }
+    .post footer a.source div h2 {
+        font-size: 24px;
+        font-weight: 400;
+        text-align: center;
+    }
+}
 
 
 /* STOPKA: */
