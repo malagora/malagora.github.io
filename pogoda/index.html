@@ -32,7 +32,7 @@
 <body>
 
 <!-- Navbar -->
-<header id="navbar">
+<header id="navbar" class="scrolled">
     <div class="web-colors" style="z-index: 1500;">
       <div class="c-dark"></div>
       <div class="c-color"></div>
@@ -57,13 +57,6 @@ let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
-
-  // zmiana koloru i loga
-  if (currentScroll > 300) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
 
   // chowanie navbaru przy przewijaniu w dół
   if (currentScroll > lastScroll && currentScroll > 100) {
