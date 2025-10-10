@@ -484,7 +484,7 @@ p.f-dText:hover::after {
 
 @media (max-width: 1000px) {
 	.banner {
-		height: 90vh;
+		height: calc(100vh - 100px);
 	}
 	.m-text {
 		bottom: 20px;
