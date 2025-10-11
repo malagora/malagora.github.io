@@ -741,7 +741,7 @@ div.breadcrumb {
     }
 
     .banner-image {
-        height: 60%;
+        height: 50%;
         width: 100%;
         background-color: #aaa;
         background-size: cover;
@@ -754,7 +754,7 @@ div.breadcrumb {
 
     .banner-text {
         background-color: #055;
-        height: 40%;
+        height: 50%;
         width: 100%;
         display: flex;
         justify-content: left;
