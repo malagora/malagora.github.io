@@ -16,65 +16,6 @@ body {
 }
 
 
-#preloader {
-	background-color: rgba(0,0,0,0);
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 1000;
-	display: none;
-}
-
-.preloaderDIV {
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%);
-	z-index: 101;
-}
-
-.blur-background {
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	z-index: 100;
-	background-color: rgba(0,0,0,0.2);
-	backdrop-filter: blur(20px);
-	box-shadow: inset 0px 0px 50px 0px rgba(0, 0, 0, 1);
-}
-
-.preloaderLogo {
-	width: 400px;
-	height: auto;
-	margin: 0 auto;
-	display: block;
-	align-self: center;
-}
-
-.preloaderLoad {
-	width: 150px;
-	height: 150px;
-	margin: 0 auto;
-	display: block;
-	align-self: center;
-}
-
-@media (max-width: 1000px) {
-	.preloaderLogo {
-		width: 200px;
-		height: auto;
-	}
-	
-	.preloaderLoad {
-		width: 50px;
-		height: 50px;
-	}
-}
 
 .js .load, .js #preloader {
 	display: block;
@@ -185,6 +126,15 @@ li {
 }
 #navbar.scrolled #logo-colored {
   opacity: 1;
+}
+
+@media (max-width: 1250px) {
+	#navbar .container {
+		margin-right: 20px;
+	}
+	#logo, #logo-colored {
+		left: 20px;
+	}
 }
 
 .web-colors {
