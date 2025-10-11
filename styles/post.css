@@ -598,7 +598,7 @@ div.breadcrumb {
 	width: 35px;
 	min-width: 35px;
 	height: 35px;
-	background: url('accept.png');
+	background: url('../media/accept.png');
 	background-color: #0f0;
     background-size: cover;
 	background-position: center;
