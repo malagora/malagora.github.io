@@ -354,7 +354,7 @@ li {
 
 .banner {
 	width: 100%;
-	height: 100vh;
+	height: 100dvh;
 	background-image: url('../media/IndexBG_04.jpg');
 	background-color: #aaa;
 	background-size: cover;
@@ -432,7 +432,7 @@ p.f-dText:hover::after {
 
 @media (max-width: 1000px) {
 	.banner {
-		height: calc(100vh - 100px);
+		height: calc(100dvh - 100px);
 	}
 	.m-text {
 		bottom: 20px;
