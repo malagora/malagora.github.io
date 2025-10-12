@@ -15,12 +15,6 @@ body {
  	font-stretch: condensed; /* Condensed styl */
 }
 
-
-
-.js .load, .js #preloader {
-	display: block;
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -716,6 +710,41 @@ div.breadcrumb {
   color: #001a1a;
 }
 
+ul.post-ul-rozklad {
+	display: flex;
+	flex-direction: row;
+	width: 70%;
+	height: fit-content;
+	align-items: center;
+	gap: 0;
+}
+ul.post-ul-rozklad li {
+	width: 50%;
+	height: fit-content;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+ul.post-ul-rozklad li::before {
+	content: '';
+	width: 35px;
+	min-width: 35px;
+	height: 35px;
+	background: url("/media/bus.png");
+	background-color: #000;
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow: hidden;
+	margin-right: 12px;
+	margin-top: 0px;
+	filter: invert(100%);
+}
+
+
+
 @media (min-width: 1000px) {
   .post-menu ol {
     counter-reset: item;
@@ -865,6 +894,27 @@ div.breadcrumb {
 	}
 	.zasady-zwiedzania li::before {
 		margin-top: 5px;
+	}
+
+	ul.post-ul-rozklad {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: fit-content;
+		align-items: center;
+		gap: 8px
+	}
+	ul.post-ul-rozklad li {
+		width: 100%;
+		height: fit-content;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	ul.post-ul-rozklad li::before {
+		margin-right: 10px;
+		margin-top: 0;
 	}
 }
 
