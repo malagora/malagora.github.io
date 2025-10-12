@@ -1,17 +1,304 @@
+<!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
-  <title> (Mała Góra)</title>
-  <link rel="shortcut icon" href="../media/MalaGora-logo-icon.png">
-  <meta name="description" content="Oficjalna strona internetowa Małej Góry">
+  <title>Strona w budowie...</title>
+  <link rel="shortcut icon" href="/media/MalaGora-logo-icon.png">
+  <meta name="description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia.">
   <meta name="author" content="K. Michalik">
-  <meta name="og:image" content="../media/MalaGora_Min-BG.jpg" />
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/style.css">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mala Góra – oficjalna strona" />
+  <meta property="og:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
+  <meta property="og:url" content="https://malagora.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mala Góra – oficjalna strona" />
+  <meta name="twitter:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
+  <meta name="twitter:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* blokuje przewijanie */
+  background-color: #111;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center top;
+  font-family: "Bahnschrift SemiBold Condensed", "Bahnschrift", sans-serif;
+  font-weight: 600;
+  font-stretch: condensed;
+  touch-action: none; /* blokuje pinch-zoom i double-tap zoom */
+  overscroll-behavior: none; /* zapobiega przewijaniu i odbijaniu */
+}
+
+/* Naprawa skalowania elementów — teraz działają poprawnie */
+.circle,
+.logo,
+.building,
+.content {
+    transform-origin: center center;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+/* Logo w lewym górnym rogu */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 70px;
+  width: auto;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideLogo .5s ease forwards 1s;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* --- KOŁA --- */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  transform-origin: bottom right;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.circle1 {
+  width: 300vw;
+  height: 300vw;
+  background: #eee;
+  bottom: -150vw;
+  right: -150vw;
+  animation: circleIn 0.5s ease forwards 0.1s;
+  z-index: 1;
+}
+
+.circle2 {
+  width: 180vw;
+  height: 180vw;
+  background: #0aa;
+  bottom: -90vw;
+  right: -90vw;
+  animation: circleIn 1s ease forwards 0.1s;
+  z-index: 2;
+}
+
+.circle3 {
+  width: 90vw;
+  height: 90vw;
+  background: #000;
+  bottom: -45vw;
+  right: -45vw;
+  animation: circleIn 1.5s ease forwards 0.1s;
+  z-index: 3;
+}
+
+/* Tekst */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 43%;
+  transform: translate(-50%, -57%) translateX(-30px);
+  text-align: center;
+  width: fit-content;
+  opacity: 0;
+  animation: fadeInText 1.5s ease forwards 1.5s;
+  z-index: 5;
+  text-shadow: 2px 2px 3px #000;
+}
+
+.content h1 {
+  font-size: 55px;
+  color: #fff;
+}
+
+.content p {
+  font-size: 40px;
+  color: #fff;
+}
+
+.building {
+  z-index: 5;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40vw;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  opacity: 0;
+  animation: fadeInBuild 1.5s ease forwards 2s;
+}
+
+/* Animacje */
+@keyframes circleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLogo {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    transform: translate(-50%, -50%) translateX(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBuild {
+  0% {
+    transform: translateX(40vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1150px) {
+  .circle {
+    position: absolute;
+    border-radius: 0;
+    transform: scale(1);
+  }
+
+  .circle1 {
+    width: 100vw;
+    height: 100vh;
+    background: #eee;
+    bottom: 0;
+    right: 0;
+    animation: circleIn 0.5s ease forwards 0.1s;
+    z-index: 1;
+  }
+
+  .circle2 {
+    width: 100vw;
+    height: calc(100dvh - 110px);
+    background: #0aa;
+    bottom: 0;
+    right: 0;
+    animation: circleIn 1s ease forwards 0.1s;
+    z-index: 2;
+  }
+
+  .circle3 {
+    width: 100vw;
+    height: 50vh;
+    background: #000;
+    bottom: 0;
+    right: 0;
+    animation: circleIn 1.5s ease forwards 0.1s;
+    z-index: 3;
+  }
+
+  /* Tekst */
+  .content {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-30px);
+    animation: fadeInText 1.5s ease forwards 1.5s;
+  }
+
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .content p {
+    font-size: 30px;
+  }
+
+  .building {
+    z-index: 5;
+    position: absolute;
+    top: 50vh;
+    right: 0;
+    transform: translate(-50%, -50%);
+    max-height: 50vh;
+    width: auto;
+    max-width: 95%;
+    aspect-ratio: 4 / 3;
+    opacity: 0;
+  }
+
+  @keyframes circleIn {
+    0% {
+      transform: translateY(200vh);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+  </style>
 </head>
 
+<body>
+  <!-- Logo -->
+  <img src="/media/LOGO_BLACK.png" onclick="window.history.back()" alt="Mała Góra" class="logo">
 
+  <!-- Półkola -->
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+
+  <!-- Treść -->
+  <div class="content">
+    <h1>Strona w budowie</h1>
+    <p>Zapraszamy wkrótce!</p>
+  </div>
+  <img class="building" src="/media/building.png">
+</body>
 
 </html>
