@@ -23,27 +23,35 @@
   <meta name="twitter:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
   <meta name="twitter:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <style>
-body {
-	background-color: #111;
-	background-attachment: fixed; 
-	background-repeat: no-repeat; 
-	background-position: center top;
-	display: flex;
-	flex-direction: column;
-	overflow-x: hidden;
-  	font-family: "Bahnschrift SemiBold Condensed", "Bahnschrift", sans-serif;
-  	font-weight: 600; /* SemiBold */
- 	font-stretch: condensed; /* Condensed styl */
-    overflow: hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* blokuje przewijanie */
+  background-color: #111;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center top;
+  font-family: "Bahnschrift SemiBold Condensed", "Bahnschrift", sans-serif;
+  font-weight: 600;
+  font-stretch: condensed;
+  touch-action: none; /* blokuje pinch-zoom i double-tap zoom */
+  overscroll-behavior: none; /* zapobiega przewijaniu i odbijaniu */
 }
 
-.js .load, .js #preloader {
-	display: block;
+/* Naprawa skalowania elementów — teraz działają poprawnie */
+.circle,
+.logo,
+.building,
+.content {
+    transform-origin: center center;
 }
+
 
 * {
 	margin: 0;
