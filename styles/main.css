@@ -711,14 +711,12 @@ a.more-button-color:hover {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	gap: 30px;
 }
 
 .news-last a {
 	display: flex;
 	flex-direction: column;
-	width: auto;
-	max-width: 500px;
+	width: calc(33.3% / 3);
 	height: 700px;
 	text-decoration: none;
 	border: 1px solid #000;
