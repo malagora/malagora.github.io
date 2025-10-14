@@ -350,7 +350,7 @@ li {
 
 .banner {
     width: 100%;
-    height: calc(100dvh - 210px);
+    height: calc(100vh - 210px);
     display: flex;
     flex-direction: row-reverse;
     margin-top: 100px;
@@ -743,7 +743,63 @@ ul.post-ul-rozklad li::before {
 	filter: invert(100%);
 }
 
+.post-content-menu {
+	width: 100%;
+	padding: 50px 200px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 50px;
+}
 
+.post-content-menu a {
+	aspect-ratio: 1 / 1;
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	border: 1px solid #000;
+	outline: 0 solid transparent;
+	transition: outline 0.3s ease;
+	position: relative;
+}
+
+.post-content-menu a::after {
+	content: '➔';
+	position: absolute;
+	bottom: 30px;
+	right: 20px;
+	text-decoration: none;
+	color: #000;
+	font-size: 35px;
+	transition: transform 0.3s ease;
+}
+
+.post-content-menu a div.post-content-menu-img {
+	width: 100%;
+	height: 60%;
+	background-color: #aaa;
+}
+
+.post-content-menu-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.post-content-menu a h1 {
+	padding: 30px 10px;
+	font-size: 24px;
+	text-decoration: none;
+	color: #000;
+	font-weight: 400;
+}
+
+.post-content-menu a:hover {
+	outline: 4px solid #000;
+}
+.post-content-menu a:hover::after {
+	transform: translateX(8px);
+}
 
 @media (min-width: 1000px) {
   .post-menu ol {
@@ -760,10 +816,22 @@ ul.post-ul-rozklad li::before {
   }
 }
 
+@media (max-width: 1200px) {
+	.post-content-menu {
+		padding: 50px;
+	}
+	.breadcrumb_list {
+		margin: auto 50px;
+	}
+	.post_content {
+		padding: 0 50px;
+	}
+}
+
 @media (max-width: 1000px) {
     .banner {
         width: 100%;
-        height: calc(100dvh - 210px);;
+        height: calc(100vh - 210px);;
         display: flex;
         flex-direction: column-reverse;
         margin-top: 100px;
@@ -915,6 +983,22 @@ ul.post-ul-rozklad li::before {
 	ul.post-ul-rozklad li::before {
 		margin-right: 10px;
 		margin-top: 0;
+	}
+
+	.post-content-menu {
+		width: 100%;
+		padding: 30px;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 30px;
+	}
+}
+
+@media (max-width: 700px) {
+	.post-content-menu {
+		width: 100%;
+		padding: 30px;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 30px;
 	}
 }
 
