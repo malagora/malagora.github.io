@@ -716,7 +716,7 @@ a.more-button-color:hover {
 .news-last a {
 	display: flex;
 	flex-direction: column;
-	width: calc(33.3% / 3);
+	width: calc(33.3% - 15px);
 	height: 700px;
 	text-decoration: none;
 	border: 1px solid #000;
