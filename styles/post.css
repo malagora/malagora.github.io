@@ -350,7 +350,7 @@ li {
 
 .banner {
     width: 100%;
-    height: calc(100dvh - 210px);
+    height: calc(100vh - 210px);
     display: flex;
     flex-direction: row-reverse;
     margin-top: 100px;
@@ -831,7 +831,7 @@ ul.post-ul-rozklad li::before {
 @media (max-width: 1000px) {
     .banner {
         width: 100%;
-        height: calc(100vh - 210px);;
+        height: calc(100dvh - 210px);;
         display: flex;
         flex-direction: column-reverse;
         margin-top: 100px;
