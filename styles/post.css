@@ -350,7 +350,7 @@ li {
 
 .banner {
     width: 100%;
-    height: calc(100vh - 210px);
+    height: calc(100dvh - 210px);
     display: flex;
     flex-direction: row-reverse;
     margin-top: 100px;
