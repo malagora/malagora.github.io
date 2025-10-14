@@ -4,7 +4,7 @@ const moreTxt = ""; //<br><br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 1 października do odwołania, z powodu remontu – szlak zielony, na odcinku Niżnia Mała Przełęcz – Małogórski Potok – Rodzroże nad Potokiem – Stara Mrozówka.</p>",
+  "<p>Od 1 października do odwołania, z powodu remontu – szlak zielony, na odcinku Niżnia Mała Przełęcz – Małogórski Potok – Rodzroże nad Potokiem.</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Srebrne Skałki – Kacze Skałki – Białe Skałki – Sosnowe Skałki (odejście szlaku czarnego).</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
   "<p>Od 1 marca do odwołania, z powodu ochrony przyrody – szlak czerwony – Ścieżka wokół Bobrowiska, na całym odcinku.</p>"
