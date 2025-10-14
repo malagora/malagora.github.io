@@ -1,6 +1,6 @@
 // === WYBÓR TEKSTU ===
 const selectedText = 3;
-const moreTxt = ""; //<br><br>
+const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
@@ -12,6 +12,7 @@ const zamknieteSzlaki = [
 
 // ⚠ UTRUDNIENIA
 const utrudnienia = [
+  "<p><b style='font-weight: 600;'>Powódź porwała kładkę do Małej Góry.</b> Przejście do parku tym wariantem jest obecnie niemożliwe!</p>",
   "<p>Podczas wiatru na szlaki mogą spadać gałęzie – zachowaj czujność!</p>",
   "<p>Szlaki przebiegające od południowej strony prowadzą po terenach osuwiskowych, co może powodować samoistne osuwanie się szlaków.</p>",
   "<p>Na odcinkach ubezpieczonych w łańcuchy stosuj <a href='#zalecenia'>zalecenia</a> dotyczące korzystania z nich.</p>",
