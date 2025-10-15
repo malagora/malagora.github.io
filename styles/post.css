@@ -1095,6 +1095,12 @@ img.main-footer-logo {
 	width: 100%;
 }
 
+@media (max-width: 1400px) {
+	.main-footer-content {
+		padding: 50px 50px 200px;
+	}
+}
+
 @media (max-width: 1000px) {
 	.main-footer-content {display: none;}
 	.main-footer-content-mobile {
