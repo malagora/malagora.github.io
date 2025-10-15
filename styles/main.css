@@ -776,7 +776,7 @@ a.more-button-color:hover {
 	transform: translateX(8px);
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
 	.news {
 		padding: 50px;
 	}
