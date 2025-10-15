@@ -1095,7 +1095,7 @@ img.main-footer-logo {
 	width: 100%;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
 	.main-footer-content {
 		padding: 50px 50px 200px;
 	}
