@@ -15,10 +15,6 @@ body {
  	font-stretch: condensed; /* Condensed styl */
 }
 
-.js .load, .js #preloader {
-	display: block;
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -711,6 +707,7 @@ a.more-button-color:hover {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	gap: initial;
 }
 
 .news-last a {
@@ -795,6 +792,7 @@ a.more-button-color:hover {
 	.news-last {
 		display: flex;
 		flex-direction: column;
+		gap: 20px;
 	}
 	.news-last a {
 		width: 100%;
