@@ -260,10 +260,13 @@ document.querySelectorAll('.back-arrow').forEach(btn => {
     <div class="news-galery">
       <div class="news-header">
         <label for="sortSelect">Sortuj:</label>
-        <select id="sortSelect">
-          <option value="newest">od najnowszych</option>
-          <option value="oldest">od najstarszych</option>
-        </select>
+        <div class="custom-select-wrapper">
+          <select id="sortSelect">
+            <option value="newest">od najnowszych</option>
+            <option value="oldest">od najstarszych</option>
+          </select>
+          <span class="custom-arrow"></span>
+        </div>
       </div>
 
       <div id="newsGallery" class="news-gallery-content"></div>
