@@ -1,6 +1,6 @@
 // IMPORT POSTÓW:
 
-fetch('post.json')
+fetch('/aktualnosci/post.json')
   .then(response => response.json())
   .then(newsData => {
     console.log(newsData);
