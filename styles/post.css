@@ -503,8 +503,10 @@ div.breadcrumb {
     margin: auto 200px;
     font-size: 18px;
     gap: 40px;
+	align-items: center;
 }
 .breadcrumb_item a {
+	width: fit-content;
     text-decoration: none;
     color: #555;
     font-weight: 300;
