@@ -884,6 +884,7 @@ ul.post-ul-rozklad li::before {
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
+  font-stretch: condensed;
   font-weight: 500;
   transition: box-shadow 0.3s ease;
 }
@@ -918,6 +919,7 @@ ul.post-ul-rozklad li::before {
   color: #000;
   padding: 10px;
   font-family: inherit;
+  font-stretch: condensed;
   font-weight: 300;
   transition: background-color 0.3s ease;
 }
