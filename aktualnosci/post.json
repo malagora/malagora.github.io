@@ -1,41 +1,26 @@
 [
   {
-    id: "otwarcie-nowej-jaskini",
-    title: "Otwarcie nowej jaskini",
-    description: "Z radością informujemy o odkryciu nowej jaskini w Małej Górze. Odkrycie to otwiera nowe możliwości eksploracyjne dla turystów i miłośników przyrody.",
-    image: "/media/news/jaskinia.jpg",
-    date: "2025-08-31",
-    content: `
-    <div class="post_content-text" style="border-bottom: none; margin-bottom: 40px;">
-      <p>Nowa jaskinia została odkryta w północnej części rezerwatu Mała Góra. Jej długość szacuje się na ponad 400 metrów, a w środku znajdują się imponujące nacieki i podziemne jeziorka.</p>
-      <p>Na razie jaskinia nie jest udostępniona do zwiedzania, jednak trwają prace nad jej zabezpieczeniem i przystosowaniem dla turystów. Otwarcie planowane jest na przyszły rok.</p>
-    </div>
-    `
+    "id": "otwarcie-nowej-jaskini",
+    "title": "Otwarcie nowej jaskini",
+    "description": "Z radością informujemy o odkryciu nowej jaskini w Małej Górze. Odkrycie to otwiera nowe możliwości eksploracyjne dla turystów i miłośników przyrody.",
+    "image": "/media/news/jaskinia.jpg",
+    "date": "2025-08-31",
+    "content": "<div class='post_content-text' style='border-bottom: none; margin-bottom: 40px;'><p>Nowa jaskinia została odkryta w północnej części rezerwatu Mała Góra. Jej długość szacuje się na ponad 400 metrów, a w środku znajdują się imponujące nacieki i podziemne jeziorka.</p><p>Na razie jaskinia nie jest udostępniona do zwiedzania, jednak trwają prace nad jej zabezpieczeniem i przystosowaniem dla turystów. Otwarcie planowane jest na przyszły rok.</p></div>"
   },
   {
-    id: "nowe-trasy-wspinaczkowe",
-    title: "Nowe trasy wspinaczkowe",
-    description: "Dodaliśmy kilka nowych tras wspinaczkowych dla początkujących i zaawansowanych wspinaczy.",
-    image: "/media/news/trasy.jpg",
-    date: "2025-07-14",
-    content: `
-    <div class="post_content-text" style="border-bottom: none; margin-bottom: 40px;">
-      <p>Na terenie Małej Góry pojawiło się 6 nowych tras wspinaczkowych o różnym stopniu trudności. Znajdziesz je w rejonie Skał Srebrnych i Złotych.</p>
-      <p>Trasy zostały przygotowane przez doświadczonych instruktorów z zachowaniem zasad bezpieczeństwa.</p>
-    </div>
-    `
+    "id": "nowe-trasy-wspinaczkowe",
+    "title": "Nowe trasy wspinaczkowe",
+    "description": "Dodaliśmy kilka nowych tras wspinaczkowych dla początkujących i zaawansowanych wspinaczy.",
+    "image": "/media/news/trasy.jpg",
+    "date": "2025-07-14",
+    "content": "<div class='post_content-text' style='border-bottom: none; margin-bottom: 40px;'><p>Na terenie Małej Góry pojawiło się 6 nowych tras wspinaczkowych o różnym stopniu trudności. Znajdziesz je w rejonie Skał Srebrnych i Złotych.</p><p>Trasy zostały przygotowane przez doświadczonych instruktorów z zachowaniem zasad bezpieczeństwa.</p></div>"
   },
   {
-    id: "letni-festiwal-gorski",
-    title: "Letni festiwal górski",
-    description: "Już w lipcu zapraszamy na coroczny festiwal górski pełen atrakcji, koncertów i warsztatów!",
-    image: "/media/news/festiwal.jpg",
-    date: "2025-06-10",
-    content: `
-    <div class="post_content-text" style="border-bottom: none; margin-bottom: 40px;">
-      <p>Festiwal odbędzie się w dniach 20–22 lipca. W programie koncerty, warsztaty wspinaczkowe, pokazy filmów o tematyce górskiej oraz stoiska lokalnych artystów.</p>
-      <p>Wstęp wolny. Zapraszamy całe rodziny!</p>
-    </div>
-    `
+    "id": "letni-festiwal-gorski",
+    "title": "Letni festiwal górski",
+    "description": "Już w lipcu zapraszamy na coroczny festiwal górski pełen atrakcji, koncertów i warsztatów!",
+    "image": "/media/news/festiwal.jpg",
+    "date": "2025-06-10",
+    "content": "<div class='post_content-text' style='border-bottom: none; margin-bottom: 40px;'><p>Festiwal odbędzie się w dniach 20–22 lipca. W programie koncerty, warsztaty wspinaczkowe, pokazy filmów o tematyce górskiej oraz stoiska lokalnych artystów.</p><p>Wstęp wolny. Zapraszamy całe rodziny!</p></div>"
   }
 ]
