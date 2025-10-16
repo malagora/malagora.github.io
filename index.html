@@ -324,50 +324,46 @@ const today = new Date();
 
   <section class="news">
     <p>AKTUALNOŚCI</p>
-    <div class="news-last">
-      <!-- Miniaturki postów -->
-      <a href="/aktualnosci/2025-10-15-powodz-porwala-most" class="news-main-post">
-          <div class="news-main-img" style="background-image: url('/aktualnosci/media/MG-A-2025-10-15.jpg');"></div>
-          <header>Powódź porwała most</header>
-          <span>Intensywne opady deszczu, jakie miały miejsce w ostatnich dniach, doprowadziły do wewzbrania rzeki, która porwała drewnianą kładkę.</span>
-          <footer>
-            <div class="news-main-date">15 października 2025</div>
-            <div class="news-main-arrow">➔</div>
-          </footer>
-	  </a>
-      <a href="/aktualnosci/2025-10-09-nowe-strona-malej-gory" class="news-main-post">
-        <div class="news-main-img" style="background-image: url('../media/MalaGoraWBG.jpg');"></div>
-        <header>Nowa strona Małej Góry</header>
-        <span>Udało się zaprogramować nową, świeżą stronę Małej Góry. Będzie ona na bieżąco aktualizowana i uzupełniana. Przepraszamy za chwilowe niedogodności.</span>
-        <footer>
-          <div class="news-main-date">9 października 2025</div>
-          <div class="news-main-arrow">➔</div>
-        </footer>
-      </a>
-	  <a href="/aktualnosci/2025-08-31-nowe-lancuchy-na-sarniej-perci" class="news-main-post">
-          <div class="news-main-img" style="background-image: url('../media/MalaGoraWBG.jpg');"></div>
-          <header>Łańcuchy na Sarniej Perci</header>
-          <span>W ostatnim czasie zostały zamontowane stałe, sztuczne ułatwienia na Sarniej Perci.</span>
-          <footer>
-            <div class="news-main-date">31 sierpnia 2025</div>
-            <div class="news-main-arrow">➔</div>
-          </footer>
-	  </a>
-      <!--
-      <a href="/aktualnosci/nowe-lancuchy-na-sarniej-perci" class="news-main-post">
-          <div class="news-main-img" style="background-image: url('');"></div>
-          <header>Łańcuchy na Sarniej Perci</header>
-          <span>W ostatnim czasie zostały zamontowane stałe, sztuczne ułatwienia na Sarniej Perci.</span>
-          <footer>
-            <div class="news-main-date">31 sierpnia 2025</div>
-            <div class="news-main-arrow">➔</div>
-          </footer>
-      </a>
-      -->
-    </div>
+    <div class="news-last" id="newsLast"></div>
     <a class="more-button-color" href="/aktualnosci">Zobacz więcej aktualności</a>
   </section>
 
+<script>
+async function loadLastNews() {
+  try {
+    const response = await fetch('/aktualnosci/post.json');
+    const newsData = await response.json();
+
+    // Sortowanie od najnowszego
+    const sortedNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // Wybieramy tylko 3 najnowsze
+    const lastThree = sortedNews.slice(0, 3);
+
+    const newsContainer = document.getElementById("newsLast");
+    if (!newsContainer) return;
+
+    newsContainer.innerHTML = lastThree.map(post => `
+      <a href="?post=${post.id}" class="news-main-post">
+        <div class="news-main-img" style="background-image: url('${post.image}');"></div>
+        <header>${post.title}</header>
+        <span>${post.description}</span>
+        <footer>
+          <div class="news-main-date">${new Date(post.date).toLocaleDateString("pl-PL", {day: "numeric", month: "long", year: "numeric"})}</div>
+          <div class="news-main-arrow">➔</div>
+        </footer>
+      </a>
+    `).join("");
+
+  } catch (error) {
+    console.error("Błąd ładowania ostatnich postów:", error);
+  }
+}
+
+// Start po załadowaniu strony
+document.addEventListener("DOMContentLoaded", loadLastNews);
+</script>
+	
   <section class="short">
     <header>Na skróty</header>
     <div class="short-menu">
