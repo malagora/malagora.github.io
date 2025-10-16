@@ -344,7 +344,7 @@ async function loadLastNews() {
     if (!newsContainer) return;
 
     newsContainer.innerHTML = lastThree.map(post => `
-      <a href="?post=${post.id}" class="news-main-post">
+      <a href="/aktualnosci/?post=${post.id}" class="news-main-post">
         <div class="news-main-img" style="background-image: url('${post.image}');"></div>
         <header>${post.title}</header>
         <span>${post.description}</span>
