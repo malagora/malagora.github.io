@@ -29,15 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <button class="filter-btn btn-all active" data-category="all">Wszystkie</button>
         <button class="filter-btn" data-category="szczyty">Szczyty</button>
         <button class="filter-btn" data-category="skaly">Skały</button>
-        <button class="filter-btn" data-category="las"></button>
-        <button class="filter-btn" data-category="dron"></button>
-        <button class="filter-btn" data-category="zwierzeta"></button>
-        <button class="filter-btn" data-category="rosliny"></button>
-        <button class="filter-btn" data-category="grzyby"></button>
-        <button class="filter-btn" data-category="wiosna"></button>
-        <button class="filter-btn" data-category="lato"></button>
-        <button class="filter-btn" data-category="jesien"></button>
-        <button class="filter-btn" data-category="zima"></button>
+        <button class="filter-btn" data-category="las">Las</button>
+        <button class="filter-btn" data-category="dron">Dron</button>
+        <button class="filter-btn" data-category="zwierzeta">Zwierzęta</button>
+        <button class="filter-btn" data-category="rosliny">Rośliny</button>
+        <button class="filter-btn" data-category="grzyby">Grzyby</button>
+        <button class="filter-btn" data-category="wiosna">Wiosna</button>
+        <button class="filter-btn" data-category="lato">Lato</button>
+        <button class="filter-btn" data-category="jesien">Jesień</button>
+        <button class="filter-btn" data-category="zima">Zima</button>
       </div>
       <div class="gallery-sort">
         <label for="sortSelect">Sortuj:</label>
