@@ -1,19 +1,26 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
-    id: "foto2",
+    id: "foto1",
     title: "Bobrowisko z lotu ptaka",
     image: "/media/IndexBG_04.jpg",
     category: ["las", "dron", "lato"],
     date: "2021-07-21"
   },
   {
-    id: "foto1",
+    id: "foto2",
     title: "Październikowa mżawka",
     image: "/media/WeatherBG.jpg",
     category: ["jesien", "las"],
     date: "2025-10-10"
-  }
+  },
+  {
+    id: "foto3",
+    title: "Wiewiórka pospolita",
+    image: "/media/MG-2025-10-17-Wiewiorka.jpg",
+    category: ["zwierzeta", "jesien"],
+    date: "2025-10-17"
+  },
 ];
 
 // --- ZMIENNE GLOBALNE ---
