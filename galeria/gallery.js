@@ -9,7 +9,7 @@ const photos = [
   },
   {
     id: "foto1",
-    title: "Wrześniowa mgiełka",
+    title: "Październikowa mżawka",
     image: "/media/WeatherBG.jpg",
     category: ["jesien", "las"],
     date: "2025-10-10"
