@@ -1,74 +1,18 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
-    id: "foto1",
-    title: "Sarnia Perć o świcie",
-    image: "/media/gallery/sarnia.jpg",
-    category: ["góry", "wschód"],
+    id: "foto2",
+    title: "Bobrowisko z lotu ptaka",
+    image: "/media/IndexBG_04.jpg",
+    category: ["las", "dron"],
     date: "2025-08-10"
   },
   {
-    id: "foto2",
-    title: "Jaskinia Biała Dziura",
-    image: "/media/gallery/jaskinia.jpg",
-    category: ["jaskinie", "podziemia"],
-    date: "2025-07-05"
-  },
-  {
-    id: "foto3",
-    title: "Widok z Małej Góry",
-    image: "Main-BG.jpg",
-    category: ["góry", "zachód"],
-    date: "2025-06-18"
-  },
-  {
-    id: "foto4",
-    title: "Srebrne Skały zimą",
-    image: "/media/gallery/srebro.jpg",
-    category: ["góry", "zima"],
-    date: "2025-01-10"
-  },
-  {
-    id: "foto5",
-    title: "Jaskinia Zielony Tunel",
-    image: "/media/gallery/zielony-tunel.jpg",
-    category: ["jaskinie", "góry"],
-    date: "2025-03-22"
-  },
-  {
-    id: "foto6",
-    title: "Zachód nad Doliną",
-    image: "/media/gallery/dolina.jpg",
-    category: ["zachód", "góry"],
-    date: "2025-02-01"
-  },
-  {
-    id: "foto7",
-    title: "Szlak przez Las",
-    image: "/media/gallery/las.jpg",
-    category: ["góry", "szlaki"],
-    date: "2025-05-20"
-  },
-  {
-    id: "foto8",
-    title: "Jaskinia Lodowa",
-    image: "/media/gallery/lodowa.jpg",
-    category: ["jaskinie", "zima"],
-    date: "2025-01-02"
-  },
-  {
-    id: "foto9",
-    title: "Panorama Gór",
-    image: "/media/gallery/panorama.jpg",
-    category: ["góry"],
-    date: "2025-09-15"
-  },
-  {
-    id: "foto10",
-    title: "Most nad Potokiem",
-    image: "/media/gallery/most.jpg",
-    category: ["szlaki", "góry"],
-    date: "2025-03-11"
+    id: "foto1",
+    title: "Wrześniowa mgiełka",
+    image: "/media/WeatherBG.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-10"
   }
 ];
 
@@ -83,9 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="gallery-header">
       <div class="gallery-filters">
         <button class="filter-btn btn-all active" data-category="all">Wszystkie</button>
-        <button class="filter-btn" data-category="góry">Góry</button>
-        <button class="filter-btn" data-category="jaskinie">Jaskinie</button>
-        <button class="filter-btn" data-category="zima">Zima</button>
+        <button class="filter-btn" data-category="szczyty">Szczyty</button>
+        <button class="filter-btn" data-category="skaly">Skały</button>
+        <button class="filter-btn" data-category="las"></button>
+        <button class="filter-btn" data-category="dron"></button>
+        <button class="filter-btn" data-category="zwierzeta"></button>
+        <button class="filter-btn" data-category="rosliny"></button>
+        <button class="filter-btn" data-category="grzyby"></button>
+        <button class="filter-btn" data-category="wiosna"></button>
+        <button class="filter-btn" data-category="lato"></button>
+        <button class="filter-btn" data-category="jesien"></button>
+        <button class="filter-btn" data-category="zima"></button>
       </div>
       <div class="gallery-sort">
         <label for="sortSelect">Sortuj:</label>
@@ -122,8 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxTitle = document.getElementById("lightbox-title");
   const closeBtn = document.querySelector(".close-btn");
   const loadMoreBtn = document.getElementById("loadMore");
-  const photoCount = document.getElementById("photoCount");
-  const showedBar = document.getElementById("showedBarGallery");
+  const photoCount = document.gdBar = document.getElementById("showedBarGallery");
 
   // ====== FUNKCJE ======
 
