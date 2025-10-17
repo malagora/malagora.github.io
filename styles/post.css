@@ -1064,6 +1064,186 @@ div#showedBar {
 	height: 1px;
 }
 
+
+
+.gallery-section {
+  margin: 0 auto;
+  max-width: 1300px;
+  color: #000;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gallery-filters .filter-btn {
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: #111 solid 1px;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+.gallery-filters .filter-btn.btn-all {
+	background-color: #111;
+	color: #fff;
+}
+
+.gallery-filters .filter-btn.active,
+.gallery-filters .filter-btn:hover {
+  background: #0aa;
+}
+
+.gallery-sort select {
+  appearance: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 8px 30px 8px 10px;
+  border-radius: 5px;
+  background: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.gallery-sort select:focus {
+  box-shadow: 0 0 8px rgba(0,170,170,0.6);
+  outline: none;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.gallery-footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery-footer #loadMoreBtn {
+  background: #0aa;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.gallery-footer #loadMoreBtn:hover {
+  background: #08a;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.99);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+  animation: zoomIn 0.4s ease;
+}
+
+.lightbox p {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+div#showedBarGallery {
+	margin: 20px auto 30px;
+	width: 160px;
+	height: 3px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+
 @media (min-width: 1000px) {
   .post-menu ol {
     counter-reset: item;
