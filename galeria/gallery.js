@@ -4,7 +4,7 @@ const photos = [
     id: "foto2",
     title: "Bobrowisko z lotu ptaka",
     image: "/media/IndexBG_04.jpg",
-    category: ["las", "dron"],
+    category: ["las", "dron", "lato"],
     date: "2025-08-10"
   },
   {
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const countBar = (visible.length / filtered.length) * 100;
-      showedBar.innerHTML = `<div class="showed-bar-S" style="width: ${countBar}%;"></div><div class="showed-bar-H" style="width: calc(100% - ${countBar}%);"></div>`
+      showedBar.innerHTML = `<div class="showed-bar-S" style="width: ${countBar}%;"></div><div class="showed-bar-H" style="width: calc(100% - ${countBar}%);"></div>`;
 
       photoCount.textContent = `Wyświetlono ${visible.length} z ${filtered.length} zdjęć`;
       loadMoreBtn.style.display = visible.length >= filtered.length ? "none" : "inline-block";
