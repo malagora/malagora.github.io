@@ -1233,6 +1233,12 @@ div#showedBarGallery {
 	align-items: center;
 }
 
+#photoCount {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+}
+
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
