@@ -1,7 +1,84 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
-    id: "foto1",
+    id: "foto14",
+    title: "Dolina Małogórskiego Potoku",
+    image: "/media/IndexGalery_07.jpg",
+    category: ["las"],
+    date: "2022-10-01"
+  },
+  {
+    id: "foto13",
+    title: "Kacze Skałki",
+    image: "/media/IndexGalery_06.jpg",
+    category: ["skaly", "jesien"],
+    date: "2022-10-20"
+  },
+  {
+    id: "foto12",
+    title: "Julkowa Perć",
+    image: "/media/IndexGalery_05.jpg",
+    category: ["las", "skaly", "jesien"],
+    date: "2022-10-20"
+  },
+  {
+    id: "foto11",
+    title: "Widok z nad Kaczych Skałek",
+    image: "/media/IndexGalery_04.jpg",
+    category: ["las", "jesien"],
+    date: "2022-10-20"
+  },
+  {
+    id: "foto10",
+    title: "Wejście na Srebrne Skałki",
+    image: "/media/IndexGalery_03.jpg",
+    category: ["skaly", "jesien"],
+    date: "2022-10-20"
+  },
+  {
+    id: "foto9",
+    title: "Rozdroże w Złotej Dolince",
+    image: "/media/IndexGalery_01.jpg",
+    category: ["las", "jesien"],
+    date: "2022-10-20"
+  },
+  {
+    id: "foto8",
+    title: "Skałki z Twarzą Pana Jezusa",
+    image: "/media/IndexGalery_01.jpg",
+    category: ["skaly", "jesien"],
+    date: "2022-10-20"
+  },
+  {
+    id: "foto7",
+    title: "Las na Jaźwieczym Grzbiecie",
+    image: "/media/IndexBG_06.jpg",
+    category: ["las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
+    id: "foto6",
+    title: "Mgliste popołudnie",
+    image: "/media/IndexBG_05.png",
+    category: ["las", "jesien"],
+    date: "2022-11-01"
+  },
+  {
+    id: "foto5",
+    title: "Widok na kościół w Zawadzie",
+    image: "/media/IndexBG_03.jpg",
+    category: ["las", "jesien"],
+    date: "2022-10-20"
+  },
+  {
+    id: "foto4",
+    title: "Stroma Dolinka",
+    image: "/media/IndexBG_02.png",
+    category: ["las", "lato"],
+    date: "2023-07-11"
+  },
+  {
+    id: "foto3",
     title: "Bobrowisko z lotu ptaka",
     image: "/media/IndexBG_04.jpg",
     category: ["las", "dron", "lato"],
@@ -15,7 +92,7 @@ const photos = [
     date: "2025-10-10"
   },
   {
-    id: "foto3",
+    id: "foto1",
     title: "Wiewiórka pospolita",
     image: "/media/MG-2025-10-17-Wiewiorka.jpg",
     category: ["zwierzeta", "jesien"],
