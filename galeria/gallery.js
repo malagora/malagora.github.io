@@ -81,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxTitle = document.getElementById("lightbox-title");
   const closeBtn = document.querySelector(".close-btn");
   const loadMoreBtn = document.getElementById("loadMore");
-  const photoCount = document.gdBar = document.getElementById("showedBarGallery");
+  const photoCount = document.getElementById("photoCount");
+  const showedBar = document.getElementById("showedBarGallery");
 
   // ====== FUNKCJE ======
 
