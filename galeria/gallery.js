@@ -5,7 +5,7 @@ const photos = [
     title: "Bobrowisko z lotu ptaka",
     image: "/media/IndexBG_04.jpg",
     category: ["las", "dron", "lato"],
-    date: "2021-07-21"
+    date: "2021-07-23"
   },
   {
     id: "foto2",
