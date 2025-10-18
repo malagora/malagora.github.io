@@ -38,7 +38,7 @@ const photos = [
   {
     id: "foto9",
     title: "Rozdroże w Złotej Dolince",
-    image: "/media/IndexGalery_01.jpg",
+    image: "/media/IndexGalery_02.jpg",
     category: ["las", "jesien"],
     date: "2022-10-20"
   },
