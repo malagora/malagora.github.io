@@ -1,6 +1,34 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto22",
+    title: "Granica Olszyny",
+    image: "/media/photos/MG-2021-07-23-008.jpg",
+    category: ["las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
+    id: "foto21",
+    title: "Małogórskie Bobrowisko",
+    image: "/media/photos/MG-2021-07-23-007.jpg",
+    category: ["las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
+    id: "foto20",
+    title: "Kopuła szczytowa Małej Góry",
+    image: "/media/photos/MG-2021-07-23-006.jpg",
+    category: ["szczyty", "las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
+    id: "foto19",
+    title: "Mrozówka z lotu ptaka",
+    image: "/media/photos/MG-2021-07-23-005.jpg",
+    category: ["las", "lato", "dron"],
+    date: "2021-07-23"
+  },
+  {
     id: "foto18",
     title: "Zakręt Kamionki",
     image: "/media/photos/MG-2021-07-23-004.jpg",
