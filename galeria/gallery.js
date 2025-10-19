@@ -1,10 +1,38 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto18",
+    title: "Zakręt Kamionki",
+    image: "/media/photos/MG-2021-07-23-004.jpg",
+    category: ["las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
+    id: "foto17",
+    title: "Okolice wylotu Doliny Małogórskiego Potoku",
+    image: "/media/photos/MG-2021-07-23-003.jpg",
+    category: ["las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
+    id: "foto16",
+    title: "Bobrowisko z lotu ptaka",
+    image: "/media/photos/MG-2021-07-23-002.jpg",
+    category: ["las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
+    id: "foto15",
+    title: "Zakole Kamienicy",
+    image: "/media/photos/MG-2021-07-23-001.jpg",
+    category: ["las", "dron", "lato"],
+    date: "2021-07-23"
+  },
+  {
     id: "foto14",
     title: "Dolina Małogórskiego Potoku",
     image: "/media/IndexGalery_07.jpg",
-    category: ["las"],
+    category: ["las", "jesien"],
     date: "2022-10-01"
   },
   {
