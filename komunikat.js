@@ -1,5 +1,5 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 3;
+const selectedText = 5;
 const moreTxt = "<br>W najbliższych dniach przewiduje się poprawę warunków pogodowych.<br><br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
@@ -28,13 +28,15 @@ const texts = [
   "Silny wiatr – uwaga na spadające gałęzie.",
   "Na szlakach mokro i ślisko.",
   "Spadł śnieg – zachowaj ostrożność!",
+  "Na szlakach zalega błoto.",
 ];
 
 const komunikaty = [
   "Warunki na szlakach zachęcają do aktywnego wypoczynku. Należy jednak pamiętać o zachowaniu bezpieczeństwa.",
   "Warunki nie są bezpieczne – wieje silny wiatr, który może powodować łamanie się gałęzi. Jeśli nie musisz wyjść – zostań w domu.",
-  "Na szlakach jest mokro i ślisko. W skutek opadu deszczu tworzy się błoto, które w eksponowanym terenie może prowadzić do upadku z wysokości.<br>poruszanie się w takich warunkach wymaga zachowania ostrożności.",
+  "Na szlakach jest mokro i ślisko. W skutek opadu deszczu tworzy się błoto, które w eksponowanym terenie może prowadzić do upadku z wysokości.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności.",
   "Szlaki pokrywa warstwa śniegu, co może zmniejszać przyczepność do podłoża, zaś w niektórych miejscach mogą tworzyć się oblodzenia.<br>Poruszanie się w takich warunkach wymaga stosowania szczególnej ostrożności. Zachęcamy do zabrania ze sobą odpowiedzniego sprzętu lub korzystanie z bezpieczniejszych tras.",
+  "Po opadach deszczu na szlakach zalega błoto, które w eksponowanym terenie może spowodować upadek z wysokości.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności.",
 ];
 
 const standardTxt = "<br>Poruszając się po szlakach stosuj się do niżej wymienionych zasad i zaleceń.<br>";
