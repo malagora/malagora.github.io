@@ -1,6 +1,13 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto23",
+    title: "Jesienna Rzeka Kamionka",
+    image: "/media/photos/MG-2025-10-17_001.jpg",
+    category: ["las", "jesien"],
+    date: "2025-10-17"
+  },
+  {
     id: "foto22",
     title: "Granica Olszyny",
     image: "/media/photos/MG-2021-07-23-008.jpg",
