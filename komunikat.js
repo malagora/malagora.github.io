@@ -1,6 +1,6 @@
 // === WYBÓR TEKSTU ===
 const selectedText = 2;
-const moreTxt = "<br>W najbliższych dniach przewiduje się poprawę warunków pogodowych.<br><br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
+const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
