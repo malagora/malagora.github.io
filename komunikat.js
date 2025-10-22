@@ -1,12 +1,10 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 5;
+const selectedText = 2;
 const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 1 września do <b style='font-weight: 600;'>do 22 października</b>, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Srebrne Skałki.</p>",
-  "<p>Od 1 października do odwołania, z powodu remontu – szlak zielony, na odcinku Niżnia Mała Przełęcz – Małogórski Potok – Rodzroże nad Potokiem.</p>",
-  "<p>Od 1 września do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Białe Skałki – Sosnowe Skałki (odejście szlaku czarnego).</p>",
+  "<p>Od 22 października do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Białe Skałki – Sosnowe Skałki (odejście szlaku czarnego).</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
   "<p>Od 1 marca do odwołania, z powodu ochrony przyrody – szlak czerwony – Ścieżka wokół Bobrowiska, na całym odcinku.</p>"
 ];
@@ -19,7 +17,7 @@ const utrudnienia = [
   "<p>Na odcinkach ubezpieczonych w łańcuchy stosuj <a href='#zalecenia'>zalecenia</a> dotyczące korzystania z nich.</p>",
   "<p>Na szlaku żółtym – ścieżka łącznikowa przy Bobrowisku, mogą występować utrudnienia z powodu złego stanu technicznego szlaku.</p>",
   "<p>Na szlaku żółtym odejściowym – Punkt Widokowy „Dolina Kamionki”, mogą występować utrudnienia z powodu złego stanu technicznego szlaku.</p>",
-  "<p>Na szlaku czerwonym – „Sarnia Perć”, mogą występować utrudnienia z powodu złego stanu technicznego szlaku oraz powalonych drzew.</p>",
+  "<p>Na szlaku czerwonym – „Sarnia Perć”, mogą występować utrudnienia z powodu złego stanu oznaczeń szlaku, co może powodować zabłądzenie oraz powalonych drzew.</p>",
   "<p><i>Mapę z aktualnymi zamknięciami i utrudnieniami znajdziesz <a href='/mapa'>tutaj</a>.</i></p>"
 ];
 
