@@ -1,5 +1,5 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 2;
+const selectedText = 5;
 const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
