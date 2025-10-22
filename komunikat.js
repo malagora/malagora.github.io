@@ -4,7 +4,7 @@ const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sp
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 1 września do <bo style='font-weight: 600;'>do 22 października</b>, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Srebrne Skałki.</p>",
+  "<p>Od 1 września do <b style='font-weight: 600;'>do 22 października</b>, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Srebrne Skałki.</p>",
   "<p>Od 1 października do odwołania, z powodu remontu – szlak zielony, na odcinku Niżnia Mała Przełęcz – Małogórski Potok – Rodzroże nad Potokiem.</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Białe Skałki – Sosnowe Skałki (odejście szlaku czarnego).</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
