@@ -4,7 +4,7 @@ const moreTxt = "Prócz deszczu wieje silny wiatr, który może powodować łama
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 22 października do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Białe Skałki – Sosnowe Skałki (odejście szlaku czarnego).</p>",
+  "<p>Od 23 października do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Białe Skałki – Sosnowe Skałki (odejście szlaku czarnego).</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
   "<p>Od 1 marca do odwołania, z powodu ochrony przyrody – szlak czerwony – Ścieżka wokół Bobrowiska, na całym odcinku.</p>"
 ];
