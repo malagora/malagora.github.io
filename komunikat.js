@@ -1,5 +1,5 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 2;
+const selectedText = 2; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto
 const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
@@ -19,6 +19,14 @@ const utrudnienia = [
   "<p>Na szlaku żółtym odejściowym – Punkt Widokowy „Dolina Kamionki”, mogą występować utrudnienia z powodu złego stanu technicznego szlaku.</p>",
   "<p>Na szlaku czerwonym – „Sarnia Perć”, mogą występować utrudnienia z powodu złego stanu oznaczeń szlaku, co może powodować zabłądzenie oraz powalonych drzew.</p>",
   "<p><i>Mapę z aktualnymi zamknięciami i utrudnieniami znajdziesz <a href='/mapa'>tutaj</a>.</i></p>"
+];
+
+// ℹ Informacje dodatkowe:
+const informacje = [
+  "<p>Przejście przez rzekę możliwe jest tylko przy niskim stanie wody. W takim przypadku możliwe jest wejście od strony Kamionki Małej.</p>",
+  "<p>Na szlaku zielonym od strony Jamnicy zalega błoto, które może utrudniać przejście.</p>",
+  "<p>Na Sarniej Perci obowiązuje ruch jednokierunkowy!</p>",
+  "<p>Zwróć uwagę na <b style='font-weight: 600;'>nowy przebieg <i>Sarniej Perci</i></b>: Srebrne Skałki – <b style='font-weight: 600;'>Małe Skałki</b> – Kacze Skałki</p>"
 ];
 
 // === LISTA TEKSTÓW ===
@@ -105,6 +113,25 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // Dodaj każdy element do listy
       utrudnienia.forEach(szlakB => {
+        const li = document.createElement("li");
+        li.innerHTML = szlakB;
+        lWarning.appendChild(li);
+      });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const lInformacje = document.getElementById("list-informacje");
+
+    // Wyczyść poprzednią zawartość
+    lWarning.innerHTML = "";
+
+    if (!Array.isArray(informacje) || informacje.length === 0) {
+      // Brak danych
+      lWarning.innerHTML = "<li><i>Brak aktualnych zamknięć szlaków.</i></li>";
+    } else {
+      // Dodaj każdy element do listy
+      informacje.forEach(szlakB => {
         const li = document.createElement("li");
         li.innerHTML = szlakB;
         lWarning.appendChild(li);
