@@ -124,17 +124,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const lInformacje = document.getElementById("list-informacje");
 
     // Wyczyść poprzednią zawartość
-    lWarning.innerHTML = "";
+    lInformacje.innerHTML = "";
 
     if (!Array.isArray(informacje) || informacje.length === 0) {
       // Brak danych
-      lWarning.innerHTML = "<li><i>Brak aktualnych zamknięć szlaków.</i></li>";
+      lInformacje.innerHTML = "<li><i>Brak aktualnych zamknięć szlaków.</i></li>";
     } else {
       // Dodaj każdy element do listy
       informacje.forEach(szlakB => {
         const li = document.createElement("li");
         li.innerHTML = szlakB;
-        lWarning.appendChild(li);
+        lInformacje.appendChild(li);
       });
     }
 });
