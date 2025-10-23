@@ -26,7 +26,7 @@ const informacje = [
   "<p>Przejście przez rzekę możliwe jest tylko przy niskim stanie wody. W takim przypadku możliwe jest wejście od strony Kamionki Małej.</p>",
   "<p>Na szlaku zielonym od strony Jamnicy zalega błoto, które może utrudniać przejście.</p>",
   "<p>Na Sarniej Perci obowiązuje ruch jednokierunkowy!</p>",
-  "<p>Zwróć uwagę na <b style='font-weight: 600;'>nowy przebieg <i>Sarniej Perci</i></b>: Srebrne Skałki – <b style='font-weight: 600;'>Małe Skałki</b> – Kacze Skałki</p>"
+  "<p>Zwróć uwagę na <b style='font-weight: 600;'>nowy przebieg „Sarniej Perci”</b>: Srebrne Skałki – <b style='font-weight: 600;'>Małe Skałki</b> – Kacze Skałki</p>"
 ];
 
 // === LISTA TEKSTÓW ===
