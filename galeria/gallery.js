@@ -1,6 +1,97 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto36",
+    title: "Wiewiórka pospolita",
+    image: "/media/photos/MG-2025-10-17_014.jpg",
+    category: ["jesien", "zwierzeta"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto35",
+    title: "Samica kaczki krzyżówki",
+    image: "/media/photos/MG-2025-10-17_013.jpg",
+    category: ["jesien", ""],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto34",
+    title: "Kaczki krzyżówki",
+    image: "/media/photos/MG-2025-10-17_012.jpg",
+    category: ["zwierzeta"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto33",
+    title: "Kaczki krzyżówki",
+    image: "/media/photos/MG-2025-10-17_011.jpg",
+    category: ["zwierzeta"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto32",
+    title: "Pstrąg potokowy",
+    image: "/media/photos/MG-2025-10-17_010.jpg",
+    category: ["zwierzeta"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto31",
+    title: "Trzmielina pospolita",
+    image: "/media/photos/MG-2025-10-17_009.jpg",
+    category: ["jesien", "rosliny"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto30",
+    title: "Klon zwyczajny",
+    image: "/media/photos/MG-2025-10-17_008.jpg",
+    category: ["jesien", "las", "rosliny"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto29",
+    title: "Jodła na tle jesieni",
+    image: "/media/photos/MG-2025-10-17_007.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto28",
+    title: "Jesienne barwy",
+    image: "/media/photos/MG-2025-10-17_006.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto27",
+    title: "Stożkówka delikatna",
+    image: "/media/photos/MG-2025-10-17_005.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto26",
+    title: "Purchawka chropowata",
+    image: "/media/photos/MG-2025-10-17_004.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto25",
+    title: "Maślak żółty",
+    image: "/media/photos/MG-2025-10-17_003.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-17"
+  },
+  {
+    id: "foto24",
+    title: "Maślak żółty",
+    image: "/media/photos/MG-2025-10-17_002.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-17"
+  },
+  {
     id: "foto23",
     title: "Jesienna Rzeka Kamionka",
     image: "/media/photos/MG-2025-10-17_001.jpg",
