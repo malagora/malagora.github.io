@@ -1,6 +1,6 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 3; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto
-const moreTxt = "Prócz deszczu wieje silny wiatr, który może powodować łamanie się gałęzi.<br><br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
+const selectedText = 5; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto
+const moreTxt = "Dodatkowo wieje silny wiatr, który może powodować łamanie się gałęzi.<br><br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
