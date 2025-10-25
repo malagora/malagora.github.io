@@ -1,6 +1,258 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto72",
+    title: "Mleczajowiec chrząstka",
+    image: "/media/photos/MG-2025-10-20_036.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto71",
+    title: "Mleczajowiec chrząstka w mchu",
+    image: "/media/photos/MG-2025-10-20_035.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto70",
+    title: "Mleczaj siarkowy",
+    image: "/media/photos/MG-2025-10-20_034.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto69",
+    title: "Muchomor czerwony",
+    image: "/media/photos/MG-2025-10-20_033.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto68",
+    title: "Jesień z Szarych Skał",
+    image: "/media/photos/MG-2025-10-20_032.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto67",
+    title: "Kościół w Zawadzie na tle Beskidu Wyspowego",
+    image: "/media/photos/MG-2025-10-20_031.jpg",
+    category: ["jesien"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto66",
+    title: "Jesienny widok z Szarych Skał",
+    image: "/media/photos/MG-2025-10-20_030.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto65",
+    title: "Szare Skały",
+    image: "/media/photos/MG-2025-10-20_029.jpg",
+    category: ["jesien", "skaly"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto64",
+    title: "Łańcuchy na Szarej Próbie",
+    image: "/media/photos/MG-2025-10-20_028.jpg",
+    category: ["jesien", "skaly"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto63",
+    title: "Szara Próba",
+    image: "/media/photos/MG-2025-10-20_027.jpg",
+    category: ["jesien", "skaly"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto62",
+    title: "Wejście na Szarą Próbę",
+    image: "/media/photos/MG-2025-10-20_026.jpg",
+    category: ["jesien", "skaly"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto61",
+    title: "Wiewiórka pospolita",
+    image: "/media/photos/MG-2025-10-20_025.jpg",
+    category: ["jesien", "zwierzeta"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto60",
+    title: "Widok na Beskid Sądecki",
+    image: "/media/photos/MG-2025-10-20_024.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto59",
+    title: "Paproci Wierch",
+    image: "/media/photos/MG-2025-10-20_023.jpg",
+    category: ["jesien", "szczyty", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto58",
+    title: "Paprocie w Małej Paprociej Dolince",
+    image: "/media/photos/MG-2025-10-20_022.jpg",
+    category: ["jesien", "rosliny", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto57",
+    title: "Górne piętro Małej Paprociej Dolinki",
+    image: "/media/photos/MG-2025-10-20_021.jpg",
+    category: ["jesien", "rosliny", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto56",
+    title: "Osuwiskowy krajobraz i paprocie z Paprociej Przełęczy",
+    image: "/media/photos/MG-2025-10-20_020.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto55",
+    title: "Przekwitnięte paprocie",
+    image: "/media/photos/MG-2025-10-20_019.jpg",
+    category: ["jesien", "rosliny", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto54",
+    title: "Wierzchołek Małej Kopy",
+    image: "/media/photos/MG-2025-10-20_018.jpg",
+    category: ["jesien", "szczyty", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto53",
+    title: "Erozja na grzbiecie Srebrnch Skał",
+    image: "/media/photos/MG-2025-10-20_017.jpg",
+    category: ["jesien", "skaly"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto52",
+    title: "Wrzos pospolity",
+    image: "/media/photos/MG-2025-10-20_016.jpg",
+    category: ["jesien", "rosliny"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto51",
+    title: "Polana Mrozówka",
+    image: "/media/photos/MG-2025-10-20_015.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto50",
+    title: "Grzybki na pniu",
+    image: "/media/photos/MG-2025-10-20_014.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto49",
+    title: "Grzyby",
+    image: "/media/photos/MG-2025-10-20_013.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto48",
+    title: "Stary pień na Mrozówce",
+    image: "/media/photos/MG-2025-10-20_012.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto47",
+    title: "Szczyt Małej Góry",
+    image: "/media/photos/MG-2025-10-20_011.jpg",
+    category: ["jesien", "szczyty", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto46",
+    title: "Krowiak podwinięty",
+    image: "/media/photos/MG-2025-10-20_010.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto45",
+    title: "Skałki z Twarzą Pana Jezusa",
+    image: "/media/photos/MG-2025-10-20_009.jpg",
+    category: ["jesien", "skaly"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto44",
+    title: "Wąwóz na szlaku niebieskim",
+    image: "/media/photos/MG-2025-10-20_008.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto43",
+    title: "Muchomor jadowity",
+    image: "/media/photos/MG-2025-10-20_007.jpg",
+    category: ["jesien", "grzyby"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto42",
+    title: "Jesienny Niżny Płaj",
+    image: "/media/photos/MG-2025-10-20_006.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto41",
+    title: "Jesienny Niżny Płaj",
+    image: "/media/photos/MG-2025-10-20_005.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto40",
+    title: "Niżna Polana",
+    image: "/media/photos/MG-2025-10-20_004.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto39",
+    title: "Paprocie i brzozy na Niżnej Polanie",
+    image: "/media/photos/MG-2025-10-20_003.jpg",
+    category: ["jesien", "rosliny", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto38",
+    title: "Żleb nad Niżną Polaną",
+    image: "/media/photos/MG-2025-10-20_002.jpg",
+    category: ["jesien", "las"],
+    date: "2025-10-20"
+  },
+  {
+    id: "foto37",
+    title: "Trzmielina pospolita",
+    image: "/media/photos/MG-2025-10-20_001.jpg",
+    category: ["jesien", "rosliny"],
+    date: "2025-10-20"
+  },
+  {
     id: "foto36",
     title: "Wiewiórka pospolita",
     image: "/media/photos/MG-2025-10-17_014.jpg",
