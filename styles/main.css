@@ -1534,6 +1534,12 @@ a.know-moreButton:hover {
 	color: #000
 }
 
+@media (max-width: 1500px) {
+	.przewodniki {
+		padding: 50px 20px;
+	}
+}
+
 @media (max-width: 1000px) {
 	.przewodniki {
 		padding: 20px;
