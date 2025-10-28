@@ -1536,6 +1536,12 @@ a.know-moreButton:hover {
 
 @media (max-width: 1500px) {
 	.przewodniki {
+		padding: 50px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.przewodniki {
 		padding: 50px 20px;
 	}
 }
