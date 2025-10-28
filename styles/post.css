@@ -1305,6 +1305,8 @@ div#showedBarGallery {
 }
 
 .related-date {
+  position: absolute;
+  bottom: 20px;
   font-size: 16px;
   color: #555;
   font-weight: 100;
