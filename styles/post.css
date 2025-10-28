@@ -1250,13 +1250,6 @@ div#showedBarGallery {
   to {transform: scale(1); opacity: 1;}
 }
 
-/* === Propozycje aktualności === */
-.related-posts {
-  width: 100%;
-  padding: 0 200px;
-  margin-top: 80px;
-}
-
 .related-posts header {
   font-size: 40px;
   padding: 40px 0;
