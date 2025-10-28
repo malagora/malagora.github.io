@@ -112,7 +112,7 @@ function renderSinglePost(post) {
       ${
         recommended.length
           ? `
-      <div class="related-posts post_content">
+      <div class="related-posts post_content" style="margin-bottom: 40px;">
           <header>TE AKTUALNOŚCI MOGĄ CIĘ ZAINTERESOWAĆ</header>
           <div class="related-posts-grid">
               ${recommended
