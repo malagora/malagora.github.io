@@ -112,7 +112,7 @@ function renderSinglePost(post) {
       ${
         recommended.length
           ? `
-      <div class="related-posts post_content" style="margin-bottom: 40px;">
+      <div class="related-posts post_content" style="margin-bottom: 100px;">
           <header>TE AKTUALNOŚCI MOGĄ CIĘ ZAINTERESOWAĆ</header>
           <div class="related-posts-grid">
               ${recommended
@@ -135,6 +135,9 @@ function renderSinglePost(post) {
               `
                 )
                 .join("")}
+          </div>
+          <div class="news-footer">
+            <a class="more-button-color" href="/aktualnosci">Zobacz więcej postów</a>
           </div>
       </div>`
           : ""
