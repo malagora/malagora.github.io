@@ -1250,6 +1250,61 @@ div#showedBarGallery {
   to {transform: scale(1); opacity: 1;}
 }
 
+.related-posts {
+  padding: 50px 0;
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+}
+
+.related-posts h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #111;
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.related-post {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.related-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.related-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+}
+
+.related-title {
+  padding: 12px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  color: #000;
+}
+
+
 
 @media (min-width: 1000px) {
   .post-menu ol {
