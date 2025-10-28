@@ -112,7 +112,7 @@ function renderSinglePost(post) {
       ${
         recommended.length
           ? `
-      <section class="related-posts">
+      <div class="related-posts post_content">
           <header>TE AKTUALNOŚCI MOGĄ CIĘ ZAINTERESOWAĆ</header>
           <div class="related-posts-grid">
               ${recommended
@@ -136,7 +136,7 @@ function renderSinglePost(post) {
                 )
                 .join("")}
           </div>
-      </section>`
+      </div>`
           : ""
       }
   </section>
