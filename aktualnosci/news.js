@@ -44,7 +44,7 @@ function renderSinglePost(post) {
     text
       .toLowerCase()
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, ""); // usuwa polskie znaki
+      .replace(/[\u0300-\u036f]/g, "");
 
   const currentTitle = normalize(post.title);
   let similarPosts = newsData
@@ -59,7 +59,6 @@ function renderSinglePost(post) {
   similarPosts.sort((a, b) => b.similarity - a.similarity);
 
   if (similarPosts[0]?.similarity === 0) {
-    // jeśli brak podobnych, weź najnowsze
     similarPosts = newsData
       .filter((p) => p.id !== post.id)
       .sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -91,23 +90,20 @@ function renderSinglePost(post) {
   <section id="First" class="post">
       <div class="breadcrumb">
           <ol class="breadcrumb_list">
-              <li class="breadcrumb_item">
-                  <a href="/">Strona główna</a>
-              </li>
-              <li class="breadcrumb_item breadcrumb_item--before">
-                  <a href="/aktualnosci">Aktualności</a>
-              </li>
+              <li class="breadcrumb_item"><a href="/">Strona główna</a></li>
+              <li class="breadcrumb_item breadcrumb_item--before"><a href="/aktualnosci">Aktualności</a></li>
               <li class="breadcrumb_item breadcrumb_item--before breadcrumb_item-active">
-                  <a href="/aktualnosci?post=${post.id}">
-                    ${new Date(post.date).toLocaleDateString("pl-PL", {
-                      day: "2-digit",
-                      month: "2-digit",
-                      year: "numeric",
-                    })}
-                  </a>
+                <a href="/aktualnosci?post=${post.id}">
+                  ${new Date(post.date).toLocaleDateString("pl-PL", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })}
+                </a>
               </li>
           </ol>
       </div>
+
       <div class="post_content">
           <header>${post.title.toUpperCase()}</header>
           ${post.content}
@@ -117,14 +113,24 @@ function renderSinglePost(post) {
         recommended.length
           ? `
       <section class="related-posts">
-          <h2>Zobacz także</h2>
+          <header>TE AKTUALNOŚCI MOGĄ CIĘ ZAINTERESOWAĆ</header>
           <div class="related-posts-grid">
               ${recommended
                 .map(
                   (r) => `
               <a class="related-post" href="/aktualnosci?post=${r.id}">
                 <div class="related-img" style="background-image: url('${r.image}')"></div>
-                <div class="related-title">${r.title}</div>
+                <div class="related-text">
+                  <h1>${r.title}</h1>
+                  <div class="related-date">
+                    ${new Date(r.date).toLocaleDateString("pl-PL", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </div>
+                  <div class="related-arrow">➔</div>
+                </div>
               </a>
               `
                 )
