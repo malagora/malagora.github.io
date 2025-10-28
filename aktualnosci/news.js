@@ -39,6 +39,35 @@ function renderSinglePost(post) {
   document.getElementById("breadcrumbList")?.style.setProperty("display", "none");
   gallery.style.display = "none";
 
+  // ======= Wybór 3 podobnych lub najnowszych postów =======
+  const normalize = (text) =>
+    text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, ""); // usuwa polskie znaki
+
+  const currentTitle = normalize(post.title);
+  let similarPosts = newsData
+    .filter((p) => p.id !== post.id)
+    .map((p) => ({
+      ...p,
+      similarity: currentTitle
+        .split(" ")
+        .filter((word) => normalize(p.title).includes(word)).length,
+    }));
+
+  similarPosts.sort((a, b) => b.similarity - a.similarity);
+
+  if (similarPosts[0]?.similarity === 0) {
+    // jeśli brak podobnych, weź najnowsze
+    similarPosts = newsData
+      .filter((p) => p.id !== post.id)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+
+  const recommended = similarPosts.slice(0, 3);
+
+  // ======= Generowanie zawartości =======
   postContainer.innerHTML = `
   <div id="top"></div>
   <section class="banner" style="margin: 0;">
@@ -52,7 +81,10 @@ function renderSinglePost(post) {
                 year: "numeric",
               })}</p>
           </div>
-          <a href="#First"><p class="f-dArrow"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></p><p class="f-dText">PRZEWIŃ DALEJ</p></a>
+          <a href="#First">
+            <p class="f-dArrow"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></p>
+            <p class="f-dText">PRZEWIŃ DALEJ</p>
+          </a>
       </div>
   </section>
 
@@ -80,9 +112,31 @@ function renderSinglePost(post) {
           <header>${post.title.toUpperCase()}</header>
           ${post.content}
       </div>
+
+      ${
+        recommended.length
+          ? `
+      <section class="related-posts">
+          <h2>Zobacz także</h2>
+          <div class="related-posts-grid">
+              ${recommended
+                .map(
+                  (r) => `
+              <a class="related-post" href="/aktualnosci?post=${r.id}">
+                <div class="related-img" style="background-image: url('${r.image}')"></div>
+                <div class="related-title">${r.title}</div>
+              </a>
+              `
+                )
+                .join("")}
+          </div>
+      </section>`
+          : ""
+      }
   </section>
   `;
 }
+
 
 // === Widok listy postów ===
 function renderNews() {
