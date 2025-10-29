@@ -1,6 +1,34 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto76",
+    title: "Salamandra plamista",
+    image: "/media/photos/MG-2025-10-29_004.jpg",
+    category: ["jesien", "zwierzeta"],
+    date: "2025-10-29"
+  },
+  {
+    id: "foto75",
+    title: "Salamandra plamista",
+    image: "/media/photos/MG-2025-10-29_003.jpg",
+    category: ["jesien", "zwierzeta"],
+    date: "2025-10-29"
+  },
+  {
+    id: "foto74",
+    title: "Zmierzch na Szarych Skałkach",
+    image: "/media/photos/MG-2025-10-29_002.jpg",
+    category: ["jesien", "skalki"],
+    date: "2025-10-29"
+  },
+  {
+    id: "foto73",
+    title: "Zmierzch znad Kaczych Skałek",
+    image: "/media/photos/MG-2025-10-29_001.jpg",
+    category: ["jesien"],
+    date: "2025-10-29"
+  },
+  {
     id: "foto72",
     title: "Mleczajowiec chrząstka",
     image: "/media/photos/MG-2025-10-20_036.jpg",
