@@ -36,9 +36,9 @@ const texts = [
   "Na szlakach mokro i ślisko.",
   "Spadł śnieg – zachowaj ostrożność!",
   "Na szlakach zalega błoto.",
-  "Na szlakach mokro i ślisko. Wieje silny wiatr."
-  "Intensywne opady śniegu."
-  "Na szlakach zalega błoto. Wieje silny wiatr."
+  "Na szlakach mokro i ślisko. Wieje silny wiatr.",
+  "Intensywne opady śniegu.",
+  "Na szlakach zalega błoto. Wieje silny wiatr.",
 ];
 
 const komunikaty = [
