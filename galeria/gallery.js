@@ -1,6 +1,13 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto77",
+    title: "Zachód na Złotych Skałkach",
+    image: "/media/photos/MG-2022-10-18_001.jpg",
+    category: ["jesien", "skalki", "las"],
+    date: "2022-10-18"
+  },
+  {
     id: "foto76",
     title: "Salamandra plamista",
     image: "/media/photos/MG-2025-10-29_004.jpg",
@@ -18,14 +25,14 @@ const photos = [
     id: "foto74",
     title: "Zmierzch na Szarych Skałkach",
     image: "/media/photos/MG-2025-10-29_002.jpg",
-    category: ["jesien", "skalki"],
+    category: ["jesien", "skalki", "las"],
     date: "2025-10-29"
   },
   {
     id: "foto73",
     title: "Zmierzch znad Kaczych Skałek",
     image: "/media/photos/MG-2025-10-29_001.jpg",
-    category: ["jesien"],
+    category: ["jesien", "las"],
     date: "2025-10-29"
   },
   {
