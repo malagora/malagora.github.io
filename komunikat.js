@@ -4,7 +4,7 @@ const moreTxt = "<br>Na szlakach z północną wystawą może zalegać błoto.<b
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 23 października do 31 października, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Szare Skałki – Białe Skałki – Sosnowe Skałki.</p>",
+  "<p>Od 23 października do 5 listopada, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Szare Skałki – Białe Skałki – Sosnowe Skałki.</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
   "<p>Od 1 marca do odwołania, z powodu ochrony przyrody – szlak czerwony – Ścieżka wokół Bobrowiska, na całym odcinku.</p>"
 ];
