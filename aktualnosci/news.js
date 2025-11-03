@@ -144,6 +144,34 @@ function renderSinglePost(post) {
       }
   </section>
   `;
+
+  document.title = `${post.title} | Mała Góra`;
+  const descriptionText = post.description || "Aktualności z Małej Góry";
+  const imageUrl = `https://malagora.github.io${post.image}`;
+  const pageUrl = `https://malagora.github.io/aktualnosci?post=${post.id}`;
+  
+  function setMetaTag(selector, attr, content) {
+    let tag = document.querySelector(selector);
+    if (!tag) {
+      tag = document.createElement("meta");
+      if (selector.startsWith('meta[name="')) {
+        tag.setAttribute("name", selector.match(/meta\[name="(.+)"\]/)[1]);
+      } else if (selector.startsWith('meta[property="')) {
+        tag.setAttribute("property", selector.match(/meta\[property="(.+)"\]/)[1]);
+      }
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute(attr, content);
+  }
+  
+  setMetaTag('meta[name="description"]', "content", descriptionText);
+  setMetaTag('meta[property="og:title"]', "content", post.title);
+  setMetaTag('meta[property="og:description"]', "content", descriptionText);
+  setMetaTag('meta[property="og:url"]', "content", pageUrl);
+  setMetaTag('meta[property="og:image"]', "content", imageUrl);
+  setMetaTag('meta[name="twitter:title"]', "content", post.title);
+  setMetaTag('meta[name="twitter:description"]', "content", descriptionText);
+  setMetaTag('meta[name="twitter:image"]', "content", imageUrl);
 }
 
 
