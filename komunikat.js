@@ -1,5 +1,5 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 3; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr
+const selectedText = 5; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr
 
 const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
