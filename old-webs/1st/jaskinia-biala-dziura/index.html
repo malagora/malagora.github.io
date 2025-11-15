@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <title>Biała Dziura (2023)</title>
+  <link rel="shortcut icon" href="../media/MalaGora-logo-icon.png">
+  <meta name="description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia.">
+  <meta name="autdor" content="K. Michalik">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Biała Dziura (2023)" />
+  <meta property="og:description" content="Opis jaskini Białej Dziury z 01.2023 r." />
+  <meta property="og:url" content="https://malagora.gitdub.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://gitdub.com/malagora/malagora.gitdub.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:widtd" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Biała Dziura (2023)" />
+  <meta name="twitter:description" content="Opis jaskini Białej Dziury z 01.2023 r." />
+  <meta name="twitter:image" content="https://gitdub.com/malagora/malagora.gitdub.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+html {
+	scroll-behavior: smootd;
+}
+
+body {
+	background-color: #fff;
+	background-attachment: fixed; 
+	background-repeat: no-repeat; 
+	background-position: center top;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+  	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+a {
+	text-decoration: none;
+    font-weight: bolder;
+    color: #222;
+    cursor: pointer;
+}
+
+li {
+	list-style: none;
+}
+
+main {
+    width: 1000px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: salmon 1px solid;
+    background-color: #ffd28f;
+}
+
+nav div.navText {
+    font-size: 50px;
+    font-weight: bold;
+    cursor: default;
+}
+nav img {
+    height: 100px;
+    width: auto;
+}
+nav a {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: #aaa solid 1px;
+    background: #FFEBCD;
+    background: linear-gradient(180deg,#ffebcd 0%, #db9d40 100%);
+    cursor: pointer;
+}
+nav a:hover {
+    background: #F5DAB5;
+}
+nav a:active {
+    background: #ffebcd;
+}
+
+div.content {
+    padding: 20px 10px;
+}
+div.content header {
+    font-size: 20px;
+    font-weight: bold;
+    color: saddlebrown;
+    border-bottom: #aaa solid 1px;
+    padding: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-weight: lighter;
+}
+
+table td {
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    vertical-align: middle;
+    text-align: left;
+    height: fit-content;
+}
+
+.col1 {
+    width: 30%;
+    font-weight: bold;
+}
+
+.col2 {
+    width: 70%;
+    font-weight: normal;
+}
+
+table tr:nth-child(odd) {
+    background: #ffebcd;
+}
+
+table tr:nth-child(even) {
+    background: #ffd28f;
+}
+
+.cell-inner {
+    line-height: 1.2em;
+    max-height: calc(1.2em * 3);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: content-box;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.expandable.expanded .cell-inner {
+    max-height: none;
+    overflow-y: visible;
+}
+
+table button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: #aaa solid 1px;
+    background: #aaa;
+    background: linear-gradient(180deg,#eee 0%, #aaa 100%);
+    font-weight: bold;
+}
+table button:hover {
+    background: #eee;
+}
+table button:active {
+    background: #fff;
+}
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    z-index: 9000;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(800px, 90%);
+    height: auto;
+    background: #fff;
+    padding: 5px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    box-sizing: border-box;
+    border: #777 solid 1px;
+    border-radius: 5px;
+    aspect-ratio: 4/3;
+}
+
+.close {
+    background: rgba(0,0,0,0);
+    border-radius: 5px;
+    border: rgba(0,0,0,0) 1px solid;
+    color: #000;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 15px;
+}
+.close:hover {
+    background: #ffd28f;
+    border-radius: 5px;
+    border: #777 1px solid;
+}
+
+.popup-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: #777 solid 1px;
+    border-radius: 5px;
+    background-color: #ffebcd;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.visible { display: flex; }
+
+.popup-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 10px;
+}
+
+.media-info {
+    width: 100%;
+    height: fit-content;
+}
+
+.zoom-controls {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.zoom-in,
+.zoom-out {
+    font-size: 25px;
+    font-weight: lighter;
+    background-color: #fff;
+    border: none;
+    padding: 0 5px;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.zoom-in {
+    color: #300;
+}
+.zoom-out {
+    color: #003;
+}
+
+.popup-img {
+    width: 70%;
+    height: auto;
+    display: block;
+    transform-origin: top left;
+    display: block;
+    border: #000 solid 1px;
+}
+
+.popup-footer {
+    margin-top: auto;
+    border-top: #777 solid 1px;
+    padding: 15px 0;
+    text-align: right;
+}
+
+.ok {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: #aaa solid 1px;
+    background: #FFEBCD;
+    background: linear-gradient(180deg,#ffebcd 0%, #db9d40 100%);
+    cursor: pointer;
+    margin-right: 20px;
+}
+.ok:hover {
+    background: #F5DAB5;
+}
+.ok:active {
+    background: #ffebcd;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <main>
+        <nav>
+            <div class="navText">Mała Góra</div>
+            <img src="../old-webs/1st/MalaGora-logo-icon-png.png" alt="Mała Góra">
+            <a onclick="window.history.back()">◀ Powrót</a>
+        </nav>
+        <div class="content">
+            <header>Dane szczegółowe jaskini:</header>
+        </div>
+        <table>
+            <tr class="row">
+                <td class="col1">Nazwa</td>
+                <td class="col2">Biała Dziura w Małej Górze</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Inne nazwy</td>
+                <td class="col2">Biała Dziura</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Region</td>
+                <td class="col2">Karpaty</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Współrzędne WGS84</td>
+                <td class="col2">φ: 49°57'57,30", λ: 20°74'27,00"</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Gmina</td>
+                <td class="col2">Nowy Sącz (gm. miejska)</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Powiat</td>
+                <td class="col2">Nowy Sącz</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Województwo</td>
+                <td class="col2">Małopolskie</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Ekspozycja otworu</td>
+                <td class="col2">S</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Pozostałe otwory</td>
+                <td class="col2">—</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Wysokość bezwzględna [m n.p.m.]</td>
+                <td class="col2">355</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Wysokość względna [m]</td>
+                <td class="col2">—</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Głębokość [m]</td>
+                <td class="col2">0,8</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Przewyższenie [m]</td>
+                <td class="col2">0,4</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Deniwelacja [m]</td>
+                <td class="col2">1,2</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Długość [m]<br>w tym szacowane [m]</td>
+                <td class="col2">2,3<br>—</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Rozciągłość horyzontalna [m]</td>
+                <td class="col2">—</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Położenie geograficzne</td>
+                <td class="col2">Białe Skałki, Mała Góra (403 m n.p.m.), Beskid Niski</td>
+            </tr>
+            <tr class="row expandable">
+                <td class="col1">Opis drogi dojścia do otworu</td>
+                <td class="col2"><div class="cell-inner">Ze stacji PKP Nowy Sącz Jamnica, kierujemy się na ulicę Wczasową, a następnie od mostku na Jamniczce, idziemy przez około 500 m, ulicą Małą Górą.<br>Z drogi, tuż za Stawami Jamnickimi, odbijamy w prawo, gdzie po przeprawie przez Rzekę Kamionkę (jedynie przy niskim stanie wody; podczas powodzi przejście niemożliwe) skręcamy w lewo w leśną drogę (bardzo dużo błota, ze względu na użytkowanie jej przez kłady).<br>Po około 160 m, wychodzimy na niewielką polanę, skąd po około 70 m dochodzimy do rozdroża dróg. Tu należy kierować się w prawo, do góry, stromym wąwozem.<br>Po niespełna 200 metrach dochodzimy do drogi, biegnącej górną częścią Małej Góry (dawny szlak żółty). Gdzie skręcamy w lewo.<br>Po około 400 m marszu, dochodzimy do sporego wąwozu, gdzie pod kątem w prawo, wiedzie ścieżka nad punkt widokowy nad osuwiskiem.<br>Stąd po około 30 m, należy skręcić w prawo, przechodząc przez górną część tego wąwozu, a następnie podejść około 40 m, nad załamanie terenu.<br>Dalej w lewo, grzbietem, dochodzimy do nagłego odbicia grzbietu w lewo, gdzie należy ostrożnie skręcić w prawo, niewielkim ramieniem, zejść nad skraj wysokiego urwiska (Szare Skałki).<br>Dalej ostro w lewo za prowizorycznymi oznaczeniami szlaku (Sarniej Perci), zejść do niewielkiej dolinki, z której w lewo na kolejne osuwisko (Białe Skałki).<br>Po przejściu przez pierwszą część osuwiska, dochodzimy do gęstej jodły, pod którą należy przejść, by dostać się nad skraj niewielkiego urwiska. Tutaj należy odbić w prawo i po kilku metrach, w miejscu, gdzie ścieżka odbija w lewo, po prawej stronie, znajduje się otwór jaskini Białej Dziury.<br>W lecie dojście może być ciężkie ze względu na krzaki czernicy.</div></td>
+            </tr>
+            <tr class="row expandable">
+                <td class="col1">Opis jaskini</td>
+                <td class="col2"><div class="cell-inner">Otwór jaskini jest bardzo ciasny i ma nieregularny kształt dwóch, połączonych trójkątów o łącznej wysokości 0,7 m. Znajduje się nad nim około 0,4 m wystająca skała.<br>Przy otworze jaskinia rozdziela się na dwie części. W górę w kierunku NW, biegnie około 1,8 m szczelina, niemożliwa do wejścia. Pośrodku szczeliny znajduje się sporych rozmiarów głaz.<br>W dół, w kierunku N NE, korytarz opada stromo w dół i przez niemożliwy do przejścia zacisk z niewielkim 0,3 m progiem sprowadza do ciasnej komory, mającej około 0,5 m wysokości.<br>Komora ciągnie się w kierunku N NW, zwężając się w szczelinę nie do przejścia.<br><br>Dno komory wypełniają rumosz skalny i suche liście. Przewiewu nie wyczuwa się. Jaskinia o wpływie klimatów zewnętrznych. Latem zarasta czernicami.<br>Flora i fauna nie były obserwowane.<br>Jaskinia osuwiskowa, powstała w piaskowcach magurskich.<br>Światło sięga jedynie otworu.</div></td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Historia eksploracji</td>
+                <td class="col2">Jaskinia została odkryta 3.09.2022, przez K. Michalika</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Historia dokumentacji</td>
+                <td class="col2">30.01.2023 r., została skartografowana przez K. Michalika. Pomiary wykonano busolą i taśmą metrową, a wysokość została zmierzona za pomocą aplikacji <a href="https://pl.mapy.cz/" target="_blank">mapy.cz</a></td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Zniszczona, niedostępna lub nieodnaleziona</td>
+                <td class="col2">Tak, niedostępna</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Materialy archiwalne</td>
+                <td class="col2">Obecnie oglądany przez Państwa materiał ma charakter archiwalny. Prosimy o zapoznanie się z <a href="/miejsca/jaskinie/biala-dziura">nową wersją</a>.</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Autorzy opracowania</td>
+                <td class="col2">K. Michalik</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Redakcja</td>
+                <td class="col2">K. Michalik</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Stan na rok</td>
+                <td class="col2">2023</td>
+            </tr>
+            <tr class="row">
+                <td class="col1">Grafika, zdjęcia</td>
+                <td class="col2">
+                    <button id="openOtwor">Otwór</button>
+                    <button id="openPlan">Plan</button>
+                </td>
+            </tr>
+        </table>
+        <footer>Mała Góra 2023</footer>
+
+        <div id="overlay"></div>
+
+        <div id="otwor" class="popup" aria-hidden="true">
+            <div class="popup-navbar">
+                <p>Informacje o zdjęciu</p>
+                <button class="close"><i class="fa fa-times"></i></button>
+            </div>
+            <div class="popup-wrapper">
+                <div class="media-info">
+                    <b>Nazwa:</b> otwór <b>Autor:</b> K. Michalik <b>Data wprowadzenia:</b> 2023-01-30
+                </div>
+                <div class="zoom-controls">
+                    <button class="zoom-in"><i class="fa fa-search-plus"></i></button>
+                    <button class="zoom-out"><i class="fa fa-search-minus"></i></button>
+                </div>
+                <img src="Otwor2023.jpg" class="popup-img" alt="otwór">
+            </div>
+            <div class="popup-footer">
+                <button class="ok">Ok</button>
+            </div>
+        </div>
+        <div id="plan" class="popup" aria-hidden="true">
+            <div class="popup-navbar">
+                <p>Informacje o zdjęciu</p>
+                <button class="close"><i class="fa fa-times"></i></button>
+            </div>
+            <div class="popup-wrapper">
+                <div class="media-info">
+                    <b>Nazwa:</b> plan jaskini <b>Autor:</b> K. Michalik <b>Data wprowadzenia:</b> 2023-01-30
+                </div>
+                <div class="zoom-controls">
+                    <button class="zoom-in"><i class="fa fa-search-plus"></i></button>
+                    <button class="zoom-out"><i class="fa fa-search-minus"></i></button>
+                </div>
+                <img src="Plan2023.jpg" class="popup-img" alt="plan jaskini">
+            </div>
+            <div class="popup-footer">
+                <button class="ok">Ok</button>
+            </div>
+        </div>
+    </main>
+
+<script>
+  document.querySelectorAll('.expandable').forEach(row => {
+    row.addEventListener('click', () => {
+      row.classList.toggle('expanded');
+    });
+  });
+</script>
+<script>
+const popups = [
+    { openBtn: "openOtwor", popupId: "otwor" },
+    { openBtn: "openPlan", popupId: "plan" }
+];
+
+const scaleLevels = [1, 1.5, 2, 3];
+
+function setupPopup(openBtnId, popupId) {
+    const openBtn = document.getElementById(openBtnId);
+    const popup = document.getElementById(popupId);
+    const overlay = document.getElementById('overlay');
+    const wrapper = popup.querySelector(".popup-wrapper");
+    const img = popup.querySelector(".popup-img");
+    const closeBtn = popup.querySelector(".close");
+    const okBtn = popup.querySelector(".ok");
+    const zoomIn = popup.querySelector(".zoom-in");
+    const zoomOut = popup.querySelector(".zoom-out");
+
+    let scaleIndex = 0;
+
+    openBtn.addEventListener("click", () => {
+        popup.classList.add("visible");
+        scaleIndex = 0;
+        img.style.transform = "scale(1)";
+        wrapper.scrollTop = 0;
+        overlay.style.display = "block";
+    });
+
+    function closePopup() {
+        popup.classList.remove("visible");
+        overlay.style.display = "none";
+    }
+
+    closeBtn.addEventListener("click", closePopup);
+    okBtn.addEventListener("click", closePopup);
+
+    zoomIn.addEventListener("click", () => {
+        if (scaleIndex < scaleLevels.length - 1) {
+            scaleIndex++;
+            img.style.transform = `scale(${scaleLevels[scaleIndex]})`;
+        }
+    });
+
+    zoomOut.addEventListener("click", () => {
+        if (scaleIndex > 0) {
+            scaleIndex--;
+            img.style.transform = `scale(${scaleLevels[scaleIndex]})`;
+        }
+    });
+}
+
+popups.forEach(p => setupPopup(p.openBtn, p.popupId));
+
+</script>
+
+
+</body>
+
+</html>
