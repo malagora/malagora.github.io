@@ -1,5 +1,5 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 10; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce
+const selectedText = 7; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce
 
 const moreTxt = "<br>Wezbrana woda porwała kładkę do parku. Przejście tym sposobem NIE JEST MOŻLIWE!<br>"; //<br>...<br>
 
@@ -51,7 +51,7 @@ const komunikaty = [
   "Szlaki pokrywa warstwa śniegu, co może zmniejszać przyczepność do podłoża, zaś w niektórych miejscach mogą tworzyć się oblodzenia.<br>Poruszanie się w takich warunkach wymaga stosowania szczególnej ostrożności. Zachęcamy do zabrania ze sobą odpowiedzniego sprzętu lub korzystanie z bezpieczniejszych tras.",
   "Po opadach deszczu na szlakach zalega błoto, które w eksponowanym terenie może spowodować upadek z wysokości.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności.",
   "Na szlakach jest mokro i ślisko. W skutek opadu deszczu tworzy się błoto, które w eksponowanym terenie może prowadzić do upadku z wysokości.<br>Dodatkowo występują silne podmuchy wiatru, które mogą powodować łamanie się gałęzi.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności.",
-  "Intensywne opady śniegu. Nie wychodź na szlak podczas śnieżycy!<br>Warunki są bardzo wymagające, zaś długotrwała ekspozycja na zimno może powodować utratę świadomości. W takich warunkach lepiej pozostać na kwaterze.<br>Dodatkowo występują silne podmuchy wiatru, które mogą powodować łamanie się gałęzi.<br>Poruszanie się w takich warunkach wymaga stosowania szczególnej ostrożności. Zachęcamy do zabrania ze sobą odpowiedzniego sprzętu, jednakże <b style='font-weight: 600;'>ODRADZAMY wyjście w takich warunkach!</b>",
+  "Intensywne opady śniegu. Nie wychodź na szlak podczas śnieżycy!<br>Warunki są bardzo wymagające, zaś długotrwała ekspozycja na zimno może powodować utratę świadomości. W takich warunkach lepiej pozostać na kwaterze.<br>Dodatkowo występujące silne podmuchy wiatru oraz obciążenie przez śnieg gałęzi może powodować się ich łamanie.<br>Poruszanie się w takich warunkach wymaga stosowania szczególnej ostrożności. Zachęcamy do zabrania ze sobą odpowiedzniego sprzętu, jednakże <b style='font-weight: 600;'>ODRADZAMY wyjście w takich warunkach!</b>",
   "Po opadach deszczu na szlakach zalega błoto, które w eksponowanym terenie może spowodować upadek z wysokości.<br>Dodatkowo występują silne podmuchy wiatru, które mogą powodować łamanie się gałęzi.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności.",
   "Ujemne temperatury sprawiły, że podłoże jest oblodzone. Pogoda nie sprzyja pieszym wędrówkom.<br>Poruszanie się w takich warunkach wymaga szczególnej ostrożności oraz stosowania odpowiedniego sprzętu (raczki, raki, czekan).",
   "Ujemne temperatury sprawiły, że podłoże jest oblodzone. Świeci słońce, które na stokach o południowej wystawie powoduje powstawanie błota, które może prowadzić do upadku z wysokości. Z kolei na szlakach od północnej strony może występować lód.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności."
