@@ -1,5 +1,5 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 7; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce
+const selectedText = 4; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce
 
 const moreTxt = "<br>Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.<br>Radzimy również nie wybieranie się w rejon Sarniej Perci, gdyż w tych warunkach przejście nią może okazać sie niebezpieczne.<br>"; //<br>...<br>
 
