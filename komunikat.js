@@ -12,7 +12,8 @@ const zamknieteSzlaki = [
 
 // ⚠ UTRUDNIENIA
 const utrudnienia = [
-  "<p><b style='font-weight: 600;'>Na szlakach zalega spora ilość śniegu.</b> Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.</p>",
+  //"<p><b style='font-weight: 600;'>Na szlakach zalega spora ilość śniegu.</b> Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.</p>",
+  "<p>Na nowootwartym odcinku Sarniej Perci doszło do uszkodzenia barierki na jednym z mostków. Prosimy o zachowanie dodatkowej ostrożności. Uszkodzenie zostanie naprawione gdy tylko warunki ulegną poprawie.</p>"
   "<p><b style='font-weight: 600;'>Powódź porwała kładkę do Małej Góry.</b> Przejście do parku tym wariantem jest obecnie niemożliwe!</p>",
   "<p>Podczas wiatru na szlaki mogą spadać gałęzie – zachowaj czujność!</p>",
   "<p>Szlaki przebiegające od południowej strony prowadzą po terenach osuwiskowych, co może powodować samoistne osuwanie się szlaków.</p>",
