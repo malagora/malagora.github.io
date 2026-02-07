@@ -1,11 +1,11 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 4; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce
+const selectedText = 11; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce 11-odwilż
 
 const moreTxt = "<br>Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.<br>Radzimy również nie wybieranie się w rejon Sarniej Perci, gdyż w tych warunkach przejście nią może okazać się niebezpieczne.<br>"; //<br>...<br>
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 23 października do 30 listopada, z powodu remontu – szlak czerwony – „Sarnia Perć”, na odcinku Kacze Skałki – Szare Skałki – Białe Skałki – Sosnowe Skałki.</p>",
+  "<p>Od 23 października do 30 listopada, z powodu remontu – szlak czerwony – „Sarnia Perć”, w rejonie Sosnowych Skałek.</p>",
   "<p>Od 1 września do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
   "<p>Od 1 marca do odwołania, z powodu ochrony przyrody – szlak czerwony – Ścieżka wokół Bobrowiska, na całym odcinku.</p>"
 ];
@@ -42,7 +42,8 @@ const texts = [
   "Intensywne opady śniegu.",
   "Na szlakach zalega błoto. Wieje silny wiatr.",
   "Szlaki są oblodzone.",
-  "Szlaki są oblodzone, jednak świeci słońce."
+  "Szlaki są oblodzone, jednak świeci słońce.",
+  "Panuje odwilż. Topniejący śnieg tworzy błoto."
 ];
 
 const komunikaty = [
@@ -55,7 +56,8 @@ const komunikaty = [
   "Intensywne opady śniegu. Nie wychodź na szlak podczas śnieżycy!<br>Warunki są bardzo wymagające, zaś długotrwała ekspozycja na zimno może powodować utratę świadomości. W takich warunkach lepiej pozostać na kwaterze.<br>Dodatkowo występujące silne podmuchy wiatru oraz obciążenie przez śnieg gałęzi może powodować się ich łamanie.<br>Poruszanie się w takich warunkach wymaga stosowania szczególnej ostrożności. Zachęcamy do zabrania ze sobą odpowiedzniego sprzętu, jednakże <b style='font-weight: 600;'>ODRADZAMY wyjście w takich warunkach!</b>",
   "Po opadach deszczu na szlakach zalega błoto, które w eksponowanym terenie może spowodować upadek z wysokości.<br>Dodatkowo występują silne podmuchy wiatru, które mogą powodować łamanie się gałęzi.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności.",
   "Ujemne temperatury sprawiły, że podłoże jest oblodzone. Pogoda nie sprzyja pieszym wędrówkom.<br>Poruszanie się w takich warunkach wymaga szczególnej ostrożności oraz stosowania odpowiedniego sprzętu (raczki, raki, czekan).",
-  "Ujemne temperatury sprawiły, że podłoże jest oblodzone. Świeci słońce, które na stokach o południowej wystawie powoduje powstawanie błota, które może prowadzić do upadku z wysokości. Z kolei na szlakach od północnej strony może występować lód.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności."
+  "Ujemne temperatury sprawiły, że podłoże jest oblodzone. Świeci słońce, które na stokach o południowej wystawie powoduje powstawanie błota, które może prowadzić do upadku z wysokości. Z kolei na szlakach od północnej strony może występować lód.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności.",
+  "Trwa odwilż, która prowadzi do szybkiego topnienia śniegu, szczególnie na południowych stokach, z kolei na północnych stokach wciąż może zalegać śnieg i lód.<br>Poruszanie się w takich warunkach wymaga zachowania ostrożności i odpowiedniej oceny sytuacji."
 ];
 
 const standardTxt = "<br>Poruszając się po szlakach stosuj się do niżej wymienionych zasad i zaleceń.<br>";
