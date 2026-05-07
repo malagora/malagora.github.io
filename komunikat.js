@@ -1,13 +1,14 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 11; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce 11-odwilż
+const selectedText = 3; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce 11-odwilż
 
 const moreTxt = ""; //"<br>Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.<br>Radzimy również nie wybieranie się w rejon Sarniej Perci, gdyż w tych warunkach przejście nią może okazać się niebezpieczne.<br>"; <br>...<br>;
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 23 października do 30 listopada, z powodu remontu – szlak czerwony – „Sarnia Perć”, w rejonie Sosnowych Skałek.</p>",
-  "<p>Od 1 września do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
-  "<p>Od 1 marca do odwołania, z powodu ochrony przyrody – szlak czerwony – Ścieżka wokół Bobrowiska, na całym odcinku.</p>"
+  "<p>Od 7 maja 2026 do 31 maja, z powodu remontu i rozbudowy infrastruktury – szlak żółty – odejście na Punkt Widokowy „Dolina Kamionki”",
+  "<p>Od 23 października 2025 do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, w rejonie Sosnowych Skałek.</p>",
+  "<p>Od 1 września 2025 do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
+  "<p>Z powodu ochrony przyrody – szlak czerwony – Ścieżka wokół Bobrowiska, na całym odcinku.</p>"
 ];
 
 // ⚠ UTRUDNIENIA
@@ -19,7 +20,6 @@ const utrudnienia = [
   "<p>Szlaki przebiegające od południowej strony prowadzą po terenach osuwiskowych, co może powodować samoistne osuwanie się szlaków.</p>",
   "<p>Na odcinkach ubezpieczonych w łańcuchy stosuj <a href='#zalecenia'>zalecenia</a> dotyczące korzystania z nich.</p>",
   "<p>Na szlaku żółtym – ścieżka łącznikowa przy Bobrowisku, mogą występować utrudnienia z powodu złego stanu technicznego szlaku.</p>",
-  "<p>Na szlaku żółtym odejściowym – Punkt Widokowy „Dolina Kamionki”, mogą występować utrudnienia z powodu złego stanu technicznego szlaku.</p>",
   "<p>Na szlaku czerwonym – „Sarnia Perć”, mogą występować utrudnienia z powodu złego stanu oznaczeń szlaku, co może powodować zabłądzenie oraz powalonych drzew.</p>",
   "<p><i>Mapę z aktualnymi zamknięciami i utrudnieniami znajdziesz <a href='/mapa'>tutaj</a>.</i></p>"
 ];
