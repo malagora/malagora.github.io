@@ -23,7 +23,8 @@ const photos = [
   },
   {
     id: "foto80",
-    title: "Wiosenna Dolna Polana",,    image: "/media/photos/MG-2026-05-08-002.jpg",
+    title: "Wiosenna Dolna Polana",
+    image: "/media/photos/MG-2026-05-08-002.jpg",
     category: ["wiosna", "las"],
     date: "2026-05-08"
   },
