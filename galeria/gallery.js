@@ -1,6 +1,40 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto83",
+    title: "pomrów błękitny",
+    image: "/media/photos/MG-2026-05-08-005.jpg",
+    category: ["wiosna", "zwierzeta", "las"],
+    date: "2026-05-08"
+  },
+  {
+    id: "foto82",
+    title: "żuk leśny",
+    image: "/media/photos/MG-2026-05-08-004.jpg",
+    category: ["wiosna", "zwierzeta", "las"],
+    date: "2026-05-08"
+  },
+  {
+    id: "foto81",
+    title: "Okolica Dolnej Polany",
+    image: "/media/photos/MG-2026-05-08-003.jpg",
+    category: ["wiosna", "las"],
+    date: "2026-05-08"
+  },
+  {
+    id: "foto80",
+    title: "Wiosenna Dolna Polana",,    image: "/media/photos/MG-2026-05-08-002.jpg",
+    category: ["wiosna", "las"],
+    date: "2026-05-08"
+  },
+  {
+    id: "foto79",
+    title: "Dziki las",
+    image: "/media/photos/MG-2026-05-08-001.jpg",
+    category: ["wiosna", "las"],
+    date: "2026-05-08"
+  },
+  {
     id: "foto78",
     title: "Zachód na Kaczych Skałkach",
     image: "/media/photos/MG-2026-01-12-001.jpg",
