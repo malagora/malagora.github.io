@@ -592,6 +592,12 @@ div.breadcrumb {
 	color: #222;
 }
 
+.post_content h3 a {
+	font-weight: 600;
+	text-decoration: underline;
+	color: #000;
+}
+
 .zasady-zwiedzania li {
 	display: flex;
 	flex-direction: row;
