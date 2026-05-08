@@ -1,6 +1,13 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto78",
+    title: "Zachód na Kaczych Skałkach",
+    image: "/media/photos/MG-2026-01-12-001.jpg",
+    category: ["zima", "las"],
+    date: "2026-01-12"
+  },
+  {
     id: "foto77",
     title: "Zachód na Złotych Skałkach",
     image: "/media/photos/MG-2022-10-18_001.jpg",
