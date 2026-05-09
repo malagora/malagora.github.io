@@ -1,17 +1,38 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto86",
+    title: "Ślimak winniczek i szklarka obłystek",
+    image: "/media/photos/MG-2026-05-09-003.jpg",
+    category: ["wiosna", "zwierzeta"],
+    date: "2026-05-09"
+  },
+  {
+    id: "foto85",
+    title: "Ślimak winniczek",
+    image: "/media/photos/MG-2026-05-09-002.jpg",
+    category: ["wiosna", "zwierzeta"],
+    date: "2026-05-09"
+  },
+  {
+    id: "foto84",
+    title: "Ślimak winniczek",
+    image: "/media/photos/MG-2026-05-09-001.jpg",
+    category: ["wiosna", "zwierzeta"],
+    date: "2026-05-09"
+  },
+  {
     id: "foto83",
     title: "Pomrów błękitny",
     image: "/media/photos/MG-2026-05-08-005.jpg",
-    category: ["wiosna", "zwierzeta", "las"],
+    category: ["wiosna", "zwierzeta"],
     date: "2026-05-08"
   },
   {
     id: "foto82",
     title: "Żuk leśny",
     image: "/media/photos/MG-2026-05-08-004.jpg",
-    category: ["wiosna", "zwierzeta", "las"],
+    category: ["wiosna", "zwierzeta"],
     date: "2026-05-08"
   },
   {
