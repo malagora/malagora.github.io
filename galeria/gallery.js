@@ -16,14 +16,14 @@ const photos = [
   },
   {
     id: "foto81",
-    title: "Okolica Dolnej Polany",
+    title: "Okolica Niżnej Polany",
     image: "/media/photos/MG-2026-05-08-003.jpg",
     category: ["wiosna", "las"],
     date: "2026-05-08"
   },
   {
     id: "foto80",
-    title: "Wiosenna Dolna Polana",
+    title: "Wiosenna Niżna Polana",
     image: "/media/photos/MG-2026-05-08-002.jpg",
     category: ["wiosna", "las"],
     date: "2026-05-08"
