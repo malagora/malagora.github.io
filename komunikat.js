@@ -5,7 +5,7 @@ const moreTxt = ""; //"<br>Szlaki nie są przetarte, w związku z czym poruszani
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p>Od 1 czerwca do 31 sierpnia, z powodu ochrony przyrody małogórskich osuwisk, „Sarnia Perć” na odcinku Srebrne Skałki – Małe Skałki – <b style='font-weight: 600;'>Kacze Skałki</b> – Szare Skałki – <b style='font-weight: 600;'>Białe Skałki</b> – Sosnowe Skałki</p>"
+  "<p>Od 1 czerwca do 31 sierpnia, z powodu ochrony przyrody małogórskich osuwisk, „Sarnia Perć” na odcinku Srebrne Skałki – Małe Skałki – <b style='font-weight: 600;'>Kacze Skałki</b> – Szare Skałki – <b style='font-weight: 600;'>Białe Skałki</b> – Sosnowe Skałki</p>",
   "<p>Od 7 maja 2026 do 31 maja, z powodu remontu i rozbudowy infrastruktury – szlak żółty – odejście na Punkt Widokowy „Dolina Kamionki”",
   "<p>Od 23 października 2025 do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, w rejonie Sosnowych Skałek.</p>",
   "<p>Od 1 września 2025 do odwołania, z powodu remontu – szlak żółty, na odcinku Złote Skałki – Kopa pod Mrozówką – Stara Mrozówka.</p>",
@@ -16,7 +16,7 @@ const zamknieteSzlaki = [
 const utrudnienia = [
   //"<p><b style='font-weight: 600;'>Na szlakach zalega spora ilość śniegu.</b> Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.</p>",
   "<p>Na nowootwartym odcinku Sarniej Perci doszło do uszkodzenia barierki na jednym z mostków. Prosimy o zachowanie dodatkowej ostrożności. Uszkodzenie zostanie naprawione gdy tylko warunki ulegną poprawie.</p>",
-  "<p>Przejście przez kładkę możliwe jest tylko przy niskim stanie wody.</p>"
+  "<p>Przejście przez kładkę możliwe jest tylko przy niskim stanie wody.</p>",
   "<p>Podczas wiatru na szlaki mogą spadać gałęzie – zachowaj czujność!</p>",
   "<p>Szlaki przebiegające od południowej strony prowadzą po terenach osuwiskowych, co może powodować samoistne osuwanie się szlaków.</p>",
   "<p>Na odcinkach ubezpieczonych w łańcuchy stosuj <a href='#zalecenia'>zalecenia</a> dotyczące korzystania z nich.</p>",
