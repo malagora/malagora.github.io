@@ -2,14 +2,14 @@
 const photos = [
   {
     id: "foto83",
-    title: "pomrów błękitny",
+    title: "Pomrów błękitny",
     image: "/media/photos/MG-2026-05-08-005.jpg",
     category: ["wiosna", "zwierzeta", "las"],
     date: "2026-05-08"
   },
   {
     id: "foto82",
-    title: "żuk leśny",
+    title: "Żuk leśny",
     image: "/media/photos/MG-2026-05-08-004.jpg",
     category: ["wiosna", "zwierzeta", "las"],
     date: "2026-05-08"
