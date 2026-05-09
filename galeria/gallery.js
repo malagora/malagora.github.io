@@ -30,7 +30,7 @@ const photos = [
   },
   {
     id: "foto79",
-    title: "Dziki las",
+    title: "Stare drzewo w środku lasu",
     image: "/media/photos/MG-2026-05-08-001.jpg",
     category: ["wiosna", "las"],
     date: "2026-05-08"
