@@ -102,7 +102,7 @@ const photos = [
     id: "foto77",
     title: "Zachód na Złotych Skałkach",
     image: "/media/photos/MG-2022-10-18_001.jpg",
-    category: ["jesien", "skalki", "las"],
+    category: ["jesien", "skaly", "las"],
     date: "2022-10-18"
   },
   {
@@ -123,7 +123,7 @@ const photos = [
     id: "foto74",
     title: "Zmierzch na Szarych Skałkach",
     image: "/media/photos/MG-2025-10-29_002.jpg",
-    category: ["jesien", "skalki", "las"],
+    category: ["jesien", "skaly", "las"],
     date: "2025-10-29"
   },
   {
