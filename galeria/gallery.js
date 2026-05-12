@@ -1,6 +1,41 @@
 // --- DANE ZDJĘĆ ---
 const photos = [
   {
+    id: "foto91",
+    title: "Gwiazdnica wielokwiatowa na tle paproci i mchu na drzewie",
+    image: "/media/photos/MG-2026-05-11-001.jpg",
+    category: ["wiosna", "rosliny"],
+    date: "2026-05-11"
+  },
+  {
+    id: "foto90",
+    title: "Zmierzch z Szarych Skałek z zawadzkim kościołem",
+    image: "/media/photos/MG-2026-05-10-004.jpg",
+    category: ["wiosna"],
+    date: "2026-05-10"
+  },
+  {
+    id: "foto89",
+    title: "Zmierzch z Szarych Skałek",
+    image: "/media/photos/MG-2026-05-10-003.jpg",
+    category: ["wiosna"],
+    date: "2026-05-10"
+  },
+  {
+    id: "foto88",
+    title: "Kościół MB Bolesnej w Zawadzie na tle zachodzącego słońca z Małych Skałek",
+    image: "/media/photos/MG-2026-05-10-002.jpg",
+    category: ["wiosna"],
+    date: "2026-05-10"
+  },
+  {
+    id: "foto87",
+    title: "Zawadzki kościół i góra Modyń ze Złotych Skałek",
+    image: "/media/photos/MG-2026-05-10-001.jpg",
+    category: ["wiosna"],
+    date: "2026-05-10"
+  },
+  {
     id: "foto86",
     title: "Ślimak winniczek i szklarka obłystek",
     image: "/media/photos/MG-2026-05-09-003.jpg",
