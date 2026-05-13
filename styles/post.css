@@ -169,9 +169,10 @@ li {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	font-size: 25px;
+	font-size: 20px;
+	font-weight: 100;
 	text-decoration: none;
-	color: #000
+	color: #000;
 }
 .mobile-menu a img {
 	display: block;
