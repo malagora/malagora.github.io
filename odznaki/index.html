@@ -31,212 +31,6 @@
 
 <body>
 
-<!-- Navbar -->
-<header id="navbar" class="scrolled">
-    <div class="web-colors" style="z-index: 1500;">
-      <div class="c-dark"></div>
-      <div class="c-color"></div>
-      <div class="c-white"></div>
-    </div>
-	  <div class="container">
-	    <a href="/">
-	      <img id="logo" src="../media/LOGO_FLAT_WHITE.png" alt="Mała Góra" />
-	      <img id="logo-colored" src="../media/LOGO_FLAT_COLOR.png" alt="Mała Góra" />
-	    </a>
-	    <nav>
-	    	<a href="/mapa">Mapa</a>
-			<a href="/zaplanuj-wizyte">Zwiedzaj</a>
-		    <a href="/odznaki">Odznaki</a>
-		    <a href="/bilety/informacje-o-biletach">Bilety</a>
-			<a href="/wsparcie">Wsparcie</a>
-	    </nav>
-	  </div>
-</header>
-
-<script>
-const navbar = document.getElementById("navbar");
-let lastScroll = 0;
-
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-
-  // chowanie navbaru przy przewijaniu w dół
-  if (currentScroll > lastScroll && currentScroll > 100) {
-    navbar.style.transform = "translateY(-100%)"; // chowaj
-  } else {
-    navbar.style.transform = "translateY(0)"; // pokazuj
-  }
-
-  lastScroll = currentScroll;
-});
-</script>
-
-<!-- Mobile menu -->
-<div class="mobile-menu-shadow"></div>
-<div class="mobile-menu">
-    <a href="/mapa"><img src="../media/mapa.png">Mapa</a>
-    <a href="/odznaki"><img src="../media/odznaki.png">Odznaki</a>
-    <a href="/bilety/informacje-o-biletach"><img src="../media/cennik.png">Bilety</a>
-    <a>
-      <div class="menu-x" onclick="toggleMenu(this)">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
-    </a>
-</div>
-
-<!-- FULLSCREEN MENU -->
-<div id="menuMain" class="fullscreen-menu">
-  <h1>MENU</h1>
-  <a href="/mapa">Mapa parku</a>
-  <a href="/aktualnosci">Aktualności</a>
-  <a href="#" data-submenu="submenuVisit">Zaplanuj wizytę<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-  <a href="#" data-submenu="submenuAwards">Zdobądź odznaki<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-  <a href="#" data-submenu="submenuTicket">Bilety<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-  <a href="#" data-submenu="submenuSupport">Wsparcie<span class="arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-</div>
-
-<!-- PODMENU - dowolna liczba -->
-<div id="submenuVisit" class="fullscreen-submenu">
-  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> ZAPLANUJ WIZYTĘ</header>
-  <a href="/komunikat">Komunikat turystyczny</a>
-  <a href="/pogoda">Prognoza pogody</a>
-  <a href="/przewodniki">Przewodniki</a>
-  <a href="/miejsca">Miejsca</a>
-  <a href="/transport-publiczny">Transport publiczny</a>
-</div>
-
-<div id="submenuAwards" class="fullscreen-submenu">
-  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> ZDOBĄDŹ ODZNAKI</header>
-  <a href="/odznaki">Informacje o odznakach</a>
-  <a href="/odznaki/formularz-weryfikacyjny">Formularz weryfikacyjny</a>
-</div>
-
-<div id="submenuTicket" class="fullscreen-submenu">
-  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> BILETY</header>
-  <a href="/bilety/informacje-o-biletach">Informacje o biletach</a>
-  <a href="/sklep">Kup bilet</a>
-</div>
-
-<div id="submenuSupport" class="fullscreen-submenu">
-  <header><span class="back-arrow" data-back="menuMain"><i class="fa fa-angle-left" aria-hidden="true"></i></span> WSPARCIE</header>
-  <a href="/wsparcie">Sprzątanie lasu</a>
-</div>
-
-<script>
-// --- BEZPIECZNE MENU / SUBMENU (otwierane tylko przyciskiem X) ---
-// Zakładamy strukturę: #menuMain (główne), .fullscreen-submenu (podmenu), linki z data-submenu="id"
-let _menuScrollPos = 0;
-
-function toggleMenu(btn) {
-  const mainMenu = document.getElementById('menuMain');
-  const submenus = document.querySelectorAll('.fullscreen-submenu');
-
-  const isOpen = mainMenu.classList.contains('active');
-
-  if (!isOpen) {
-    // OTWIERANIE
-    btn.classList.add('change');
-    _menuScrollPos = window.scrollY || window.pageYOffset;
-    // zablokuj scroll strony
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${_menuScrollPos}px`;
-
-    // resetuj podmenu (na pewno schowane i ustawione poza ekranem)
-    submenus.forEach(s => {
-      s.classList.remove('active', 'slide-out');
-      s.style.transition = '';         // usuń inline transition (jeśli były)
-      s.style.transform = 'translateX(100%)';
-      s.style.visibility = 'hidden';
-    });
-
-    // pokaz główne menu (CSS .active ustawi transform/opacity)
-    mainMenu.style.transform = ''; // usuń inline transform (bez konfliktu z CSS)
-    mainMenu.classList.add('active');
-  } else {
-    // ZAMYKANIE - natychmiastowy reset wszystkiego
-    btn.classList.remove('change');
-
-    // ukryj główne menu
-    mainMenu.classList.remove('active');
-    mainMenu.style.transform = ''; // usuń inline transform
-
-    // natychmiast zresetuj wszystkie podmenu (ukryj i ustaw poza ekranem)
-    submenus.forEach(s => {
-      s.classList.remove('active', 'slide-out');
-      s.style.transform = 'translateX(100%)';
-      s.style.visibility = 'hidden';
-    });
-
-    // odblokuj scroll i przywróć pozycję
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollTo(0, _menuScrollPos);
-  }
-}
-
-// OTWIERANIE PODMENU: elementy z data-submenu="idPodmenu"
-document.querySelectorAll('[data-submenu]').forEach(link => {
-  link.addEventListener('click', function (e) {
-    // otwieramy podmenu tylko gdy główne menu jest aktywne
-    const mainMenu = document.getElementById('menuMain');
-    if (!mainMenu.classList.contains('active')) return;
-
-    e.preventDefault();
-    const id = this.dataset.submenu;
-    if (!id) return;
-    const submenu = document.getElementById(id);
-    if (!submenu) return;
-
-    // upewnij się, że podmenu startuje poza ekranem po prawej (lub lewej - zależnie od CSS)
-    // tu przyjmujemy: domyślnie podmenu w CSS ma transform: translateX(100%) (poza prawą krawędzią)
-    submenu.style.visibility = 'visible';
-    // zapewniamy transition (jeśli chcesz override'ować w JS)
-    submenu.style.transition = 'transform 0.36s ease';
-    // ustaw początkowe położenie (jeśli zostało zmienione wcześniej)
-    submenu.style.transform = 'translateX(100%)';
-
-    // wymuś reflow żeby animacja zadziałała
-    // eslint-disable-next-line no-unused-expressions
-    submenu.offsetHeight;
-
-    // przesuń główne menu na lewo, wjedzie podmenu na środek
-    mainMenu.style.transform = 'translateX(-100%)';
-    submenu.classList.add('active');
-    submenu.style.transform = 'translateX(0)';
-  });
-});
-
-// POWRÓT Z PODMENU (klik < ) - szybkie, płynne, i po animacji ukrycie podmenu
-document.querySelectorAll('.back-arrow').forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    const submenu = this.closest('.fullscreen-submenu');
-    const parentId = this.dataset.back || 'menuMain';
-    const parent = document.getElementById(parentId);
-    if (!submenu || !parent) return;
-
-    // przejedziemy podmenu w lewo (wyjście) i przywrócimy mainMenu do środka
-    // (zakładamy, że submenu ma inline transition ustawione przy otwarciu)
-    submenu.style.transform = 'translateX(-100%)';
-    parent.style.transform = 'translateX(0)';
-
-    // po zakończeniu animacji ukrywamy submenu i resetujemy jego transform do domyślnego
-    const handler = function (ev) {
-      if (ev.propertyName !== 'transform') return;
-      submenu.classList.remove('active', 'slide-out');
-      // ustaw poza prawą krawędź - gotowe do ponownego użycia
-      submenu.style.transform = 'translateX(100%)';
-      submenu.style.visibility = 'hidden';
-      // remove listener
-      submenu.removeEventListener('transitionend', handler);
-    };
-    // attach once
-    submenu.addEventListener('transitionend', handler);
-  });
-});
-</script>
-
 <!-- Top background -->
 <main id="main-content">
   <div id="top"></div>
@@ -322,77 +116,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<footer class="main-footer">
-    <!-- Descktop Version -->
-    <div class="main-footer-content">
-      <div class="main-footer-section">
-        <img class="main-footer-logo" src="/media/LOGO_WHITE.png" alt="Mała Góra">
-        <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
-      </div>
-      <div class="main-footer-section mfs-cneter">
-        <h1>NASZE SERWISY</h1>
-        <div class="main-footer-section-links">
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/galeria">Galeria zdjęć</a>
-          <a href="/sklep">Sklep</a>
-          <a href="/old-webs">Archiwalna strona</a>
-          <a href="/wspinanie">Wspinaczka</a>
-        </div>
-      </div>
-      <div class="main-footer-section">
-        <h1>PRZYDATNE LINKI</h1>
-        <div class="main-footer-section-links">
-          <a href="/wsparcie">Wsparcie</a>
-          <a href="/pogoda">Prognoza pogody</a>
-          <a href="/komunikat">Komunikat turystyczny</a>
-          <a href="/bilety/informacje-o-biletach">Informacja o biletach</a>
-          <a href="/transport-publiczny">Transport publiczny</a>
-        </div>
-      </div>
-    </div>
-    <!-- Mobile Version -->
-    <div class="main-footer-content-mobile">
-      <div class="main-footer-section-mobile">
-        <img class="main-footer-logo-mobile" src="/media/LOGO_WHITE.png" alt="Mała Góra">
-        <p>ul. Mała Góra<br>33-300 Nowy Sącz</p>
-      </div>
-      <div class="main-footer-section-mobile mfs-cneter-mobile">
-        <button class="footerAccordion">NASZE SERWISY</button>
-        <div class="main-footer-section-links-mobile">
-          <a href="/mapa">Mapa Małej Góry</a>
-          <a href="/galeria">Galeria zdjęć</a>
-          <a href="/sklep">Sklep</a>
-          <a href="/old-webs">Archiwalna strona</a>
-          <a href="/wspinanie">Wspinaczka</a>
-        </div>
-      </div>
-      <div class="main-footer-section-mobile">
-        <button class="footerAccordion">PRZYDATNE LINKI</button>
-        <div class="main-footer-section-links-mobile">
-          <a href="/wsparcie">Wsparcie</a>
-          <a href="/pogoda">Prognoza pogody</a>
-          <a href="/komunikat">Komunikat turystyczny</a>
-          <a href="/bilety/informacje-o-biletach">Informacja o biletach</a>
-          <a href="/transport-publiczny">Transport publiczny</a>
-        </div>
-      </div>
-    </div>
-    <script>
-    var acc = document.getElementsByClassName("footerAccordion");
-    var i;
+	<div id="layout"></div>
+	<script>
+async function loadLayout() {
+  const response = await fetch('/tech/layout.html');
+  const html = await response.text();
 
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("footerAccordionActive");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
-      });
+  document.getElementById('layout').innerHTML = html;
+
+  // wykonaj skrypty z załadowanego HTML
+  const scripts = document
+    .getElementById('layout')
+    .querySelectorAll('script');
+
+  scripts.forEach(oldScript => {
+    const newScript = document.createElement('script');
+
+    if (oldScript.src) {
+      newScript.src = oldScript.src;
+    } else {
+      newScript.textContent = oldScript.textContent;
     }
-    </script>
+
+    document.body.appendChild(newScript);
+    oldScript.remove();
+  });
+}
+
+loadLayout();
+	</script>
     <!-- Copyright -->
     <div class="main-footer-copyright">
       <img src="/media/LOGO_FLAT_BLACK.png" alt="Mała Góra">
