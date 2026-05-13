@@ -943,18 +943,18 @@ a.short-menu-item p::before {
 	}
 	a.short-menu-item img {
 		width: auto;
-		height: 70px;
+		height: 50px;
 		margin: 0 25px 0 0;
 	}
 	a.short-menu-item p {
 		margin-top: 0;
 		padding: 0;
 		text-align: left;
-		font-size: 38px;
+		font-size: 30px;
 		width: 50%;
 	}
 	.short-arrow {
-		font-size: 50px;
+		font-size: 40px;
 		color: #aff;
 		margin-top: 0;
 		margin-right: 0;
