@@ -80,6 +80,35 @@
 
 <script src="/aktualnosci/news.js"></script>
 
+	<div id="layout"></div>
+	<script>
+async function loadLayout() {
+  const response = await fetch('/tech/layout.html');
+  const html = await response.text();
+
+  document.getElementById('layout').innerHTML = html;
+
+  // wykonaj skrypty z załadowanego HTML
+  const scripts = document
+    .getElementById('layout')
+    .querySelectorAll('script');
+
+  scripts.forEach(oldScript => {
+    const newScript = document.createElement('script');
+
+    if (oldScript.src) {
+      newScript.src = oldScript.src;
+    } else {
+      newScript.textContent = oldScript.textContent;
+    }
+
+    document.body.appendChild(newScript);
+    oldScript.remove();
+  });
+}
+
+loadLayout();
+	</script>
     <!-- Copyright -->
     <div class="main-footer-copyright">
       <img src="/media/LOGO_FLAT_BLACK.png" alt="Mała Góra">
