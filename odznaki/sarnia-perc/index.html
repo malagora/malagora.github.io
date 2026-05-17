@@ -2,9 +2,9 @@
 <html lang="pl-PL">
 
 <head>
-  <title>Strona w budowie...</title>
+  <title>Sarnia Perć</title>
   <link rel="shortcut icon" href="/media/MalaGora-logo-icon.png">
-  <meta name="description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia.">
+  <meta name="description" content="Informacje o małogórskich odznakach.">
   <meta name="author" content="K. Michalik">
   
   <!-- Open Graph -->
@@ -32,7 +32,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* blokuje przewijanie */
+  overflow: hidden;
   background-color: #111;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -40,15 +40,13 @@ html, body {
   font-family: "Bahnschrift SemiBold Condensed", "Bahnschrift", sans-serif;
   font-weight: 600;
   font-stretch: condensed;
-  touch-action: none; /* blokuje pinch-zoom i double-tap zoom */
-  overscroll-behavior: none; /* zapobiega przewijaniu i odbijaniu */
+  touch-action: none;
+  overscroll-behavior: none;
+  position: relative;
 }
 
-/* Naprawa skalowania elementów — teraz działają poprawnie */
-.circle,
-.logo,
-.building,
-.content {
+
+.logo, {
     transform-origin: center center;
 }
 
@@ -68,7 +66,6 @@ li {
 	list-style: none;
 }
 
-/* Logo w lewym górnym rogu */
 .logo {
   position: absolute;
   top: 20px;
@@ -82,93 +79,6 @@ li {
   z-index: 100;
 }
 
-/* --- KOŁA --- */
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  transform-origin: bottom right;
-  opacity: 0;
-  transform: scale(0);
-}
-
-.circle1 {
-  width: 300vw;
-  height: 300vw;
-  background: #eee;
-  bottom: -150vw;
-  right: -150vw;
-  animation: circleIn 0.5s ease forwards 0.1s;
-  z-index: 1;
-}
-
-.circle2 {
-  width: 180vw;
-  height: 180vw;
-  background: #0aa;
-  bottom: -90vw;
-  right: -90vw;
-  animation: circleIn 1s ease forwards 0.1s;
-  z-index: 2;
-}
-
-.circle3 {
-  width: 90vw;
-  height: 90vw;
-  background: #000;
-  bottom: -45vw;
-  right: -45vw;
-  animation: circleIn 1.5s ease forwards 0.1s;
-  z-index: 3;
-}
-
-/* Tekst */
-.content {
-  position: absolute;
-  top: 50%;
-  left: 43%;
-  transform: translate(-50%, -57%) translateX(-30px);
-  text-align: center;
-  width: fit-content;
-  opacity: 0;
-  animation: fadeInText 1.5s ease forwards 1.5s;
-  z-index: 5;
-  text-shadow: 2px 2px 3px #000;
-}
-
-.content h1 {
-  font-size: 55px;
-  color: #fff;
-}
-
-.content p {
-  font-size: 40px;
-  color: #fff;
-}
-
-.building {
-  z-index: 5;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 40vw;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  opacity: 0;
-  animation: fadeInBuild 1.5s ease forwards 2s;
-}
-
-/* Animacje */
-@keyframes circleIn {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 @keyframes slideLogo {
   0% {
     transform: translateX(-50px);
@@ -180,125 +90,64 @@ li {
   }
 }
 
-@keyframes fadeInText {
-  0% {
-    transform: translate(-50%, -50%) translateX(-30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(-50%, -50%) translateX(0);
-    opacity: 1;
-  }
+.background-img {
+  background: url('/media/photos/MG-2026-05-10-003.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-@keyframes fadeInBuild {
-  0% {
-    transform: translateX(40vw);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.timeLock {
+  width: 100%;
+  height: 100%;
 }
 
-@media (max-width: 1150px) {
-  .circle {
-    position: absolute;
-    border-radius: 0;
-    transform: scale(1);
-  }
-
-  .circle1 {
-    width: 100vw;
-    height: 100vh;
-    background: #eee;
-    bottom: 0;
-    right: 0;
-    animation: circleIn 0.5s ease forwards 0.1s;
-    z-index: 1;
-  }
-
-  .circle2 {
-    width: 100vw;
-    height: calc(100dvh - 110px);
-    background: #0aa;
-    bottom: 0;
-    right: 0;
-    animation: circleIn 1s ease forwards 0.1s;
-    z-index: 2;
-  }
-
-  .circle3 {
-    width: 100vw;
-    height: 50vh;
-    background: #000;
-    bottom: 0;
-    right: 0;
-    animation: circleIn 1.5s ease forwards 0.1s;
-    z-index: 3;
-  }
-
-  /* Tekst */
-  .content {
-    position: absolute;
-    top: 180px;
-    left: 50%;
-    width: 100vw;
-    transform: translateX(-30px);
-    animation: fadeInText 1.5s ease forwards 1.5s;
-  }
-
-  .content h1 {
-    font-size: 40px;
-  }
-
-  .content p {
-    font-size: 30px;
-  }
-
-  .building {
-    z-index: 5;
-    position: absolute;
-    top: 50vh;
-    right: 0;
-    transform: translate(-50%, -50%);
-    max-height: 50vh;
-    width: auto;
-    max-width: 95%;
-    aspect-ratio: 4 / 3;
-    opacity: 0;
-  }
-
-  @keyframes circleIn {
-    0% {
-      transform: translateY(200vh);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+.text-container {
+  padding: 30px;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  mix-blend-mode: difference;
+  filter: contrast(40%);
+}
+.text-container h2 {
+  font-size: 50px;
+  line-height: 50px;
+}
+.text-container h1 {
+  font-size: 150px;
+  line-height: 150px;
 }
   </style>
 </head>
 
 <body>
-  <!-- Logo -->
-  <img src="/media/LOGO_BLACK.png" onclick="window.history.back()" alt="Mała Góra" class="logo">
-
-  <!-- Półkola -->
-  <div class="circle circle1"></div>
-  <div class="circle circle2"></div>
-  <div class="circle circle3"></div>
-
-  <!-- Treść -->
-  <div class="content">
-    <h1>Strona w budowie</h1>
-    <p>Zapraszamy wkrótce!</p>
+  <div class="timeLock">
+    <img src="/media/LOGO_BLACK.png" onclick="window.history.back()" alt="Mała Góra" class="logo">
+    <div class="background-img"></div>
+    <div class="text-container"><h2>SYSTEM BĘDZIE DOSTĘPNY</h2><h1>1.06.2026</h1></div>
   </div>
-  <img class="building" src="/media/building.png">
-</body>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const lockElements = document.querySelectorAll(".timeLock");
 
+    const unlockDate = new Date(2026, 5, 1);
+
+    const now = new Date();
+
+    if (now >= unlockDate) {
+        lockElements.forEach(el => {
+            el.style.display = "none";
+        });
+    }
+});
+  </script>
+</body>
 </html>
