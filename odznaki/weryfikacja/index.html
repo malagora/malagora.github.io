@@ -1,95 +1,153 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl-PL">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formularz weryfikacji odznak</title>
+  <title>Formularz weryfikacyjny</title>
+  <link rel="shortcut icon" href="/media/MalaGora-logo-icon.png">
+  <meta name="description" content="Formularz weryfikacyjny odznak.">
+  <meta name="author" content="K. Michalik">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mala Góra – oficjalna strona" />
+  <meta property="og:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
+  <meta property="og:url" content="https://malagora.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mala Góra – oficjalna strona" />
+  <meta name="twitter:description" content="Zobacz najważniejsze informacje, przewodniki i zdjęcia." />
+  <meta name="twitter:image" content="https://github.com/malagora/malagora.github.io/blob/bdf1ac055ed133745ac2f3e79eaa59bfdd0533a0/media/MG-BG-min.jpg" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
-    label { display: block; margin-top: 10px; }
-    input, select, textarea, button { margin-top: 5px; padding: 5px; width: 100%; }
-    button { background: #3366cc; color: white; border: none; cursor: pointer; }
-    button:hover { background: #254b8a; }
-    .hidden { display: none; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #111;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center top;
+  font-family: "Bahnschrift SemiBold Condensed", "Bahnschrift", sans-serif;
+  font-weight: 600;
+  font-stretch: condensed;
+  touch-action: none;
+  overscroll-behavior: none;
+  position: relative;
+}
+
+
+.logo, {
+    transform-origin: center center;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 70px;
+  width: auto;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideLogo .5s ease forwards 1s;
+  cursor: pointer;
+  z-index: 100;
+}
+
+@keyframes slideLogo {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.background-img {
+  background: url('/media/photos/MG-2026-05-10-003.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.timeLock {
+  width: 100%;
+  height: 100%;
+}
+
+.text-container {
+  padding: 30px;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  mix-blend-mode: difference;
+  filter: contrast(40%);
+}
+.text-container h2 {
+  font-size: 50px;
+  line-height: 50px;
+}
+.text-container h1 {
+  font-size: 150px;
+  line-height: 150px;
+}
   </style>
 </head>
+
 <body>
-  <h1>Formularz weryfikacyjny:</h1>
-  <form id="orderForm">
-    <label for="product">Odznaka:</label>
-    <select id="product" required>
-      <option disabled selected>Wybierz odznakę</option>
-      <optgroup label="Korona Małej Góry:">
-        <option value="KMG Popularna">Popularna</option>
-        <option value="KMG Srebrna">Srebrna</option>
-        <option value="KMG Złota">Złota</option>
-        <option value="KMG Diamentowa">Diamentowa</option>
-      </optgroup>
-      <option value="Sarnia Perc">Sarnia Perć</option>
-    </select>
-
-    <label for="dateStart">Data rozpoczęcia:</label>
-    <input type="date" id="dateStart" required>
-
-    <label for="timeStart">Godzina rozpoczęcia:</label>
-    <input type="time" id="timeStart" required>
-
-    <div id="extraFields" class="hidden">
-      <label for="timeEnd">Godzina zakończenia:</label>
-      <input type="time" id="timeEnd">
-    </div>
-
-    <label for="dateEnd">Data ukończenia:</label>
-    <input type="date" id="dateEnd" required>
-
-    <label for="today">Dzisiejsza data:</label>
-    <input type="text" id="today" readonly>
-
-    <button type="submit">Wyślij e-mail</button>
-  </form>
-
+  <div class="timeLock">
+    <img src="/media/LOGO_BLACK.png" onclick="window.history.back()" alt="Mała Góra" class="logo">
+    <div class="background-img"></div>
+    <div class="text-container"><h2>SYSTEM BĘDZIE DOSTĘPNY</h2><h1>1.06.2026</h1></div>
+  </div>
   <script>
-    // ustaw dzisiejszą datę
-    const todayField = document.getElementById('today');
-    const today = new Date().toISOString().split('T')[0];
-    todayField.value = today;
+document.addEventListener("DOMContentLoaded", () => {
+    const lockElements = document.querySelectorAll(".timeLock");
 
-    const productField = document.getElementById('product');
-    const extraFields = document.getElementById('extraFields');
+    const unlockDate = new Date(2026, 5, 1);
 
-    // pokaż/ukryj pola dla Produktu C
-    productField.addEventListener('change', function() {
-      if (this.value === "Sarnia Perc) {
-        extraFields.classList.remove('hidden');
-      } else {
-        extraFields.classList.add('hidden');
-      }
-    });
+    const now = new Date();
 
-    // obsługa wysyłki
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const product = productField.value;
-      const dateStart = document.getElementById('dateStart').value;
-      const timeStart = document.getElementById('timeStart').value;
-      const timeEnd = document.getElementById('timeEnd').value;
-      const dateEnd = document.getElementById('dateEnd').value;
-      const today = todayField.value;
-
-      let body = `Produkt: ${product}%0A`;
-      body += `Data rozpoczęcia: ${dateStart}%0A`;
-      body += `Godzina rozpoczęcia: ${timeStart}%0A`;
-
-      if (product === "Produkt C") {
-        body += `Godzina zakończenia: ${timeEnd}%0A`;
-      }
-
-      body += `Data ukończenia: ${dateEnd}%0A`;
-      body += `Dzisiejsza data: ${today}`;
-
-      const mailto = `mailto:malagora.weryfikacja@vp.pl?subject=Weryfikacja%20${encodeURIComponent(product)}&body=${body}`;
-      window.location.href = mailto;
-    });
+    if (now >= unlockDate) {
+        lockElements.forEach(el => {
+            el.style.display = "none";
+        });
+    }
+});
   </script>
 </body>
 </html>
