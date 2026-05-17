@@ -680,6 +680,11 @@ div.breadcrumb {
 	width: 100%;
 	height: fit-content;
 }
+.post_content-img p a {
+	font-weight: 600;
+	text-decoration: underline;
+	color: #000;
+}
 
 .post footer {
     width: 100%;
