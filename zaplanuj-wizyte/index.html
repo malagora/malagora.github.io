@@ -61,7 +61,7 @@
     <div class="post-content-menu">
         <a href="/komunikat">
             <div class="post-content-menu-img">
-              <img src="/media/photos/MG-20251123-001.jpg" alt="Komunikat turystyczny">
+              <img id="komunikat" src="/media/photos/MG-20251123-001.jpg" alt="Komunikat turystyczny">
             </div>
             <h1>Komunikat turystyczny</h1>
         </a>
@@ -98,6 +98,21 @@
     </div>
   </section>
 
+<script id="xtdcfi">
+document.addEventListener("DOMContentLoaded", () => {
+    const img = document.getElementById("komunikat");
+
+    const month = new Date().getMonth();
+
+    // Od maja do października
+    if (month >= 4 && month <= 9) {
+        img.src = "/media/photos/MG-2026-05-10-004.jpg";
+    } else {
+        img.src = "/media/photos/MG-20251123-001.jpg";
+    }
+});
+</script>
+	
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("postMenuList");
