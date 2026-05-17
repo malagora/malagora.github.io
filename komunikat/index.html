@@ -35,7 +35,7 @@
 <main id="main-content">
   <div id="top"></div>
   <section class="banner">
-    <div class="banner-image" style="background-image: url('../media/photos/MG-20251123-001.jpg');"></div>
+    <div id="komIMG" class="banner-image" style="background-image: url('../media/photos/MG-2026-05-10-004.jpg');"></div>
     <div class="banner-text">
       <div class="banner-text-content">
         <h1>Komunikat turystyczny</h1>
@@ -168,6 +168,23 @@
     </div>
   </section>
 
+<script id="8t7k5u">
+document.addEventListener("DOMContentLoaded", () => {
+    const banner = document.getElementById("komIMG");
+
+    const month = new Date().getMonth();
+
+    const summerImage = "../media/photos/MG-2026-05-10-004.jpg";
+    const defaultImage = "../media/photos/MG-20251123-001.jpg";
+
+    if (month >= 4 && month <= 9) {
+        banner.style.backgroundImage = `url('${summerImage}')`;
+    } else {
+        banner.style.backgroundImage = `url('${defaultImage}')`;
+    }
+});
+</script>
+	
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("postMenuList");
