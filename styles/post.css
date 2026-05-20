@@ -26,6 +26,10 @@ a {
 	text-decoration: none;
 }
 
+li {
+	list-style: none;
+}
+
 
 #navbar {
   position: fixed;
