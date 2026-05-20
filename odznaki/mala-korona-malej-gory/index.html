@@ -26,6 +26,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <link rel="stylesheet" href="/styles/post.css">
   <style>
 html, body {
   margin: 0;
@@ -147,6 +148,7 @@ li {
 </head>
 
 <body>
+  <!-- TIME LOCK -->
   <div class="timeLock">
     <img src="/media/LOGO_BLACK.png" onclick="window.history.back()" alt="Mała Góra" class="logo">
     <div class="background-img"></div>
@@ -167,5 +169,286 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
   </script>
+
+<!-- Top background -->
+<main id="main-content">
+  <div id="top"></div>
+  <section class="banner">
+    <div id="komIMG" class="banner-image" style="background-image: url('/media/awards/MG-MKMG.png');"></div>
+    <div class="banner-text">
+      <div class="banner-text-content">
+        <h1>Mała Korona Małej Góry</h1>
+        <p id="current-conditions"></p>
+        <p id="current-date"></p>
+      </div>
+      <a href="#first"><p class="f-dArrow"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></p><p class="f-dText">PRZEWIŃ DALEJ</p></a>
+    </div>
+  </section>
+
+
+  <section id="first" class="post">
+    <div class="breadcrumb">
+      <ol class="breadcrumb_list">
+        <li class="breadcrumb_item">
+          <a href="/">Strona główna</a>
+        </li>
+        <li class="breadcrumb_item breadcrumb_item--before">
+          <a href="/odznaki">Odznaki</a>
+        </li>
+        <li class="breadcrumb_item breadcrumb_item--before breadcrumb_item-active">
+          <a href="/odznaki/mala-korona-malej-gory">MKMG</a>
+        </li>
+      </ol>
+    </div>
+    <div class="post_content">
+      <div class="post_content-text"  style="border-bottom: none; margin-bottom: 30px; margin-top: 40px;">
+        <p>Dowiedz się w jaki sposób zdobyć odznakę i rozpocznij odkrywanie różnych zakątków Małej Góry!</p>
+      </div>
+    </div>
+    <div class="post-menu">
+      <ol id="postMenuList">
+        <li><a href="#o-odznace">O odznace</a></li>
+        <li><a href="#regulamin-odznaki">Regulamin odznaki</a></li>
+        <li><a href="#krok-po-kroku">Krok po kroku</a></li>
+        <li><a href="#informacje-praktyczne">Informacje praktyczne (FAQ)</a></li>
+        <li><a href="#materialy-do-pobrania">Materiały do pobrania</a></li>
+      </ol>
+      <button id="toggleMenuBtn">Zobacz więcej</button>
+    </div>
+    <div id="o-odznace" class="post_content">
+      <header>O ODZNACE</header>
+      <div class="post_content-text">
+        <p>Głównym celem ustanowienia odznaki jest popularyzacja Małej Góry i zachęcenie do poznawania jej różnych zakątków.<br>Odznaka przedstawia młodego dzika – jednego z mieszkańców Małej Góry. <br>Uzyskanie odznaki odbywa się po odwiedzeniu wszystkich 8 miejsc.<br>Jeśli mają Państwo więcej czasu i chęci, zaczęcamy do zaliczenia Wielkiej KMG.</p>
+      </div>
+    </div>
+    <div id="regulamin-odznaki" class="post_content">
+      <header>REGULAMIN ODZNAKI</header>
+      <div class="post_content-text">
+        <i>Regulamin odznaki w wersji <span style="color: #ff2216;">PDF</span> do pobrania znajdują się <a href="#materialy-do-pobrania">poniżej</a>.</i>
+        <ol class="regulamin">
+          <li>Niniejszy regulamin określa zasady zdobywania odznaki „Mała Korona Małej Góry”.</li>
+          <li>Odznaka Korona Małej Góry jest odznaką dwustopniową. Niniejszy regulamin dotyczy jej niższego stopnia.</li>
+          <li>Odznaka zastępuje dotychczasową odznakę „Korona Małej Góry: stopień popularny”.</li>
+          <li>Odznakę może zdobyć każdy kto jest w stanie o własnych siłach odwiedzić wszystkie miejsca zawarte na liście miejsc.</li>
+          <li>Odznakę można zdobywać wielokrotnie.</li>
+          <li>Nie zabrania się zdobywania innych odznak podczas zdobywania tej odznaki.</li>
+          <li>Warunkiem uzyskania odznaki jest odwiedzenie wszystkich 8 miejsc wyszczególnionych w liście miejsc i odpowiednim tego udokumentowaniu.</li>
+          <li>Kolejność odwiedzania miejsc z listy jest dowolna.</li>
+          <li>Odwiedzenie miejsc w okresie zamknięcia szlaku, w szczególności spowodowanego ochroną przyrody, będzie skutkować unieważnieniem zdobycia całej Korony.</li>
+          <li>Weryfikacja odbywa się wyłącznie za pośrednictwem e-maila: <a href="mailto:malagora.weryfikacja@vp.pl">malagora.weryfikacja@vp.pl</a></li>
+          <li>W mailu należy załączyć kartę zdobywcy oraz zdjęcia potwierdzające odwiedzenie wskazanych miejsc.</li>
+          <li>Zdjęcia powinny wyraźnie i jednoznacznie dokumentować odwiedzone miejsce. Muszą przedstawiać zdobywcę oraz wyraźne tło ukazujące wskazane miejsce.</li>
+          <li>Po zakończeniu weryfikacji zostanie potwierdzone jej rozpatrzenie i wysłany link do strony z informacją o odznace.</li>
+          <li>Koszt wydania odznaki to <b style="font-weight: bold;">20 złotych</b>.</li>
+          <li>Weryfikacja trwa maksymalnie 2 tygodnie.</li>
+          <li>Przystąpienie do procesu weryfikacji oznacza zgodę na przetwarzanie Państwa danych osobowych i wizerunku, na potrzeby procesu weryfikacyjnego.</li>
+          <li>Niniejszy regulamin wchodzi w życie <b style="font-weight: bold;">1.06.2026 r.</b></li>
+        </ol>
+      </div>
+    </div>
+    <div id="krok-po-kroku" class="post_content">
+      <header>KROK PO KROKU</header>
+      <div class="post_content-text">
+        <ol class="post-ol-basic">
+          <li>Pobierz i wydrukuj kartę zdobywcy</li>
+          <li>Idź w teren i odwiedź wszystkie miejsca, przy każdym robiąc zdjęcie potwierdzające jego odwiedzenie.</li>
+          <li>Zeskanuj lub zrób zdjęcie karty zdobywcy.</li>
+          <li>Wypełnij formularz i wyślij wygenerowany szablon wraz ze wszystkimi zdjęciami na nasz e-mail.</li>
+          <li>Po zakończeniu weryfikacji uiścij opłatę i ciesz się swoją odznaką!</li>
+        </ol>
+      </div>
+    </div>
+    <div id="informacje-praktyczne" class="post_content">
+      <header>INFORMACJE PRAKTYCZNE (FAQ)</header>
+      <div class="post_content-text" style="border-bottom: none;">
+        <div class="post-accordion">
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Jak powinny wyglądać zdjęcia?</p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Zdjęcia powinny wyraźnie i jednoznacznie dokumentować odwiedzone miejsce. Muszą zawierać zdobywcę MKMG oraz, o ile to możliwe, tabliczkę terenową z nazwą miejsca. W miejscach, gdzie takiej tabliczki nie ma, należy uwiecznić wyraźne tło.</p>
+            </div>
+          </div>
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Czy można robić selfie? </p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Tak, o ile nie utrudni to rozpoznania miejsca w procesie weryfikacji. </p>
+            </div>
+          </div>
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Czy mogę zdobyć więcej niż jedną odznakę? </p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Tak, możesz to zrobić. Warunkiem jest ponowne odwiedzenie wskazanych miejsc i ponowne uiszczenie opłaty. Zachęcamy jednak do zdobywania innych odznak.</p>
+            </div>
+          </div>
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Czy muszę płacić za odznakę?</p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Tak, opłata jest obowiązkowa, ze względu na konieczność zamówienia i produkcji takiej odznaki.</p>
+            </div>
+          </div>
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Jak zapłacić za odznakę? </p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Opłatę za odznakę można dokonać za pomocą systemu czek BLIK. </p>
+            </div>
+          </div>
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Jak długo trwa weryfikacja i dostarczenie odznaki?</p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Weryfikacja może trwać maksymalnie 2 tygodnie, ale postaramy się zrobić to jak najszybciej. Dostawa odznaki to czas od 2 do 10 dni roboczych.</p>
+            </div>
+          </div>
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Czy muszę drukować kartę zdobywcy? </p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Nie, nie jest to wymagane, ale należy ją wówczas wypełnić w formie cyfrowej i odesłać na e-mail. </p>
+            </div>
+          </div>
+          <div class="post-accordion-item">
+            <button class="post-accordion-header">
+              <p>Czy muszę dołączyć ślad(y) GPX/KML? </p>
+              <i class="fa fa-angle-down post-accordion-icon" aria-hidden="true"></i>
+            </button>
+            <div class="post-accordion-content">
+              <p>Nie, do zdobycia tej odznaki nie jest wymagane dołączanie zapisu lokalizacji. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="materialy-do-pobrania" class="post_content">
+      <header>MATERIAŁY DO POBRANIA</header>
+      <div class="post_content-text" style="border-bottom: none; margin-bottom: 40px;">
+        <ul class="post-ul-basic">
+          <li><a href="/media/documents/Karta-zdobywcy-MKMG-wersja-do-druku.pdf">karta zdobywcy (do druku)</a></li>
+          <li><a href="/media/documents/Karta-zdobywcy-MKMG-wersja-online.pdf">karta zdobywcy (cyfrowa)</a></li>
+          <li><a href="/media/documents/Lista-miejsc-do-MKMG.pdf">regulamin</a></li>
+          <li><a href="/media/documents/Regulamin-MKMG.pdf">lista miejsc ze współrzędnymi</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<script>
+document.querySelectorAll(".post-accordion-header").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+    const content = item.querySelector(".post-accordion-content");
+
+    document.querySelectorAll(".post-accordion-item").forEach(i => {
+      if (i !== item) {
+        i.classList.remove("active");
+        i.querySelector(".post-accordion-content").style.height = "0px";
+      }
+    });
+
+    if (item.classList.contains("active")) {
+      content.style.height = "0px";
+      item.classList.remove("active");
+    } else {
+      item.classList.add("active");
+      content.style.height = content.scrollHeight + "px";
+    }
+  });
+});
+</script>
+	
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const list = document.getElementById("postMenuList");
+  const btn = document.getElementById("toggleMenuBtn");
+
+  btn.addEventListener("click", () => {
+    list.classList.toggle("expanded");
+    btn.textContent = list.classList.contains("expanded")
+      ? "Pokaż mniej"
+      : "Zobacz więcej";
+  });
+
+  // Dynamiczne dzielenie na kolumny dla komputerów
+  const resizeHandler = () => {
+    if (window.innerWidth >= 800) {
+      const items = list.querySelectorAll("li");
+      const half = Math.ceil(items.length / 2);
+      items.forEach((li, i) => {
+        li.style.order = i < half ? i * 2 : (i - half) * 2 + 1; // rozkłada równomiernie
+      });
+    } else {
+      list.querySelectorAll("li").forEach((li) => (li.style.order = ""));
+    }
+  };
+
+  window.addEventListener("resize", resizeHandler);
+  resizeHandler();
+});
+</script>
+
+	<div id="layout"></div>
+	<script>
+async function loadLayout() {
+  const response = await fetch('/tech/layout.html');
+  const html = await response.text();
+
+  document.getElementById('layout').innerHTML = html;
+
+  // wykonaj skrypty z załadowanego HTML
+  const scripts = document
+    .getElementById('layout')
+    .querySelectorAll('script');
+
+  scripts.forEach(oldScript => {
+    const newScript = document.createElement('script');
+
+    if (oldScript.src) {
+      newScript.src = oldScript.src;
+    } else {
+      newScript.textContent = oldScript.textContent;
+    }
+
+    document.body.appendChild(newScript);
+    oldScript.remove();
+  });
+}
+
+loadLayout();
+	</script>
+
+    <!-- Copyright -->
+    <div class="main-footer-copyright">
+      <img src="../media/LOGO_FLAT_BLACK.png" alt="Mała Góra">
+      <p><i class="fa fa-copyright"></i> Mała Góra <span id="footerYear"></span></p>
+    </div>
+    <div class="footer-colors">
+      <div class="c-dark"></div>
+      <div class="c-color"></div>
+      <div class="c-white"></div>
+    </div>
+    <div class="footer-mobile-container"></div>
+  </footer>
+  <script>
+document.getElementById("footerYear").textContent = new Date().getFullYear();
+  </script>
+</main>
 </body>
 </html>
