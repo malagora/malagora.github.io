@@ -1,11 +1,10 @@
 // === WYBÓR TEKSTU ===
-const selectedText = 3; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce 11-odwilż
+const selectedText = 1; // 1-słońce 2-wiatr 3-deszcz 4-śnieg 5-błoto 6-deszcz&wiatr 7-śnieżyca 8-błoto&wiatr 9-lód 10-lód&słońce 11-odwilż
 
-const moreTxt = "<br>Silne wewzbranie wód! Przejście bardzo niebezpieczne – ryzyko porwania przez silny prąd.<br>" //"<br>Uwaga! Ryzyko wystąpienia burz. Zachowaj ostrożność!<br>"; //"<br>Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.<br>Radzimy również nie wybieranie się w rejon Sarniej Perci, gdyż w tych warunkach przejście nią może okazać się niebezpieczne.<br>"; <br>...<br>;
+const moreTxt = //"<br>Uwaga! Ryzyko wystąpienia burz. Zachowaj ostrożność!<br>"; //"<br>Silne wewzbranie wód! Przejście bardzo niebezpieczne – ryzyko porwania przez silny prąd.<br>"; //"<br>Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.<br>Radzimy również nie wybieranie się w rejon Sarniej Perci, gdyż w tych warunkach przejście nią może okazać się niebezpieczne.<br>"; <br>...<br>;
 
 // ⛔ ZAMKNIĘTE SZLAKI
 const zamknieteSzlaki = [
-  "<p><b style='font-weight: 600;'>W skutek zwiększonego stanu wody, do odwołania wszystkie wejścia od strony Jamnicy.</b></p>",
   "<p>Od 1 czerwca do 31 sierpnia, z powodu ochrony przyrody małogórskich osuwisk, „Sarnia Perć” na odcinku Srebrne Skałki – Małe Skałki – <b style='font-weight: 600;'>Kacze Skałki</b> – Szare Skałki – <b style='font-weight: 600;'>Białe Skałki</b> – Sosnowe Skałki</p>",
   "<p>Od 7 maja 2026 do 31 maja, z powodu remontu i rozbudowy infrastruktury – szlak żółty – odejście na Punkt Widokowy „Dolina Kamionki”",
   "<p>Od 23 października 2025 do odwołania, z powodu remontu – szlak czerwony – „Sarnia Perć”, w rejonie Sosnowych Skałek.</p>",
@@ -16,7 +15,7 @@ const zamknieteSzlaki = [
 // ⚠ UTRUDNIENIA
 const utrudnienia = [
   //"<p><b style='font-weight: 600;'>Na szlakach zalega spora ilość śniegu.</b> Szlaki nie są przetarte, w związku z czym poruszanie się po nich może zajmować więcej czasu i wymagać dodatkowych umiejętności w zakresie posługiwania się sprzętem zimowym.</p>",
-  "<p><b style='font-weight: 600;'>Powódź porwała kładkę!</b> Przejście tym sposobem nie będzie możliwe do czasu odnalezienia lub odbudowania nowej.</p>",
+  //"<p><b style='font-weight: 600;'>Powódź porwała kładkę!</b> Przejście tym sposobem nie będzie możliwe do czasu odnalezienia lub odbudowania nowej.</p>",
   "<p>Na nowootwartym odcinku Sarniej Perci doszło do uszkodzenia barierki na jednym z mostków. Prosimy o zachowanie dodatkowej ostrożności. Uszkodzenie zostanie naprawione gdy tylko warunki ulegną poprawie.</p>",
   "<p>Przejście przez kładkę możliwe jest tylko przy niskim stanie wody.</p>",
   "<p>Podczas wiatru na szlaki mogą spadać gałęzie – zachowaj czujność!</p>",
