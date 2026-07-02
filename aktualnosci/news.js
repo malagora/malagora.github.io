@@ -90,7 +90,7 @@ function renderSinglePost(post) {
   <section id="First" class="post">
       <div class="breadcrumb">
           <ol class="breadcrumb_list">
-              <li class="breadcrumb_item"><a href="/">Strona główna</a></li>
+              <li class="breadcrumb_item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
               <li class="breadcrumb_item breadcrumb_item--before"><a href="/aktualnosci">Aktualności</a></li>
               <li class="breadcrumb_item breadcrumb_item--before breadcrumb_item-active">
                 <a href="/aktualnosci?post=${post.id}">
