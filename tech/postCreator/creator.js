@@ -59,7 +59,7 @@ function renderBlock(item,index) {
   const container = fragment.querySelector('.block-fields');
   container.innerHTML = blockFields(item);
   const rich = container.querySelector('.rich-editor');
-  if (rich) rich.innerHTML = item.data.html;
+  if (rich) rich.innerHTML = item.data[rich.dataset.rich] || '';
   fragment.querySelectorAll('[data-action]').forEach(button => button.addEventListener('click', () => blockAction(item.id,button.dataset.action)));
   container.addEventListener('input', event => updateBlockFromInput(item,event));
   container.addEventListener('change', event => updateBlockFromInput(item,event));
@@ -68,7 +68,7 @@ function renderBlock(item,index) {
     const command=button.dataset.command;
     const value=command==='createLink' ? prompt('Adres linku:', 'https://') : null;
     if (command!=='createLink' || value) document.execCommand(command,false,value);
-    item.data.html=rich.innerHTML; schedulePreview();
+    item.data[rich.dataset.rich]=rich.innerHTML; schedulePreview();
   }));
   return fragment;
 }
@@ -78,7 +78,7 @@ function blockFields(item) {
   const align=field('Wyrównanie',`<select data-key="align">${alignmentOptions(d.align)}</select>`,false);
   if (item.type==='text') return `${align}<div class="block-field wide"><span>Treść</span><div class="rich-toolbar"><button type="button" data-command="bold"><b>B</b></button><button type="button" data-command="italic"><i>I</i></button><button type="button" data-command="createLink"><i class="fa fa-link"></i></button><button type="button" data-command="unlink"><i class="fa fa-chain-broken"></i></button></div><div class="rich-editor" contenteditable="true" data-rich="html"></div></div>`;
   if (item.type==='heading') return `${field('Poziom',`<select data-key="level"><option value="h2"${d.level==='h2'?' selected':''}>H2</option><option value="h3"${d.level==='h3'?' selected':''}>H3</option><option value="h4"${d.level==='h4'?' selected':''}>H4</option></select>`,false)}${align}${field('Treść',`<input data-key="text" value="${escapeAttribute(d.text)}">`)}`;
-  if (item.type==='image') return `${field('Ścieżka lub URL zdjęcia',`<input data-key="src" value="${escapeAttribute(d.src)}" placeholder="/aktualnosci/media/…">`)}${field('Tekst alternatywny',`<input data-key="alt" value="${escapeAttribute(d.alt)}">`)}${field('Wyrównanie zdjęcia',`<select data-key="imageAlign">${alignmentOptions(d.imageAlign)}</select>`,false)}${field('Wyrównanie podpisu',`<select data-key="captionAlign">${alignmentOptions(d.captionAlign)}</select>`,false)}${field('Podpis pod zdjęciem',`<textarea data-key="caption" rows="3">${escapeHtml(d.caption)}</textarea>`)}`;
+  if (item.type==='image') return `${field('Ścieżka lub URL zdjęcia',`<input data-key="src" value="${escapeAttribute(d.src)}" placeholder="/aktualnosci/media/…">`)}${field('Tekst alternatywny',`<input data-key="alt" value="${escapeAttribute(d.alt)}">`)}${field('Wyrównanie zdjęcia',`<select data-key="imageAlign">${alignmentOptions(d.imageAlign)}</select>`,false)}${field('Wyrównanie podpisu',`<select data-key="captionAlign">${alignmentOptions(d.captionAlign)}</select>`,false)}<div class="block-field wide"><span>Podpis pod zdjęciem</span><div class="rich-toolbar"><button type="button" data-command="bold" title="Pogrubienie"><b>B</b></button><button type="button" data-command="italic" title="Kursywa"><i>I</i></button><button type="button" data-command="createLink" title="Dodaj link"><i class="fa fa-link"></i></button><button type="button" data-command="unlink" title="Usuń link"><i class="fa fa-chain-broken"></i></button></div><div class="rich-editor is-compact" contenteditable="true" data-rich="caption"></div></div>`;
   if (item.type==='youtube') return `${field('Link YouTube lub identyfikator filmu',`<input data-key="url" value="${escapeAttribute(d.url)}" placeholder="https://www.youtube.com/watch?v=…">`)}${field('Tytuł ramki',`<input data-key="title" value="${escapeAttribute(d.title)}">`)}${field('Wyrównanie podpisu',`<select data-key="captionAlign">${alignmentOptions(d.captionAlign)}</select>`,false)}${field('Podpis pod filmem',`<textarea data-key="caption" rows="2">${escapeHtml(d.caption)}</textarea>`)}`;
   if (item.type==='link') return `${field('Adres',`<input data-key="url" value="${escapeAttribute(d.url)}">`)}${field('Tekst linku',`<input data-key="label" value="${escapeAttribute(d.label)}">`)}${align}${field('Otwieranie',`<select data-key="newTab"><option value="false"${!d.newTab?' selected':''}>W tej samej karcie</option><option value="true"${d.newTab?' selected':''}>W nowej karcie</option></select>`,false)}`;
   if (item.type.endsWith('list')) {
@@ -116,7 +116,7 @@ function blockHtml(item) {
   if(item.type==='html') return d.html;
   if(item.type==='text') return `<div class="post_content-text" style="border-bottom:none;${align}">${d.html}</div>`;
   if(item.type==='heading') { const level=['h2','h3','h4'].includes(d.level)?d.level:'h3'; return `<div class="post_content-text" style="border-bottom:none;${align}"><${level}>${escapeHtml(d.text)}</${level}></div>`; }
-  if(item.type==='image') return `<figure class="post_content-img post-media-${d.imageAlign||'center'}"><img src="${escapeAttribute(d.src)}" alt="${escapeAttribute(d.alt)}" loading="lazy">${d.caption?`<figcaption style="text-align:${d.captionAlign||'right'};">${escapeHtml(d.caption)}</figcaption>`:''}</figure>`;
+  if(item.type==='image') return `<figure class="post_content-img post-media-${d.imageAlign||'center'}"><img src="${escapeAttribute(d.src)}" alt="${escapeAttribute(d.alt)}" loading="lazy">${d.caption?`<figcaption style="text-align:${d.captionAlign||'right'};">${d.caption}</figcaption>`:''}</figure>`;
   if(item.type==='youtube') { const id=youtubeId(d.url); return `<figure class="post-youtube"><div class="post-youtube-frame"><iframe src="https://www.youtube-nocookie.com/embed/${escapeAttribute(id)}" title="${escapeAttribute(d.title||'Film YouTube')}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>${d.caption?`<figcaption style="text-align:${d.captionAlign||'left'};">${escapeHtml(d.caption)}</figcaption>`:''}</figure>`; }
   if(item.type==='link') return `<div class="post_content-text post-link-block" style="border-bottom:none;${align}"><p><a href="${escapeAttribute(d.url)}"${d.newTab?' target="_blank" rel="noopener noreferrer"':''}>${escapeHtml(d.label)}</a></p></div>`;
   if(item.type.endsWith('list')) {
