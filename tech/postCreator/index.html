@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kreator aktualności | Mała Góra</title>
+  <link rel="shortcut icon" href="/media/MalaGora-logo-icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="creator.css">
+</head>
+<body>
+  <main class="creator" id="postCreator">
+    <header class="creator-header">
+      <div>
+        <p class="eyebrow">MAŁA GÓRA · WORKSPACE</p>
+        <h1>Kreator aktualności</h1>
+        <p>Twórz wpisy zgodne z plikiem <code>/aktualnosci/post.json</code>, kontroluj układ i sprawdzaj widok mobilny.</p>
+      </div>
+      <div class="header-actions">
+        <button class="button secondary" id="newPost" type="button"><i class="fa fa-file-o"></i> Nowy wpis</button>
+        <button class="button secondary" id="saveDraft" type="button"><i class="fa fa-save"></i> Zapisz szkic</button>
+      </div>
+    </header>
+
+    <section class="database-bar" aria-label="Obsługa post.json">
+      <label class="file-button button secondary">
+        <i class="fa fa-folder-open"></i> Wczytaj post.json
+        <input id="jsonFile" type="file" accept="application/json,.json" hidden>
+      </label>
+      <button class="button secondary" id="loadSiteJson" type="button"><i class="fa fa-cloud-download"></i> Wczytaj ze strony</button>
+      <label class="database-select"><span>Edytowany wpis</span><select id="existingPost"><option value="">Nowy wpis</option></select></label>
+      <span class="database-status" id="databaseStatus" role="status">Nie wczytano bazy. Możesz utworzyć nową.</span>
+    </section>
+
+    <div class="creator-layout">
+      <section class="editor-column">
+        <article class="panel metadata-panel">
+          <div class="panel-heading"><span>1</span><div><h2>Informacje o wpisie</h2><p>Dane widoczne na liście aktualności i w banerze.</p></div></div>
+          <div class="field-grid">
+            <label class="field field-wide"><span>Tytuł *</span><input id="postTitle" type="text" required></label>
+            <label class="field field-wide"><span>Identyfikator URL *</span><span class="joined-input"><input id="postId" type="text" required><button id="generateSlug" type="button">Generuj</button></span></label>
+            <label class="field"><span>Data publikacji *</span><input id="postDate" type="date" required></label>
+            <label class="field"><span>Obraz banera *</span><input id="postImage" type="text" placeholder="/aktualnosci/media/MG-A-YYYY-MM-DD.jpg" required></label>
+            <label class="field field-wide"><span>Krótki opis *</span><textarea id="postDescription" rows="3" required></textarea></label>
+          </div>
+        </article>
+
+        <article class="panel blocks-panel">
+          <div class="panel-heading"><span>2</span><div><h2>Treść artykułu</h2><p>Dodawaj i zmieniaj kolejność elementów.</p></div></div>
+          <div class="block-palette" id="blockPalette">
+            <button type="button" data-add="text"><i class="fa fa-paragraph"></i> Tekst</button>
+            <button type="button" data-add="heading"><i class="fa fa-header"></i> Nagłówek</button>
+            <button type="button" data-add="image"><i class="fa fa-picture-o"></i> Zdjęcie</button>
+            <button type="button" data-add="youtube"><i class="fa fa-youtube-play"></i> YouTube</button>
+            <button type="button" data-add="link"><i class="fa fa-link"></i> Link</button>
+            <button type="button" data-add="unordered-list"><i class="fa fa-list-ul"></i> Lista punktowana</button>
+            <button type="button" data-add="ordered-list"><i class="fa fa-list-ol"></i> Lista numerowana</button>
+            <button type="button" data-add="html"><i class="fa fa-code"></i> Własny HTML</button>
+          </div>
+          <div class="blocks-empty" id="blocksEmpty">Dodaj pierwszy element artykułu.</div>
+          <div class="blocks-list" id="blocksList"></div>
+        </article>
+
+        <article class="panel export-panel">
+          <div class="panel-heading"><span>3</span><div><h2>Dodaj do bazy i pobierz</h2><p>Wpis o tym samym ID zostanie zaktualizowany, pozostałe obiekty pozostaną bez zmian.</p></div></div>
+          <div class="export-actions">
+            <button class="button primary" id="applyToDatabase" type="button">Dodaj lub aktualizuj wpis <span>➔</span></button>
+            <button class="button secondary" id="downloadJson" type="button">Pobierz post.json</button>
+            <button class="button secondary" id="copyObject" type="button">Kopiuj obiekt wpisu</button>
+          </div>
+          <p class="export-status" id="exportStatus" role="status" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <aside class="preview-column">
+        <div class="preview-toolbar">
+          <strong>Podgląd</strong>
+          <div><button class="is-active" type="button" data-preview="desktop"><i class="fa fa-desktop"></i><span>Komputer</span></button><button type="button" data-preview="mobile"><i class="fa fa-mobile"></i><span>Telefon</span></button></div>
+        </div>
+        <div class="preview-shell" id="previewShell">
+          <iframe id="postPreview" title="Podgląd artykułu"></iframe>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <template id="blockTemplate"><article class="content-block"><header><span class="block-kind"></span><div class="block-actions"><button type="button" data-action="up" title="Przenieś wyżej">↑</button><button type="button" data-action="down" title="Przenieś niżej">↓</button><button type="button" data-action="duplicate" title="Duplikuj"><i class="fa fa-clone"></i></button><button type="button" data-action="remove" title="Usuń"><i class="fa fa-trash"></i></button></div></header><div class="block-fields"></div></article></template>
+  <script src="creator.js"></script>
+</body>
+</html>
