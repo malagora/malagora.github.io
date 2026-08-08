@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workspace — odznaki | Mała Góra</title>
+  <link rel="shortcut icon" href="https://malagora.github.io/media/MalaGora-logo-icon.png">
+  <meta name="description" content="Workspace do obsługi odznak Małej Góry.">
+  <meta name="author" content="K. Michalik">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://malagora.github.io/styles/post.css">
+  <link rel="stylesheet" href="decoder.css">
+</head>
+
+<body>
+  <main id="main-content">
+    <div id="top"></div>
+
+    <section class="banner-short">
+      <h1>Workspace — odznaki</h1>
+      <a href="#first">
+        <p class="f-dArrow"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></p>
+        <p class="f-dText">PRZEWIŃ DALEJ</p>
+      </a>
+    </section>
+
+    <section id="first" class="post decoder-post">
+      <div class="breadcrumb">
+        <ol class="breadcrumb_list">
+          <li class="breadcrumb_item"><a href="/">Strona główna</a></li>
+          <li class="breadcrumb_item breadcrumb_item--before"><a href="/odznaki">Odznaki</a></li>
+          <li class="breadcrumb_item breadcrumb_item--before breadcrumb_item-active"><a href="./">Workspace</a></li>
+        </ol>
+      </div>
+
+      <div class="decoder-page" id="decoderApp" data-badge="">
+        <section class="workspace-home" id="workspaceHome">
+          <header class="workspace-heading">
+            <p class="section-label">OBSŁUGA ODZNAK MAŁEJ GÓRY</p>
+            <h2>Co chcesz zrobić?</h2>
+            <p>Wybierz narzędzie. Dane zgłoszeń i lokalne zapisy nie są wysyłane na serwer.</p>
+          </header>
+          <div class="workspace-cards">
+            <button class="workspace-card workspace-card-wide" type="button" data-workspace="database">
+              <i class="fa fa-database" aria-hidden="true"></i><span><strong>Pełny podgląd bazy danych</strong><small>Przeglądaj, wyszukuj i kontroluj wszystkie wydane odznaki.</small></span><b>➔</b>
+            </button>
+            <button class="workspace-card" type="button" data-workspace="decoder">
+              <i class="fa fa-file-code-o" aria-hidden="true"></i><span><strong>Dekoder XML</strong><small>Odczytaj nowe zgłoszenie i rozpocznij jego obsługę.</small></span><b>➔</b>
+            </button>
+            <button class="workspace-card" type="button" data-workspace="saved">
+              <i class="fa fa-folder-open" aria-hidden="true"></i><span><strong>Wczytaj zapis</strong><small>Wróć do zaszyfrowanej sprawy zapisanej w tej przeglądarce.</small></span><b>➔</b>
+            </button>
+            <button class="workspace-card" type="button" data-workspace="mail">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i><span><strong>Generator e-maila</strong><small>Przejdź do odpowiedzi dla aktualnie otwartego zgłoszenia.</small></span><b>➔</b>
+            </button>
+            <button class="workspace-card" type="button" data-workspace="record">
+              <i class="fa fa-id-badge" aria-hidden="true"></i><span><strong>Generator wpisu do bazy</strong><small>Utwórz login, hasło i rekord JSON przyznanej odznaki.</small></span><b>➔</b>
+            </button>
+          </div>
+          <p class="workspace-notice" id="workspaceNotice" role="status" aria-live="polite" hidden></p>
+        </section>
+
+        <section class="workspace-section" id="databaseWorkspace" hidden>
+          <div class="workspace-section-heading"><button class="workspace-back" type="button" data-workspace="home">← Workspace</button><p class="section-label">BAZA ODZNAK</p><h2>Pełny podgląd bazy</h2></div>
+          <label class="decoder-field workspace-search"><span>Wyszukaj identyfikator, typ, status lub zdobywcę</span><input id="databaseSearch" type="search" placeholder="np. MG-M0001, ważna, K****"></label>
+          <p class="workspace-notice" id="databaseWorkspaceStatus" role="status" hidden></p>
+          <div class="workspace-table-wrap"><table class="workspace-table"><thead><tr><th>ID</th><th><button class="table-sort" type="button" data-sort="badgeType">Odznaka <span aria-hidden="true">↕</span></button></th><th>Zdobywca</th><th><button class="table-sort" type="button" data-sort="issuedAt">Wydano <span aria-hidden="true">↕</span></button></th><th><button class="table-sort" type="button" data-sort="reviewedAt">Rozpatrzono <span aria-hidden="true">↕</span></button></th><th><button class="table-sort" type="button" data-sort="achievementStart">Rozpoczęto <span aria-hidden="true">↕</span></button></th><th><button class="table-sort" type="button" data-sort="achievementEnd">Zakończono <span aria-hidden="true">↕</span></button></th><th>Status</th><th><button class="table-sort" type="button" data-sort="updatedAt">Aktualizacja <span aria-hidden="true">↕</span></button></th></tr></thead><tbody id="workspaceDatabaseBody"></tbody></table></div>
+        </section>
+
+        <section class="workspace-section" id="savedWorkspace" hidden>
+          <div class="workspace-section-heading"><button class="workspace-back" type="button" data-workspace="home">← Workspace</button><p class="section-label">ZAPISY LOKALNE</p><h2>Zapisane sprawy</h2><p>Zapisy są szyfrowane bezhasłowo kluczem przypisanym do tej przeglądarki.</p></div>
+          <p class="workspace-notice" id="savedWorkspaceStatus" role="status" hidden></p>
+          <div class="saved-cases" id="savedCasesList"></div>
+        </section>
+
+        <div id="decoderWorkspace" hidden>
+        <header class="decoder-heading">
+          <button class="workspace-back" type="button" data-workspace="home">← Workspace</button>
+          <p class="section-label">NARZĘDZIE WERYFIKACYJNE</p>
+          <h2>Odczytaj zgłoszenie XML</h2>
+          <p>Wczytaj plik otrzymany od zdobywcy albo wklej jego treść. Dekoder działa lokalnie w przeglądarce, nie wysyła danych i zapisuje je tylko na Twoje wyraźne polecenie.</p>
+        </header>
+
+        <nav class="decoder-steps" aria-label="Etapy dekodowania">
+          <button class="decoder-step is-active" type="button" data-open-step="import"><span>1</span>Wczytaj</button>
+          <button class="decoder-step" type="button" data-open-step="review" disabled><span>2</span>Sprawdź</button>
+          <button class="decoder-step" type="button" data-open-step="response" disabled><span>3</span>Odpowiedz</button>
+        </nav>
+
+        <div class="state-toolbar">
+          <div>
+            <strong>Stan obsługi zgłoszenia</strong>
+            <span>Zapis jest szyfrowany automatycznie i pozostaje wyłącznie w tej przeglądarce.</span>
+          </div>
+          <div class="state-actions">
+            <button class="secondary-button" id="saveEncryptedState" type="button" disabled><i class="fa fa-lock" aria-hidden="true"></i> Zapisz lokalnie</button>
+          </div>
+          <p class="state-status" id="stateStatus" role="status" aria-live="polite" hidden></p>
+        </div>
+
+        <section class="decoder-panel" id="importPanel">
+          <div class="import-grid">
+            <div class="file-drop" id="fileDrop">
+              <input id="xmlFile" type="file" accept=".xml,.txt,text/xml,application/xml,text/plain">
+              <i class="fa fa-file-code-o" aria-hidden="true"></i>
+              <h3>Wybierz plik zgłoszenia</h3>
+              <p>Przeciągnij plik tutaj albo kliknij, aby go wskazać.</p>
+              <span id="selectedFileName">Obsługiwane pliki: .xml i .txt</span>
+            </div>
+
+            <div class="import-separator"><span>lub</span></div>
+
+            <label class="decoder-field xml-source-field">
+              <span>Wklej treść zgłoszenia</span>
+              <textarea id="xmlSource" spellcheck="false" placeholder="&lt;MALA-GORA-ZGLOSZENIE wersja=&quot;1&quot;&gt;…&lt;/MALA-GORA-ZGLOSZENIE&gt;"></textarea>
+            </label>
+          </div>
+
+          <p class="decoder-message decoder-error" id="decodeError" role="alert" hidden></p>
+          <div class="panel-actions panel-actions-end">
+            <button class="primary-button" id="decodeApplication" type="button">Odczytaj zgłoszenie <span aria-hidden="true">➔</span></button>
+          </div>
+        </section>
+
+        <section class="decoder-panel" id="reviewPanel" hidden>
+          <div class="review-toolbar">
+            <div>
+              <p class="section-label">ODCZYTANE ZGŁOSZENIE</p>
+              <h3 id="reviewTitle">Podsumowanie</h3>
+            </div>
+            <span class="structure-status" id="structureStatus"></span>
+          </div>
+
+          <div class="validation-box" id="validationBox">
+            <h4>Kontrola zgłoszenia</h4>
+            <ul id="validationList"></ul>
+          </div>
+
+          <div class="decoded-groups" id="decodedGroups"></div>
+
+          <div class="panel-actions">
+            <button class="secondary-button" id="loadAnother" type="button">Wczytaj inne zgłoszenie</button>
+            <button class="primary-button" id="goToResponse" type="button">Przygotuj odpowiedź <span aria-hidden="true">➔</span></button>
+          </div>
+        </section>
+
+        <section class="decoder-panel" id="responsePanel" hidden>
+          <p class="section-label">ODPOWIEDŹ DLA ZDOBYWCY</p>
+          <h3>Przygotuj wiadomość</h3>
+
+          <div class="response-grid">
+            <label class="decoder-field">
+              <span>Decyzja</span>
+              <select id="decision">
+                <option value="accepted">Zgłoszenie zaakceptowane</option>
+                <option value="supplement">Wymagane uzupełnienie</option>
+                <option value="rejected">Zgłoszenie odrzucone</option>
+                <option value="payment">Informacja o płatności</option>
+                <option value="voucher-price">Nowa cena po użyciu kodu/vouchera</option>
+                <option value="pickup-details" id="pickupDetailsOption">Adres odbioru osobistego i płatność gotówką</option>
+              </select>
+            </label>
+
+            <label class="decoder-field">
+              <span>Numer przyznanej odznaki</span>
+              <input id="issuedBadgeNumber" type="text" placeholder="np. MG-M0001" maxlength="8">
+            </label>
+
+            <label class="decoder-field" id="responseAmountField" hidden>
+              <span id="responseAmountLabel">Kwota do zapłaty</span>
+              <span class="price-input"><input id="responseAmount" type="number" min="0" step="0.01"><b>zł</b></span>
+              <small id="responseAmountHint"></small>
+            </label>
+
+            <label class="decoder-field" id="blikCheckField" hidden>
+              <span>Numer do przelewu na telefon BLIK</span>
+              <input id="blikCheckCode" type="tel" inputmode="tel" autocomplete="off" maxlength="15" placeholder="+48 123 456 789">
+              <small>Numer zostanie automatycznie zapisany w formacie +48 ### ### ###.</small>
+            </label>
+
+            <label class="decoder-field field-wide" id="pickupAddressField" hidden>
+              <span>Adres i informacje dotyczące odbioru</span>
+              <textarea id="pickupAddress" placeholder="Wpisz adres, miejsce oraz ewentualny termin lub sposób umówienia odbioru."></textarea>
+            </label>
+
+            <label class="decoder-field field-wide">
+              <span>Uwagi do decyzji</span>
+              <textarea id="decisionNotes" placeholder="Dodaj brakujące informacje, uzasadnienie albo instrukcje dla zdobywcy."></textarea>
+            </label>
+          </div>
+
+          <div class="mail-preview">
+            <label class="decoder-field">
+              <span>Adres odbiorcy</span>
+              <input id="responseRecipient" type="email" readonly>
+            </label>
+            <label class="decoder-field">
+              <span>Tytuł wiadomości</span>
+              <span class="copy-row"><input id="responseSubject" type="text" readonly><button class="secondary-button" id="copyResponseSubject" type="button">Kopiuj</button></span>
+            </label>
+            <label class="decoder-field">
+              <span>Treść odpowiedzi</span>
+              <textarea id="responseBody"></textarea>
+            </label>
+            <div class="email-signature-block">
+              <span class="email-signature-label">Podgląd stopki wiadomości HTML</span>
+              <div class="email-signature-preview">
+                <img src="https://malagora.github.io/media/LOGO_FLAT_BLACK.png" alt="Mała Góra">
+                <div>
+                  <strong>Zespół weryfikacyjny Małej Góry</strong>
+                  <span>Mała Góra | Odznaki</span>
+                  <span>malagora.weryfikacja@vp.pl</span>
+                  <span>malagora.github.io/odznaki</span>
+                </div>
+              </div>
+              <p class="email-privacy-preview">Wiadomość może zawierać dane osobowe przeznaczone wyłącznie dla jej adresata. Jeżeli otrzymałeś ją omyłkowo, poinformuj nadawcę i usuń wiadomość.</p>
+              <small>Stopka zostanie dołączona po użyciu przycisku „Kopiuj sformatowaną wiadomość”. Następnie wklej treść do edytora wiadomości obsługującego formatowanie.</small>
+            </div>
+          </div>
+
+          <section class="database-generator" id="databaseGenerator">
+            <p class="section-label">REKORD PUBLICZNEJ BAZY</p>
+            <h4>Wygeneruj kod odznaki</h4>
+            <p>Generator zapisuje wyłącznie inicjały i długości imienia oraz nazwiska. Pełne dane zdobywcy nie trafią do publicznej bazy.</p>
+
+            <div class="response-grid">
+              <label class="decoder-field">
+                <span>Data rozpatrzenia weryfikacji</span>
+                <input id="recordReviewedAt" type="datetime-local" required>
+              </label>
+              <label class="decoder-field">
+                <span>Data wydania odznaki</span>
+                <input id="recordIssuedAt" type="datetime-local" required>
+              </label>
+              <label class="decoder-field">
+                <span>Rozpoczęcie zdobywania</span>
+                <input id="recordAchievementStart" type="datetime-local" required>
+              </label>
+              <label class="decoder-field">
+                <span>Zakończenie zdobywania</span>
+                <input id="recordAchievementEnd" type="datetime-local" required>
+              </label>
+              <label class="decoder-field">
+                <span>Status wpisu</span>
+                <select id="recordStatus">
+                  <option value="valid">Odznaka ważna</option>
+                  <option value="pending">Wpis w trakcie aktualizacji</option>
+                  <option value="revoked">Odznaka unieważniona</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="panel-actions panel-actions-end">
+              <button class="primary-button" id="generateDatabaseRecord" type="button">Generuj rekord <span aria-hidden="true">➔</span></button>
+            </div>
+
+            <div class="generated-record" id="generatedRecord" hidden>
+              <div class="credentials-grid">
+                <label class="decoder-field"><span>Login</span><input id="generatedLogin" type="text" readonly></label>
+                <label class="decoder-field"><span>Hasło</span><input id="generatedPassword" type="text" readonly></label>
+              </div>
+              <label class="decoder-field">
+                <span>Rekord JSON do tablicy <code>badges</code></span>
+                <textarea id="databaseRecordOutput" readonly></textarea>
+              </label>
+              <p class="record-message" id="recordMessage" role="status" aria-live="polite" hidden></p>
+              <div class="panel-actions">
+                <button class="secondary-button" id="copyDatabaseRecord" type="button">Kopiuj rekord JSON</button>
+                <button class="secondary-button" id="downloadUpdatedDatabase" type="button">Pobierz zaktualizowany badges.json</button>
+              </div>
+            </div>
+          </section>
+
+          <div class="panel-actions">
+            <button class="secondary-button" id="backToReview" type="button">Wróć do zgłoszenia</button>
+            <button class="secondary-button" id="copyResponseBody" type="button">Kopiuj treść</button>
+            <button class="secondary-button" id="copyFormattedEmail" type="button">Kopiuj sformatowaną wiadomość</button>
+            <a class="primary-button mail-button" id="openResponseEmail" href="#">Utwórz wiadomość <span aria-hidden="true">➔</span></a>
+            <button class="secondary-button danger-button" id="clearDecoder" type="button">Wyczyść dane</button>
+          </div>
+        </section>
+        </div>
+      </div>
+
+    </section>
+
+    <div id="layout"></div>
+    <div class="main-footer-copyright">
+      <img src="https://malagora.github.io/media/LOGO_FLAT_BLACK.png" alt="Mała Góra">
+      <p><i class="fa fa-copyright"></i> Mała Góra <span id="footerYear"></span></p>
+    </div>
+    <div class="footer-colors"><div class="c-dark"></div><div class="c-color"></div><div class="c-white"></div></div>
+    <div class="footer-mobile-container"></div>
+  </main>
+
+  <script>
+    async function loadLayout() {
+      try {
+        const response = await fetch('https://malagora.github.io/tech/layout.html');
+        if (!response.ok) return;
+        const layout = document.getElementById('layout');
+        layout.innerHTML = await response.text();
+        layout.querySelectorAll('script').forEach(oldScript => {
+          const script = document.createElement('script');
+          if (oldScript.src) script.src = oldScript.src;
+          else script.textContent = oldScript.textContent;
+          document.body.appendChild(script);
+          oldScript.remove();
+        });
+      } catch (error) {
+        console.warn('Nie udało się wczytać wspólnego układu strony.', error);
+      }
+    }
+    loadLayout();
+  </script>
+  <script src="decoder.js"></script>
+  <script src="workspace.js"></script>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
