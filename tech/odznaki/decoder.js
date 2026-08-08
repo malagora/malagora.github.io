@@ -77,7 +77,7 @@ function buildHtmlEmail() {
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;margin-top:28px;background:#00aaaa;color:#ffffff;font-family:Arial,Helvetica,sans-serif;text-align:left">
   <tr>
     <td style="padding:24px 28px;width:170px;vertical-align:middle;text-align:left">
-      <img src="https://malagora.github.io/media/LOGO_FLAT_BLACK.png" width="150" alt="Mała Góra" style="display:block;width:150px;max-width:100%;height:auto;border:0">
+      <img src="https://malagora.github.io/media/LOGO_BLACK.png" width="150" alt="Mała Góra" style="display:block;width:150px;max-width:100%;height:auto;border:0">
     </td>
     <td style="padding:24px 28px 24px 0;vertical-align:middle;text-align:left;font-size:14px;line-height:1.45">
       <strong style="font-size:16px">Zespół weryfikacyjny Małej Góry</strong><br>
