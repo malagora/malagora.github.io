@@ -41,9 +41,9 @@ const PRIVACY_CONFIG = {
   publicRecordRetention: 'przez okres prowadzenia oficjalnej bazy odznak i istnienia projektu Mała Góra albo do czasu usunięcia lub unieważnienia wpisu'
 };
 const REQUIRED_FILES = {
-  mala: ['Zdjęcia weryfikacyjne w formacie .jpg, .png, .zip lub .rar', 'Karta zdobywcy w formacie .pdf, .jpg lub .png'],
-  wielka: ['Zdjęcia weryfikacyjne w formacie .jpg, .png, .zip lub .rar', 'Karta zdobywcy w formacie .pdf, .jpg lub .png'],
-  'sarnia-perc': ['Zdjęcia weryfikacyjne w formacie .jpg, .png, .zip lub .rar', 'Plik .gpx przebytej trasy']
+  mala: ['Zdjęcia weryfikacyjne w formacie <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.jpg, <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.png, <i class=\"fa fa-file-archive-o\" aria-hidden=\"true\"></i>.zip lub <i class=\"fa fa-file-archive-o\" aria-hidden=\"true\"></i>.rar', 'Karta zdobywcy w formacie <i class=\"fa fa-file-pdf-o\" aria-hidden=\"true\"></i>.pdf, <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.jpg lub <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.png'],
+  wielka: ['Zdjęcia weryfikacyjne w formacie <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.jpg, <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.png, <i class=\"fa fa-file-archive-o\" aria-hidden=\"true\"></i>.zip lub <i class=\"fa fa-file-archive-o\" aria-hidden=\"true\"></i>.rar', 'Karta zdobywcy w formacie <i class=\"fa fa-file-pdf-o\" aria-hidden=\"true\"></i>.pdf, <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.jpg lub <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.png'],
+  'sarnia-perc': ['Zdjęcia weryfikacyjne w formacie <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.jpg, <i class=\"fa fa-file-image-o\" aria-hidden=\"true\"></i>.png, <i class=\"fa fa-file-archive-o\" aria-hidden=\"true\"></i>.zip lub <i class=\"fa fa-file-archive-o\" aria-hidden=\"true\"></i>.rar', 'Plik <i class=\"fa fa-file-code-o\" aria-hidden=\"true\"></i>.gpx przebytej trasy']
 };
 
 const SHIPPING = [
