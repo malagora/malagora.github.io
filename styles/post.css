@@ -2030,3 +2030,64 @@ img.main-footer-logo {
 		z-index: 998;
 	}
 }
+
+.related-posts {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.related-post {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.related-img {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.related-text {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.related-text h1 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+@media (max-width: 768px) {
+    .related-posts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .related-post {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+}
