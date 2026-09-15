@@ -1,5 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T09:13:36.589Z",
-  "badges": []
+  "updatedAt": "2026-09-15T11:40:29.454Z",
+  "badges": [
+    {
+      "id": "MG-M0001",
+      "badgeType": "mala",
+      "holder": {
+        "firstInitial": "A",
+        "firstLength": 4,
+        "lastInitial": "M",
+        "lastLength": 5
+      },
+      "issuedAt": "2026-09-15T11:38:00.000Z",
+      "reviewedAt": "2026-08-17T19:39:00.000Z",
+      "achievementStart": "2026-07-06T22:00:00.000Z",
+      "achievementEnd": "2026-07-07T21:59:00.000Z",
+      "status": "valid",
+      "updatedAt": "2026-09-15T11:40:18.749Z"
+    }
+  ]
 }
